@@ -191,33 +191,9 @@ img { max-width: 100%; display: block; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(15, 17, 23, 0.92) 0%, rgba(15, 17, 23, 0.7) 50%, rgba(15, 17, 23, 0.85) 100%);
+  background: rgba(15, 17, 23, 0.88);
 }
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(226, 88, 34, 0.06) 0%, transparent 70%);
-  animation: heroGlow 10s ease-in-out 2s infinite alternate-reverse;
-}
-@keyframes heroGlow {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-  100% { transform: translate(30px, -20px) scale(1.1); opacity: 1; }
-}
-/* Grid overlay */
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(226, 88, 34, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(226, 88, 34, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%);
-}
+.hero-grid { display: none; }
 
 .hero-content {
   position: relative;
@@ -233,10 +209,7 @@ img { max-width: 100%; display: block; }
   color: #fff;
 }
 .hero h1 span {
-  background: linear-gradient(135deg, #e25822 0%, #f07040 50%, #ffb088 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 /* Hero stats bar */
@@ -245,23 +218,22 @@ img { max-width: 100%; display: block; }
   gap: 40px;
   margin-bottom: 32px;
   padding: 20px 0;
-  border-top: 1px solid rgba(226, 88, 34, 0.2);
-  border-bottom: 1px solid rgba(226, 88, 34, 0.2);
+  border-top: 1px solid var(--border);
 }
 .hero-stat {
   text-align: left;
 }
 .hero-stat-number {
   font-family: var(--font-mono);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  color: var(--accent);
+  color: #fff;
   line-height: 1;
 }
 .hero-stat-label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  margin-top: 4px;
+  margin-top: 6px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -305,7 +277,6 @@ img { max-width: 100%; display: block; }
   background: #f06a30;
   color: #fff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 24px rgba(226, 88, 34, 0.3);
 }
 .btn-secondary {
   background: transparent;
@@ -380,16 +351,15 @@ section {
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 .module-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(226, 88, 34, 0.4);
-  box-shadow: 0 16px 48px rgba(226, 88, 34, 0.15), 0 8px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  border-color: rgba(226, 88, 34, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 .module-card:hover .module-card-img {
-  transform: scale(1.05);
-  filter: brightness(1.1);
+  transform: scale(1.03);
 }
 .module-card-img {
-  transition: transform 0.5s ease, filter 0.5s ease;
+  transition: transform 0.5s ease;
 }
 .module-card-img {
   width: 100%;
@@ -430,7 +400,6 @@ section {
 /* ===== IMPACT STATS ===== */
 #impact {
   border-top: 1px solid var(--border);
-  background: linear-gradient(180deg, var(--bg) 0%, rgba(226, 88, 34, 0.03) 50%, var(--bg) 100%);
 }
 .impact-grid {
   display: grid;
@@ -453,10 +422,7 @@ section {
   font-family: var(--font-mono);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 700;
-  background: linear-gradient(135deg, #e25822 0%, #f07040 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #fff;
   line-height: 1.1;
 }
 .impact-suffix {
@@ -476,27 +442,24 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 48px;
+  gap: 32px;
   flex-wrap: wrap;
   margin-top: 48px;
-  opacity: 0.5;
-  transition: opacity 0.5s;
 }
-.logo-wall:hover { opacity: 0.8; }
 .logo-wall-item {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
   letter-spacing: 0.02em;
-  padding: 12px 20px;
+  padding: 10px 18px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 6px;
   transition: border-color 0.3s, color 0.3s;
 }
 .logo-wall-item:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
 }
 
 /* ===== INTEGRATION ===== */
@@ -591,7 +554,6 @@ section {
   opacity: 1;
   transform: translateY(0);
   border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(226, 88, 34, 0.15);
 }
 .arch-node-icon {
   margin-bottom: 10px;
@@ -1109,7 +1071,7 @@ section {
   <div class="container">
     <div class="fade-in">
       <p class="section-label" data-i18n="impact.label">Impact</p>
-      <h2 class="section-title">Numbers That <span class="gradient-text">Speak</span></h2>
+      <h2 class="section-title">Numbers That Speak</h2>
       <p class="section-desc">Built on a foundation of proven scale — not prototypes.</p>
     </div>
     <div class="impact-grid">
@@ -1417,14 +1379,6 @@ section {
   }
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  // ===== PARALLAX HERO BACKGROUND =====
-  var heroBg = document.querySelector('.hero-bg');
-  function parallax() {
-    if (heroBg && window.scrollY < window.innerHeight) {
-      heroBg.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
-    }
-  }
-  window.addEventListener('scroll', parallax, { passive: true });
 
   // ===== MOBILE NAV =====
   const navToggle = document.getElementById('navToggle');
@@ -1627,7 +1581,7 @@ section {
       'sol.creative.title': 'AI 创意工具',
       'sol.creative.desc': '生产级 AI 创意软件——基于 Remotion 引擎和 GPU 加速的剪映风格视频编辑器（支持 CLI 和 AI 控制），以及能将旋律转化为完整多轨编曲（鼓、贝斯、钢琴、和弦）的 AI 编曲引擎。',
       'impact.label': '成果',
-      'impact.title': '用数字<span class="gradient-text">说话</span>',
+      'impact.title': '用数字说话',
       'impact.desc': '建立在经过验证的规模之上——不是原型。',
       'impact.1': '团队构建的系统服务月活用户',
       'impact.2': '硬件产品部署的国家',
