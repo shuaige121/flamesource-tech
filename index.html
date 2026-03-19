@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FLAME SOURCE TECHNOLOGY — Applied AI for Water & Environmental Monitoring</title>
-<meta name="description" content="FLAME SOURCE TECHNOLOGY builds AI analytics software that helps operators detect anomalies, predict risks, monitor sensor health, and automate reporting across critical monitoring environments.">
+<title>FLAME SOURCE TECHNOLOGY — AI-Powered Software Engineering</title>
+<meta name="description" content="FLAME SOURCE TECHNOLOGY builds production-grade AI software — from autonomous agent systems and edge-deployed APIs to IoT platforms and creative AI tools.">
+<meta property="og:title" content="FLAME SOURCE TECHNOLOGY — AI-Powered Software Engineering">
+<meta property="og:description" content="Production-grade AI software — autonomous agents, edge APIs, IoT platforms, and creative AI tools. Founded by engineers who scaled tech to 10M+ users across 150+ countries.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://flamesource-tech.pages.dev">
+<meta property="og:image" content="https://flamesource-tech.pages.dev/images/hero-bg.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FLAME SOURCE TECHNOLOGY — AI-Powered Software Engineering">
+<meta name="twitter:description" content="Production-grade AI software — autonomous agents, edge APIs, IoT platforms, and creative AI tools.">
+<meta name="twitter:image" content="https://flamesource-tech.pages.dev/images/hero-bg.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -46,6 +55,22 @@ body {
 
 a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
 a:hover { color: #f07040; }
+
+/* ===== GRADIENT TEXT ===== */
+.gradient-text {
+  background: linear-gradient(135deg, #e25822 0%, #f07040 40%, #ffb088 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== TYPING CURSOR ===== */
+.typing-cursor::after {
+  content: '|';
+  -webkit-text-fill-color: var(--accent);
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 img { max-width: 100%; display: block; }
 
@@ -124,6 +149,19 @@ img { max-width: 100%; display: block; }
 }
 .nav-links a:hover { color: var(--text); }
 
+.lang-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
 .nav-mobile-toggle {
   display: none;
   background: none;
@@ -147,16 +185,13 @@ img { max-width: 100%; display: block; }
   position: absolute;
   inset: 0;
   z-index: 0;
+  background: url('images/hero-bg.jpg') center/cover no-repeat;
 }
 .hero-bg::before {
   content: '';
   position: absolute;
-  top: -40%;
-  right: -20%;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, var(--accent-dim) 0%, transparent 70%);
-  animation: heroGlow 8s ease-in-out infinite alternate;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 17, 23, 0.92) 0%, rgba(15, 17, 23, 0.7) 50%, rgba(15, 17, 23, 0.85) 100%);
 }
 .hero-bg::after {
   content: '';
@@ -198,7 +233,37 @@ img { max-width: 100%; display: block; }
   color: #fff;
 }
 .hero h1 span {
+  background: linear-gradient(135deg, #e25822 0%, #f07040 50%, #ffb088 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero stats bar */
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 32px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(226, 88, 34, 0.2);
+  border-bottom: 1px solid rgba(226, 88, 34, 0.2);
+}
+.hero-stat {
+  text-align: left;
+}
+.hero-stat-number {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
   color: var(--accent);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 .hero-subtitle {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
@@ -311,13 +376,29 @@ section {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 36px 32px;
+  overflow: hidden;
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 .module-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(226, 88, 34, 0.3);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(226, 88, 34, 0.4);
+  box-shadow: 0 16px 48px rgba(226, 88, 34, 0.15), 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.module-card:hover .module-card-img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+.module-card-img {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+.module-card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+.module-card-body {
+  padding: 28px 28px 32px;
 }
 .module-icon {
   width: 48px;
@@ -327,7 +408,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 .module-icon svg {
   width: 24px;
@@ -344,6 +425,78 @@ section {
   font-size: 0.935rem;
   color: var(--text-secondary);
   line-height: 1.7;
+}
+
+/* ===== IMPACT STATS ===== */
+#impact {
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(226, 88, 34, 0.03) 50%, var(--bg) 100%);
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+.impact-item {
+  text-align: center;
+  padding: 32px 16px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.impact-item:hover {
+  border-color: rgba(226, 88, 34, 0.2);
+  transform: translateY(-3px);
+}
+.impact-number {
+  font-family: var(--font-mono);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #e25822 0%, #f07040 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+.impact-suffix {
+  font-size: 0.7em;
+}
+.impact-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* ===== LOGO WALL ===== */
+#partners {
+  border-top: 1px solid var(--border);
+}
+.logo-wall {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-top: 48px;
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+.logo-wall:hover { opacity: 0.8; }
+.logo-wall-item {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.3s, color 0.3s;
+}
+.logo-wall-item:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* ===== INTEGRATION ===== */
@@ -754,6 +907,10 @@ section {
 
 @media (max-width: 768px) {
   :root { --section-pad: 64px; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .hero-stat-number { font-size: 1.4rem; }
+  .impact-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .logo-wall { gap: 20px; }
 
   .nav-links { display: none; }
   .nav-links.open {
@@ -788,8 +945,13 @@ section {
   :root { --section-pad: 48px; }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; justify-content: center; }
-  .module-card { padding: 28px 24px; }
+  .hero-stats { gap: 16px; }
+  .hero-stat-number { font-size: 1.2rem; }
+  .impact-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .impact-number { font-size: 1.8rem; }
+  .module-card-img { height: 160px; }
   .team-card { padding: 28px 24px; }
+  .logo-wall-item { font-size: 0.8rem; padding: 8px 14px; }
 }
 </style>
 </head>
@@ -799,20 +961,17 @@ section {
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo" aria-label="FLAME SOURCE TECHNOLOGY home">
-      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none">
-        <path d="M16 2C16 2 10 10 10 16C10 19.5 12 22 14 23.5C12.5 21 13 18 16 15C19 18 19.5 21 18 23.5C20 22 22 19.5 22 16C22 10 16 2 16 2Z" fill="#e25822"/>
-        <path d="M16 8C16 8 13 13 13 16.5C13 18.5 14.3 20 16 20C17.7 20 19 18.5 19 16.5C19 13 16 8 16 8Z" fill="#f07040" opacity="0.8"/>
-      </svg>
+      <img class="nav-logo-icon" src="images/logo-mark.png" alt="Flame Source logo" style="border-radius: 6px;">
       <span>FLAME SOURCE TECHNOLOGY</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#what-we-do">About</a></li>
-      <li><a href="#modules">Solutions</a></li>
-      <li><a href="#technology">Technology</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#open-source">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#what-we-do" data-i18n="nav.about">About</a></li>
+      <li><a href="#modules" data-i18n="nav.solutions">Solutions</a></li>
+      <li><a href="#technology" data-i18n="nav.tech">Technology</a></li>
+      <li><a href="#team" data-i18n="nav.team">Team</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">中文</button>
     <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"/>
@@ -830,9 +989,26 @@ section {
   </div>
   <div class="container">
     <div class="hero-content">
-      <h1 class="fade-in">Applied AI for Water &amp;<br>Environmental <span>Monitoring</span></h1>
-      <p class="hero-subtitle fade-in fade-in-delay-1">FLAME SOURCE TECHNOLOGY builds AI analytics software that helps operators detect anomalies, predict risks, monitor sensor health, and automate reporting across critical monitoring environments.</p>
-      <p class="hero-support fade-in fade-in-delay-2">Built in Singapore for utilities, environmental monitoring providers, and infrastructure operators.</p>
+      <h1 class="fade-in" data-i18n="hero.title">AI-Powered Software<br>That <span>Ships</span></h1>
+      <p class="hero-subtitle fade-in fade-in-delay-1" data-i18n="hero.subtitle">FLAME SOURCE TECHNOLOGY builds production-grade AI software&thinsp;&mdash;&thinsp;autonomous agent systems, edge-deployed APIs, IoT platforms, and creative AI tools. Founded by engineers who scaled consumer tech to 10M+ users across 150+ countries.</p>
+      <div class="hero-stats fade-in fade-in-delay-2">
+        <div class="hero-stat">
+          <div class="hero-stat-number"><span class="count-up" data-target="10">0</span>M+</div>
+          <div class="hero-stat-label" data-i18n="hero.stat1">Users Served</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number"><span class="count-up" data-target="150">0</span>+</div>
+          <div class="hero-stat-label" data-i18n="hero.stat2">Countries</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number"><span class="count-up" data-target="200">0</span>+</div>
+          <div class="hero-stat-label" data-i18n="hero.stat3">Patents</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number"><span class="count-up" data-target="100">0</span>+</div>
+          <div class="hero-stat-label" data-i18n="hero.stat4">Engineers</div>
+        </div>
+      </div>
       <div class="hero-ctas fade-in fade-in-delay-3">
         <a href="#contact" class="btn btn-primary">Contact Us</a>
         <a href="#modules" class="btn btn-secondary">Explore Solutions</a>
@@ -845,73 +1021,135 @@ section {
 <section id="what-we-do">
   <div class="container">
     <div class="fade-in">
-      <p class="section-label">What We Do</p>
-      <h2 class="section-title">Software Between Sensors<br>and Decisions</h2>
+      <p class="section-label" data-i18n="what.label">What We Do</p>
+      <h2 class="section-title" data-i18n="what.title">We Build AI-Powered<br>Software That Ships</h2>
     </div>
-    <p class="what-intro fade-in fade-in-delay-1">We build software that sits between existing sensor infrastructure and operational decisions. Our platform turns raw monitoring data into actionable intelligence&thinsp;&mdash;&thinsp;without replacing core hardware or disrupting existing workflows.</p>
+    <p class="what-intro fade-in fade-in-delay-1" data-i18n="what.intro">From autonomous AI agents to edge-deployed APIs, we design and deliver production-grade software. Our founding team scaled consumer tech to 10M+ users and 150+ countries&thinsp;&mdash;&thinsp;now we bring that engineering discipline to enterprise AI, IoT, and data platforms.</p>
   </div>
 </section>
 
-<!-- ===== MODULES ===== -->
+<!-- ===== SOLUTIONS ===== -->
 <section id="modules">
   <div class="container">
     <div class="fade-in">
-      <p class="section-label">Core Modules</p>
-      <h2 class="section-title">Four Products, One Platform</h2>
-      <p class="section-desc">Each module operates independently or as part of an integrated analytics stack.</p>
+      <p class="section-label" data-i18n="sol.label">Solutions</p>
+      <h2 class="section-title" data-i18n="sol.title">What We Build</h2>
+      <p class="section-desc" data-i18n="sol.desc">Real products, real deployments. Here's what our team delivers.</p>
     </div>
     <div class="modules-grid">
 
-      <!-- Water Quality Anomaly Detection -->
+      <!-- AI Agent & Automation -->
       <div class="module-card fade-in fade-in-delay-1">
-        <div class="module-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-          </svg>
+        <img src="images/ai-agent.jpg" alt="AI Agent Systems" class="module-card-img" loading="lazy">
+        <div class="module-card-body">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+            </svg>
+          </div>
+          <h3 data-i18n="sol.agent.title">AI Agent &amp; Automation</h3>
+          <p data-i18n="sol.agent.desc">Multi-agent orchestration systems that run autonomously. We've built AI-driven project management bots (Claude AI + Notion + voice), LLM tool-gating frameworks, and full autonomous agent platforms where AI handles judgment calls while machines handle deterministic tasks.</p>
         </div>
-        <h3>Water Quality Anomaly Detection</h3>
-        <p>Detect unusual patterns in multi-parameter sensor streams in near real time, enabling faster response to potential water quality incidents. Supports pH, dissolved oxygen, turbidity, conductivity, and temperature correlation analysis.</p>
       </div>
 
-      <!-- Predictive Risk Analytics -->
+      <!-- Platform & API Engineering -->
       <div class="module-card fade-in fade-in-delay-2">
-        <div class="module-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-          </svg>
+        <img src="images/platform-api.jpg" alt="Platform & API Engineering" class="module-card-img" loading="lazy">
+        <div class="module-card-body">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+              <line x1="14" y1="4" x2="10" y2="20"/>
+            </svg>
+          </div>
+          <h3 data-i18n="sol.api.title">Platform &amp; API Engineering</h3>
+          <p data-i18n="sol.api.desc">Edge-deployed APIs and integration platforms on Cloudflare Workers. From marketing APIs handling OAuth and 50+ endpoints, to multi-project gateway control planes and cross-platform messaging toolkits connecting Telegram, Feishu, and WhatsApp.</p>
         </div>
-        <h3>Predictive Risk Analytics</h3>
-        <p>Forecast environmental risks&thinsp;&mdash;&thinsp;such as algal bloom events in reservoirs&thinsp;&mdash;&thinsp;days before they become visible, enabling preemptive operational adjustments. Models trained on multi-year sensor and weather data achieve high predictive accuracy based on published research benchmarks.</p>
       </div>
 
-      <!-- Sensor Health Management -->
+      <!-- IoT & Hardware-Software -->
       <div class="module-card fade-in fade-in-delay-3">
-        <div class="module-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="7" width="20" height="14" rx="2"/>
-            <path d="M16 7V5a4 4 0 0 0-8 0v2"/>
-            <circle cx="12" cy="15" r="2"/>
-          </svg>
+        <img src="images/iot-hardware.jpg" alt="IoT & Hardware" class="module-card-img" loading="lazy">
+        <div class="module-card-body">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2"/>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M2 12h2M20 12h2M12 2v2M12 20v2"/>
+            </svg>
+          </div>
+          <h3 data-i18n="sol.iot.title">IoT &amp; Hardware-Software</h3>
+          <p data-i18n="sol.iot.desc">Bridging physical devices and cloud intelligence. Our founding team holds 200+ patents in wireless communication and precision hardware&thinsp;&mdash;&thinsp;we design IoT architectures from device firmware to cloud analytics, proven at scale in 150+ countries.</p>
         </div>
-        <h3>Sensor Health Management</h3>
-        <p>Identify sensor drift, faults, missing data, and connectivity issues automatically, before bad data affects downstream decisions. Designed for large-scale IoT deployments in tropical outdoor environments.</p>
       </div>
 
-      <!-- Automated Reporting -->
+      <!-- AI Creative Tools -->
       <div class="module-card fade-in fade-in-delay-4">
-        <div class="module-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-            <polyline points="10 9 9 9 8 9"/>
-          </svg>
+        <img src="images/ai-creative.jpg" alt="AI Creative Tools" class="module-card-img" loading="lazy">
+        <div class="module-card-body">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="23 7 16 12 23 17 23 7"/>
+              <rect x="1" y="5" width="15" height="14" rx="2"/>
+            </svg>
+          </div>
+          <h3 data-i18n="sol.creative.title">AI Creative Tools</h3>
+          <p data-i18n="sol.creative.desc">Production-grade AI creative software&thinsp;&mdash;&thinsp;a CapCut-style video editor with CLI and AI control powered by Remotion and GPU acceleration, and an AI arrangement engine that turns melodies into full multi-track compositions with drums, bass, piano, and chords.</p>
         </div>
-        <h3>Automated Reporting</h3>
-        <p>Generate formatted monitoring reports in seconds&thinsp;&mdash;&thinsp;complete with trend charts, anomaly highlights, and AI-written executive summaries in English and Chinese. Replaces hours of manual data extraction and report writing.</p>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ===== IMPACT STATS ===== -->
+<section id="impact">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label" data-i18n="impact.label">Impact</p>
+      <h2 class="section-title">Numbers That <span class="gradient-text">Speak</span></h2>
+      <p class="section-desc">Built on a foundation of proven scale — not prototypes.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item fade-in fade-in-delay-1">
+        <div class="impact-number"><span class="count-up" data-target="10">0</span><span class="impact-suffix">M+</span></div>
+        <div class="impact-label">Monthly active users served by systems our team built</div>
+      </div>
+      <div class="impact-item fade-in fade-in-delay-2">
+        <div class="impact-number"><span class="count-up" data-target="150">0</span><span class="impact-suffix">+</span></div>
+        <div class="impact-label">Countries where our hardware products are deployed</div>
+      </div>
+      <div class="impact-item fade-in fade-in-delay-3">
+        <div class="impact-number"><span class="count-up" data-target="200">0</span><span class="impact-suffix">+</span></div>
+        <div class="impact-label">Patents in wireless communication &amp; precision hardware</div>
+      </div>
+      <div class="impact-item fade-in fade-in-delay-4">
+        <div class="impact-number"><span class="count-up" data-target="50">0</span><span class="impact-suffix">+</span></div>
+        <div class="impact-label">API endpoints managed across production platforms</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PARTNERS / TECH STACK ===== -->
+<section id="partners">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label" data-i18n="partners.label">Ecosystem</p>
+      <h2 class="section-title">Built With &amp; Integrated Into</h2>
+      <p class="section-desc">The platforms and technologies we build on every day.</p>
+    </div>
+    <div class="logo-wall fade-in fade-in-delay-1">
+      <span class="logo-wall-item">Cloudflare</span>
+      <span class="logo-wall-item">Claude AI</span>
+      <span class="logo-wall-item">Telegram</span>
+      <span class="logo-wall-item">Notion</span>
+      <span class="logo-wall-item">Feishu / Lark</span>
+      <span class="logo-wall-item">WhatsApp</span>
+      <span class="logo-wall-item">Remotion</span>
+      <span class="logo-wall-item">PostgreSQL</span>
     </div>
   </div>
 </section>
@@ -920,47 +1158,46 @@ section {
 <section id="integration">
   <div class="container">
     <div class="fade-in">
-      <p class="section-label">Integration</p>
+      <p class="section-label" data-i18n="int.label">Integration</p>
       <h2 class="section-title">Built to Integrate, Not Replace</h2>
-      <p class="section-desc">Our software is designed to work with what you already have.</p>
+      <p class="section-desc">Our software plugs into your existing stack. No rip-and-replace.</p>
     </div>
     <div class="integration-grid">
       <ul class="integration-points fade-in fade-in-delay-1">
         <li>
           <svg class="integration-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Designed for deployment on top of existing sensor infrastructure</span>
+          <span>Edge-first architecture on Cloudflare Workers for global low-latency deployment</span>
         </li>
         <li>
           <svg class="integration-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Compatible with common data formats (CSV, MQTT, REST API, SCADA protocols)</span>
+          <span>Connects to your existing tools via REST API, webhooks, OAuth, and messaging SDKs</span>
         </li>
         <li>
           <svg class="integration-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>Supports on-premise, private cloud, or hybrid deployment</span>
+          <span>Supports cloud, on-premise, or hybrid deployment with Docker / K8s</span>
         </li>
         <li>
           <svg class="integration-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <span>White-label ready for system integrators and monitoring service providers</span>
+          <span>White-label ready for partners and system integrators</span>
         </li>
       </ul>
       <div class="integration-visual fade-in fade-in-delay-2">
-        <p class="integration-visual-label">// Supported protocols &amp; formats</p>
+        <p class="integration-visual-label">// Tech stack</p>
         <div class="compat-list">
-          <span class="compat-tag">MQTT</span>
+          <span class="compat-tag">Cloudflare Workers</span>
           <span class="compat-tag">REST API</span>
-          <span class="compat-tag">SCADA / Modbus</span>
-          <span class="compat-tag">CSV / Excel</span>
-          <span class="compat-tag">OPC-UA</span>
-          <span class="compat-tag">JSON</span>
+          <span class="compat-tag">OAuth 2.0</span>
+          <span class="compat-tag">Webhooks</span>
+          <span class="compat-tag">Telegram API</span>
+          <span class="compat-tag">Feishu / Lark</span>
           <span class="compat-tag">PostgreSQL</span>
-          <span class="compat-tag">InfluxDB</span>
-          <span class="compat-tag">TimescaleDB</span>
+          <span class="compat-tag">Notion API</span>
         </div>
         <p class="integration-visual-label" style="margin-top: 24px;">// Deployment options</p>
         <div class="compat-list">
+          <span class="compat-tag">Edge (Cloudflare)</span>
+          <span class="compat-tag">Cloud</span>
           <span class="compat-tag">On-Premise</span>
-          <span class="compat-tag">Private Cloud</span>
-          <span class="compat-tag">Hybrid</span>
           <span class="compat-tag">Docker / K8s</span>
         </div>
       </div>
@@ -972,9 +1209,14 @@ section {
 <section id="technology">
   <div class="container">
     <div class="fade-in">
-      <p class="section-label">Technology</p>
+      <p class="section-label" data-i18n="tech.label">Technology</p>
       <h2 class="section-title">Architecture Overview</h2>
-      <p class="section-desc">A modular analytics pipeline from sensor ingestion to operational insight.</p>
+      <p class="section-desc">How our systems are built&thinsp;&mdash;&thinsp;from input to intelligence.</p>
+    </div>
+
+    <!-- Tech Visual -->
+    <div style="margin: 48px 0 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border);">
+      <img src="images/tech-arch.jpg" alt="Architecture visualization" style="width: 100%; height: 240px; object-fit: cover; display: block;" loading="lazy">
     </div>
 
     <!-- Architecture Diagram -->
@@ -986,8 +1228,8 @@ section {
             <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
           </svg>
         </div>
-        <div class="arch-node-label">Sensors &amp; IoT</div>
-        <div class="arch-node-sub">MQTT / SCADA / API</div>
+        <div class="arch-node-label">Data Sources</div>
+        <div class="arch-node-sub">APIs / Devices / Users</div>
       </div>
       <div class="arch-arrow" id="archArrow1">&rarr;</div>
       <div class="arch-node" id="archNode2">
@@ -998,8 +1240,8 @@ section {
             <polyline points="4 4 4 11"/><line x1="4" y1="4" x2="11" y2="4"/>
           </svg>
         </div>
-        <div class="arch-node-label">Data Ingestion</div>
-        <div class="arch-node-sub">Normalize / Validate</div>
+        <div class="arch-node-label">Edge Processing</div>
+        <div class="arch-node-sub">Cloudflare / Gateway</div>
       </div>
       <div class="arch-arrow" id="archArrow2">&rarr;</div>
       <div class="arch-node" id="archNode3">
@@ -1009,8 +1251,8 @@ section {
             <path d="M9 9h6M9 13h4M9 17h2"/>
           </svg>
         </div>
-        <div class="arch-node-label">AI Analytics Engine</div>
-        <div class="arch-node-sub">Detect / Predict / Score</div>
+        <div class="arch-node-label">AI Engine</div>
+        <div class="arch-node-sub">LLM / Agents / ML</div>
       </div>
       <div class="arch-arrow" id="archArrow3">&rarr;</div>
       <div class="arch-node" id="archNode4">
@@ -1020,19 +1262,19 @@ section {
             <path d="M3 9h18M9 3v18"/>
           </svg>
         </div>
-        <div class="arch-node-label">Dashboard &amp; Alerts</div>
-        <div class="arch-node-sub">Visualize / Report / Notify</div>
+        <div class="arch-node-label">Delivery</div>
+        <div class="arch-node-sub">Dashboard / Bot / API</div>
       </div>
     </div>
 
     <!-- Tech Capabilities -->
     <div class="tech-capabilities fade-in">
-      <div class="tech-cap">Time-series anomaly detection (unsupervised and supervised)</div>
-      <div class="tech-cap">Multi-parameter cross-correlation analysis</div>
-      <div class="tech-cap">Predictive modeling with interpretable outputs</div>
-      <div class="tech-cap">Automated natural language report generation</div>
-      <div class="tech-cap">Real-time alerting with configurable thresholds</div>
-      <div class="tech-cap">Sensor drift and fault detection algorithms</div>
+      <div class="tech-cap">Multi-agent LLM orchestration with tool gating</div>
+      <div class="tech-cap">Edge-deployed APIs on Cloudflare Workers</div>
+      <div class="tech-cap">Cross-platform messaging (Telegram, Feishu, WhatsApp)</div>
+      <div class="tech-cap">AI-powered content generation (video, music, text)</div>
+      <div class="tech-cap">IoT device-to-cloud architecture (200+ patents)</div>
+      <div class="tech-cap">High-availability distributed systems (10M+ MAU proven)</div>
     </div>
   </div>
 </section>
@@ -1041,7 +1283,7 @@ section {
 <section id="team">
   <div class="container">
     <div class="fade-in">
-      <p class="section-label">Team</p>
+      <p class="section-label" data-i18n="team.label">Team</p>
       <h2 class="section-title">Founding Team</h2>
     </div>
     <div class="team-grid">
@@ -1064,87 +1306,30 @@ section {
 
       <!-- Leonard -->
       <div class="team-card fade-in fade-in-delay-3">
-        <div class="team-avatar">L</div>
-        <h3>Leonard</h3>
-        <p class="team-role">AI &amp; Strategy</p>
-        <p>AI industry practitioner with deep domain knowledge in water utility monitoring ecosystems and ML/data analytics. Responsible for solution architecture, market research, and partnership development.</p>
+        <div class="team-avatar">LC</div>
+        <h3>Leonard Chow Yi Ding</h3>
+        <p class="team-role">Co-Founder, AI &amp; Strategy</p>
+        <p>Serial entrepreneur. Built Singapore's first food delivery platform StarTaster and Maple Education from zero to one. Background in Meituan, Alibaba, and WeChat. NTU/NUS entrepreneurship alumni. Now focused on turning AI into real business value.</p>
       </div>
 
     </div>
-    <p class="team-summary fade-in">Our founding team combines deep AI engineering, global hardware manufacturing, and domain expertise in monitoring infrastructure.</p>
+    <p class="team-summary fade-in">Our founding team combines deep AI engineering, global hardware manufacturing at scale, and hands-on product delivery experience.</p>
   </div>
 </section>
 
-<!-- ===== OPEN SOURCE ===== -->
-<section id="open-source">
-  <div class="container">
-    <div class="fade-in">
-      <p class="section-label">Projects</p>
-      <h2 class="section-title">Selected Open Source Work</h2>
-      <p class="section-desc">Public repositories that demonstrate our team's AI and software engineering capabilities.</p>
-    </div>
-    <div class="oss-grid">
-
-      <a href="https://github.com/shuaige121/nexus-ai-team" target="_blank" rel="noopener" class="oss-card fade-in fade-in-delay-1">
-        <div class="oss-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          <h3>nexus-ai-team</h3>
-        </div>
-        <p>Multi-agent AI orchestration system with autonomous task management</p>
-        <span class="oss-link">github.com/shuaige121/nexus-ai-team</span>
-      </a>
-
-      <a href="https://github.com/shuaige121/tool-gating-mcp" target="_blank" rel="noopener" class="oss-card fade-in fade-in-delay-2">
-        <div class="oss-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          <h3>tool-gating-mcp</h3>
-        </div>
-        <p>Intelligent tool discovery and context management for LLM agents</p>
-        <span class="oss-link">github.com/shuaige121/tool-gating-mcp</span>
-      </a>
-
-      <a href="https://github.com/shuaige121/ai-pm-bot" target="_blank" rel="noopener" class="oss-card fade-in fade-in-delay-3">
-        <div class="oss-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          <h3>ai-pm-bot</h3>
-        </div>
-        <p>AI-powered project management with natural language interface</p>
-        <span class="oss-link">github.com/shuaige121/ai-pm-bot</span>
-      </a>
-
-      <a href="https://github.com/shuaige121/melody-to-arrangement" target="_blank" rel="noopener" class="oss-card fade-in fade-in-delay-4">
-        <div class="oss-card-header">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          <h3>melody-to-arrangement</h3>
-        </div>
-        <p>ML-powered music analysis and arrangement generation</p>
-        <span class="oss-link">github.com/shuaige121/melody-to-arrangement</span>
-      </a>
-
-    </div>
-  </div>
-</section>
 
 <!-- ===== CONTACT ===== -->
 <section id="contact">
   <div class="container">
     <div class="fade-in">
-      <p class="section-label">Get In Touch</p>
+      <p class="section-label" data-i18n="contact.label">Get In Touch</p>
       <h2 class="section-title">Contact Us</h2>
     </div>
     <div class="contact-grid">
       <div class="contact-info fade-in fade-in-delay-1">
         <h3>FLAME SOURCE TECHNOLOGY PTE. LTD.</h3>
-        <p>Singapore</p>
+        <p>39 Hongkong Street #03-01, Singapore 059678</p>
         <div class="contact-detail">
-          <div class="contact-detail-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            <span>General Enquiries: <a href="mailto:info@flamesource.tech">info@flamesource.tech</a></span>
-          </div>
-          <div class="contact-detail-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            <span>Business Development: <a href="mailto:bd@flamesource.tech">bd@flamesource.tech</a></span>
-          </div>
           <div class="contact-detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span>WhatsApp: <a href="https://wa.me/6588165505" target="_blank">+65 8816 5505</a></span>
@@ -1152,22 +1337,14 @@ section {
         </div>
       </div>
 
-      <form class="contact-form fade-in fade-in-delay-2" onsubmit="handleSubmit(event)">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name">
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com">
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Tell us about your project or enquiry"></textarea>
-        </div>
-        <p class="form-consent">By submitting this form, you consent to our collection and use of your contact details for the purpose of responding to your enquiry. See our <a href="#privacy">Privacy Policy</a>.</p>
-        <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send Message</button>
-      </form>
+      <div class="fade-in fade-in-delay-2" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 48px 32px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;">
+        <p style="font-size: 1.2rem; color: #fff; font-weight: 600; margin-bottom: 12px;">Ready to talk?</p>
+        <p style="color: var(--text-secondary); margin-bottom: 32px; max-width: 320px;">Send us a message on WhatsApp. We typically respond within a few hours.</p>
+        <a href="https://wa.me/6588165505" target="_blank" class="btn btn-primary" style="font-size: 1.05rem; padding: 16px 36px;">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="width:20px;height:20px;margin-right:8px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1239,6 +1416,15 @@ section {
     lastScroll = scrollY;
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ===== PARALLAX HERO BACKGROUND =====
+  var heroBg = document.querySelector('.hero-bg');
+  function parallax() {
+    if (heroBg && window.scrollY < window.innerHeight) {
+      heroBg.style.transform = 'translateY(' + (window.scrollY * 0.3) + 'px)';
+    }
+  }
+  window.addEventListener('scroll', parallax, { passive: true });
 
   // ===== MOBILE NAV =====
   const navToggle = document.getElementById('navToggle');
@@ -1366,21 +1552,137 @@ section {
     });
   }
 
-  // ===== CONTACT FORM (no backend — just visual feedback) =====
+  // ===== STAGGER ANIMATION — compat tags & logo wall =====
+  var staggerContainers = document.querySelectorAll('.compat-list, .logo-wall');
+  if ('IntersectionObserver' in window) {
+    var staggerObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var items = entry.target.children;
+          for (var i = 0; i < items.length; i++) {
+            (function(el, delay) {
+              el.style.opacity = '0';
+              el.style.transform = 'translateY(10px)';
+              el.style.transition = 'opacity 0.4s ease ' + delay + 's, transform 0.4s ease ' + delay + 's';
+              setTimeout(function() {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+              }, 50);
+            })(items[i], i * 0.06);
+          }
+          staggerObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    staggerContainers.forEach(function(el) { staggerObserver.observe(el); });
+  }
+
+  // ===== CONTACT FORM — mailto fallback =====
   window.handleSubmit = function(e) {
     e.preventDefault();
+    var name = e.target.querySelector('#name').value;
+    var email = e.target.querySelector('#email').value;
+    var message = e.target.querySelector('#message').value;
+    var subject = encodeURIComponent('Website Enquiry from ' + name);
+    var body = encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message);
+    window.location.href = 'mailto:info@flamesource.tech?subject=' + subject + '&body=' + body;
     var btn = e.target.querySelector('button[type="submit"]');
     var originalText = btn.textContent;
-    btn.textContent = 'Sent — Thank you!';
+    btn.textContent = 'Opening email client...';
     btn.disabled = true;
     btn.style.background = '#2d7a3a';
     setTimeout(function() {
       btn.textContent = originalText;
       btn.disabled = false;
       btn.style.background = '';
-      e.target.reset();
     }, 3000);
   };
+
+  // ===== I18N — LANGUAGE TOGGLE =====
+  var i18n = {
+    zh: {
+      'hero.title': 'AI 驱动的软件<br>从构想到<span>落地</span>',
+      'hero.subtitle': 'FLAME SOURCE TECHNOLOGY 打造生产级 AI 软件——自主代理系统、边缘部署 API、IoT 平台和 AI 创意工具。由曾将消费科技产品扩展至 1000 万+用户、覆盖 150+ 国家的工程师团队创立。',
+      'hero.stat1': '用户服务',
+      'hero.stat2': '国家覆盖',
+      'hero.stat3': '项专利',
+      'hero.stat4': '工程师',
+      'nav.about': '关于',
+      'nav.solutions': '解决方案',
+      'nav.tech': '技术',
+      'nav.team': '团队',
+      'nav.contact': '联系',
+      'what.label': '我们做什么',
+      'what.title': '我们打造 AI 驱动的<br>可交付软件',
+      'what.intro': '从自主 AI 代理到边缘部署 API，我们设计并交付生产级软件。创始团队曾将消费科技扩展至 1000 万+用户和 150+ 国家——如今我们将同样的工程纪律带到企业 AI、IoT 和数据平台。',
+      'sol.label': '解决方案',
+      'sol.title': '我们构建的产品',
+      'sol.desc': '真实产品，真实部署。以下是我们团队交付的成果。',
+      'sol.agent.title': 'AI 代理与自动化',
+      'sol.agent.desc': '多代理编排系统，自主运行。我们构建了 AI 驱动的项目管理机器人（Claude AI + Notion + 语音）、LLM 工具网关框架，以及完整的自主代理平台——AI 处理判断决策，机器处理确定性任务。',
+      'sol.api.title': '平台与 API 工程',
+      'sol.api.desc': '部署在 Cloudflare Workers 上的边缘 API 和集成平台。从处理 OAuth 和 50+ 端点的营销 API，到多项目网关控制面板和连接 Telegram、飞书、WhatsApp 的跨平台消息工具包。',
+      'sol.iot.title': 'IoT 与软硬件集成',
+      'sol.iot.desc': '连接物理设备与云端智能。创始团队持有 200+ 项无线通信和精密硬件专利——我们设计从设备固件到云端分析的 IoT 架构，在 150+ 国家规模化验证。',
+      'sol.creative.title': 'AI 创意工具',
+      'sol.creative.desc': '生产级 AI 创意软件——基于 Remotion 引擎和 GPU 加速的剪映风格视频编辑器（支持 CLI 和 AI 控制），以及能将旋律转化为完整多轨编曲（鼓、贝斯、钢琴、和弦）的 AI 编曲引擎。',
+      'impact.label': '成果',
+      'impact.title': '用数字<span class="gradient-text">说话</span>',
+      'impact.desc': '建立在经过验证的规模之上——不是原型。',
+      'impact.1': '团队构建的系统服务月活用户',
+      'impact.2': '硬件产品部署的国家',
+      'impact.3': '无线通信和精密硬件专利',
+      'impact.4': '生产平台管理的 API 端点',
+      'partners.label': '生态',
+      'partners.title': '基于这些技术构建',
+      'partners.desc': '我们每天使用的平台和技术。',
+      'int.label': '集成',
+      'int.title': '无缝集成，无需替换',
+      'int.desc': '我们的软件直接接入你现有的技术栈，无需推倒重来。',
+      'int.1': '基于 Cloudflare Workers 的边缘优先架构，全球低延迟部署',
+      'int.2': '通过 REST API、Webhooks、OAuth 和消息 SDK 连接你现有工具',
+      'int.3': '支持云端、本地或混合部署，兼容 Docker / K8s',
+      'int.4': '支持合作伙伴和系统集成商的白标方案',
+      'tech.label': '技术',
+      'tech.title': '架构概览',
+      'tech.desc': '我们的系统如何构建——从输入到智能。',
+      'team.label': '团队',
+      'team.title': '创始团队',
+      'team.summary': '创始团队融合了深厚的 AI 工程、全球化硬件规模制造和实战产品交付经验。',
+      'contact.label': '联系我们',
+      'contact.title': '联系我们',
+      'contact.ready': '准备好聊聊了？',
+      'contact.wa.desc': '通过 WhatsApp 给我们发消息，我们通常在几小时内回复。',
+      'contact.wa.btn': 'WhatsApp 联系',
+    }
+  };
+
+  var currentLang = 'en';
+  var originals = {};
+  var langBtn = document.getElementById('langToggle');
+
+  // Store original English content
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    originals[el.getAttribute('data-i18n')] = el.innerHTML;
+  });
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (lang === 'zh' && i18n.zh[key]) {
+        el.innerHTML = i18n.zh[key];
+      } else if (originals[key]) {
+        el.innerHTML = originals[key];
+      }
+    });
+    langBtn.textContent = lang === 'en' ? '中文' : 'EN';
+    document.documentElement.lang = lang;
+  }
+
+  langBtn.addEventListener('click', function() {
+    setLang(currentLang === 'en' ? 'zh' : 'en');
+  });
 
 })();
 </script>
