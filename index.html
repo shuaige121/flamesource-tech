@@ -460,7 +460,7 @@ section { padding: var(--section-gap) 0; }
           <p class="team-role">Chief Technology Officer</p>
         </div>
         <div class="team-card-body">
-          <p class="team-bio"><span class="team-highlight">18 years</span> of experience in software engineering and large-scale system architecture. Former CTO of Hainan Yuanyou Information Technology (2016&ndash;2022), leading a <span class="team-highlight">100+ engineer R&amp;D team</span> and delivering products with monthly revenues exceeding <span class="team-highlight">RMB 100 million</span>.</p>
+          <p class="team-bio"><span class="team-highlight"><span id="cjYears"></span> years</span> of experience in software engineering and large-scale system architecture. Former CTO of Hainan Yuanyou Information Technology (2016&ndash;2022), leading a <span class="team-highlight">100+ engineer R&amp;D team</span> and delivering products with monthly revenues exceeding <span class="team-highlight">RMB 100 million</span>.</p>
           <p class="team-bio">Specialist in high-availability distributed systems, AI automation, and data security. B.Eng. in Computer Science, South China University of Technology (SCUT, Class of 2008).</p>
         </div>
       </div>
@@ -469,7 +469,7 @@ section { padding: var(--section-gap) 0; }
       <div class="team-card reveal reveal-d3">
         <div class="team-card-header">
           <h3>Leonard Chow Yi Ding</h3>
-          <p class="team-name-cn">&nbsp;</p>
+          <p class="team-name-cn">周义鼎</p>
           <p class="team-role">Co-Founder · SG Operations &amp; Strategy</p>
         </div>
         <div class="team-card-body">
@@ -482,25 +482,23 @@ section { padding: var(--section-gap) 0; }
   </div>
 </section>
 
-<!-- SHOWCASE -->
-<section class="showcase">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-label">Our Presence</p>
-      <h2 class="section-title">Based in Singapore</h2>
+<!-- OFFICES BACKGROUND STRIP -->
+<section class="offices-strip" style="padding: 0; position: relative; height: 320px; overflow: hidden;">
+  <div style="display: flex; height: 100%;">
+    <div style="flex: 1; position: relative;">
+      <img src="assets/office-hongkong-st.png" alt="Hongkong Street office" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
     </div>
-    <div class="showcase-grid">
-      <div class="showcase-item reveal reveal-d1">
-        <img src="assets/office-hongkong-st.png" alt="Singapore office at Hongkong Street" loading="lazy">
-        <div class="showcase-item-label">Hongkong Street Office</div>
-      </div>
-      <div class="showcase-item reveal reveal-d2">
-        <img src="assets/office-onenorth.png" alt="Office at one-north" loading="lazy">
-        <div class="showcase-item-label">One-North Office</div>
-      </div>
-      <div class="showcase-item reveal reveal-d3">
-        <img src="assets/office-interior.png" alt="Office workspace" loading="lazy">
-      </div>
+    <div style="flex: 1; position: relative;">
+      <img src="assets/office-onenorth.png" alt="One-North office" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+    <div style="flex: 1; position: relative;">
+      <img src="assets/office-interior.png" alt="Office interior" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+  </div>
+  <div style="position:absolute; inset:0; background: linear-gradient(180deg, var(--bg) 0%, rgba(10,14,26,0.4) 30%, rgba(10,14,26,0.4) 70%, var(--bg) 100%); display:flex; align-items:center; justify-content:center;">
+    <div style="text-align:center;">
+      <p class="section-label" style="margin-bottom:8px;">Singapore</p>
+      <h2 style="font-size: clamp(1.4rem,3vw,2rem); font-weight:800; color:#fff; letter-spacing:-0.02em;">Hongkong Street &nbsp;·&nbsp; One-North</h2>
     </div>
   </div>
 </section>
@@ -596,6 +594,10 @@ section { padding: var(--section-gap) 0; }
 <script>
 (function() {
   'use strict';
+  // Dynamic years of experience for Chen Jinzhu (graduated SCUT 2008)
+  var cjEl = document.getElementById('cjYears');
+  if (cjEl) cjEl.textContent = new Date().getFullYear() - 2008;
+
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
 
