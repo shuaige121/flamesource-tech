@@ -4,13 +4,13 @@
   "nav.contact": "联系我们",
 
   "poster.recruitment.tag": "招聘",
-  "poster.recruitment.headline": "每天500份简历，490份是噪音。",
+  "poster.recruitment.headline": "你的HR今天看了500份简历，\n最好的那份被漏掉了。",
   "poster.recruitment.body": "招聘经理正被千篇一律的AI生成简历淹没。人工筛选耗时数小时，却依然会漏掉优秀候选人。Flame Source OS 能在数秒内阅读、评分并排序每一份申请——只呈现值得面试的候选人。",
   "poster.recruitment.metric1": "每个职位的简历数",
   "poster.recruitment.metric2": "值得面试",
 
   "poster.finance.tag": "财务",
-  "poster.finance.headline": "三个人，四十小时，每个月。",
+  "poster.finance.headline": "三个人，四十小时，\n月月如此。",
   "poster.finance.body": "薪资核算、合同对账、开具发票——一个三人财务团队每月花费40小时处理本应自动化的工作，而且每个周期至少出现一次错误。Flame Source OS 实现全流程端到端自动化，零错误。",
   "poster.finance.metric1": "每月人工工时",
   "poster.finance.metric2": "6个月内的错误数",
@@ -22,7 +22,7 @@
   "poster.music.metric2": "使用 Flame Source OS 后",
 
   "poster.restaurant.tag": "餐饮 · 翻译",
-  "poster.restaurant.headline": "一个字翻错，上错菜，顾客发火。",
+  "poster.restaurant.headline": "Google翻译把「脆皮五花肉」\n翻成了没人敢点的东西。",
   "poster.restaurant.body": "通用翻译工具不懂餐饮。一个字的偏差就能让「脆皮五花肉」变得面目全非。Flame Source OS 提供语境感知的实时菜单翻译——支持缅甸语等大多数工具无法处理的语言。",
   "poster.restaurant.metric1": "改进前的错误订单",
   "poster.restaurant.metric2": "改进后的错误订单",
@@ -33,8 +33,8 @@
   "hero.badge": "新加坡",
   "hero.headline": "我们打造真正有效的AI。",
   "hero.headline.accent": "有效的AI。",
-  "hero.sub": "更优决策，更快执行，更低成本，零错误。",
-  "hero.sub2": "认识 Flame Source OS——为真实商业成果而生的AI操作系统。",
+  "hero.sub": "你的团队40%的时间浪费在机器应该做的事上。",
+  "hero.sub2": "Flame Source OS 逐个工作流帮你解决。",
   "hero.cta1": "了解更多",
   "hero.cta2": "与我们交谈",
 
@@ -45,7 +45,7 @@
   "gap.stat": "的企业AI项目从未投入生产",
 
   "product.label": "Flame Source OS",
-  "product.title": "给我们问题，还你结果。",
+  "product.title": "你说问题，\n我们交付方案。",
   "product.desc": "一个协调模型、工具和工作流的AI操作系统——让您的团队专注于决策，而非配置。",
   "product.f1.title": "模型路由",
   "product.f1.body": "自动为每项任务选择最合适的AI模型——在速度、精度和成本之间取得平衡。无需手动调整提示词，不绑定任何模型。",
