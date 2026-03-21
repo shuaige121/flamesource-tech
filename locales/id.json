@@ -21,11 +21,17 @@
   "poster.music.metric1": "waktu aransemen",
   "poster.music.metric2": "dengan Flame Source OS",
 
-  "poster.restaurant.tag": "F&B · Terjemahan",
-  "poster.restaurant.headline": "Satu Karakter Salah.\nHidangan Salah. Pelanggan Marah.",
-  "poster.restaurant.body": "Alat terjemahan umum tidak memahami makanan. Satu karakter yang salah mengubah \"crispy pork belly\" menjadi sesuatu yang tidak dikenali. Flame Source OS menyediakan terjemahan menu secara real-time yang peka konteks — termasuk bahasa Myanmar dan bahasa lain yang tidak didukung kebanyakan alat.",
-  "poster.restaurant.metric1": "pesanan salah sebelumnya",
-  "poster.restaurant.metric2": "pesanan salah sesudahnya",
+  "poster.restaurant.tag": "F&B · AR Smart Glasses",
+  "poster.restaurant.headline": "\"Kurang minyak. Lebih garing. Tanpa cabai.\"\nPelayan Myanmar Anda Memahami\nSetiap Kata.",
+  "poster.restaurant.body": "Staf Anda belajar nama hidangan dengan cepat — itu bagian mudahnya. Yang sulit adalah \"kurang garam\", \"lebih garing\", \"masaknya lebih lama\". AR smart glasses memberikan pelayan Anda subtitle real-time dari apa yang dikatakan pelanggan — tidak ada jeda penerjemahan yang canggung, hanya percakapan alami. Di luar jam kerja, aplikasi guru AI melatih mereka dengan permintaan nyata hingga kacamata menjadi jaring pengaman, bukan tongkat.",
+  "poster.restaurant.metric1": "pesanan salah / minggu",
+  "poster.restaurant.metric2": "pesanan salah sekarang",
+
+  "poster.sales.tag": "Pemberdayaan Penjualan",
+  "poster.sales.headline": "Minggu Pertamanya di Lapangan.\nDia Menjual Seperti Veteran 10 Tahun.",
+  "poster.sales.body": "Tenaga penjualan baru gagal karena tidak ada yang menemani saat dibutuhkan. Flame Source OS mendengarkan setiap percakapan pelanggan secara real-time dan membimbing sales rep Anda tentang apa yang harus dikatakan selanjutnya. Seperti memiliki manajer penjualan terbaik Anda di setiap ruangan. Tersedia 24/7 untuk latihan.",
+  "poster.sales.metric1": "waktu adaptasi sebelumnya",
+  "poster.sales.metric2": "dengan coaching AI",
 
   "poster.scroll": "Gulir",
   "poster.enter": "Masuk",

@@ -21,11 +21,17 @@
   "poster.music.metric1": "thời gian phối khí",
   "poster.music.metric2": "với Flame Source OS",
 
-  "poster.restaurant.tag": "F&B · Dịch thuật",
-  "poster.restaurant.headline": "Sai một chữ.\nSai món. Khách phật ý.",
-  "poster.restaurant.body": "Các công cụ dịch thông thường không hiểu ẩm thực. Sai một ký tự có thể biến \"thịt ba chỉ giòn\" thành thứ không ai nhận ra. Flame Source OS cung cấp dịch thực đơn theo ngữ cảnh, theo thời gian thực — bao gồm cả tiếng Myanmar và nhiều ngôn ngữ khác mà hầu hết công cụ không hỗ trợ.",
-  "poster.restaurant.metric1": "đơn sai trước đây",
-  "poster.restaurant.metric2": "đơn sai sau khi dùng",
+  "poster.restaurant.tag": "F&B · AR Smart Glasses",
+  "poster.restaurant.headline": "\"Ít dầu. Giòn hơn. Không ớt.\"\nNhân viên phục vụ người Myanmar\nHiểu từng lời.",
+  "poster.restaurant.body": "Nhân viên của bạn học tên món nhanh lắm — đó là phần dễ. Cái khó là \"ít muối\", \"giòn hơn\", \"nấu kỹ hơn\". AR smart glasses hiển thị phụ đề theo thời gian thực về chính xác những gì khách hàng nói cho nhân viên phục vụ — không còn khoảng dừng dịch thuật lúng túng, chỉ có cuộc trò chuyện tự nhiên. Ngoài giờ làm, ứng dụng AI luyện tập với các yêu cầu thực tế cho đến khi kính trở thành lưới an toàn, không phải nạng.",
+  "poster.restaurant.metric1": "đơn sai / tuần",
+  "poster.restaurant.metric2": "đơn sai hiện tại",
+
+  "poster.sales.tag": "Hỗ trợ Bán hàng",
+  "poster.sales.headline": "Tuần đầu tiên trên sàn.\nCô ấy bán như người 10 năm kinh nghiệm.",
+  "poster.sales.body": "Nhân viên bán hàng mới thất bại vì không có ai bên cạnh khi cần thiết. Flame Source OS lắng nghe mọi cuộc trò chuyện với khách hàng theo thời gian thực và hướng dẫn nhân viên của bạn nên nói gì tiếp theo. Như có quản lý bán hàng giỏi nhất trong mọi phòng. Sẵn sàng 24/7 để luyện tập.",
+  "poster.sales.metric1": "thời gian làm quen trước đây",
+  "poster.sales.metric2": "với AI coaching",
 
   "poster.scroll": "Cuộn",
   "poster.enter": "Vào",

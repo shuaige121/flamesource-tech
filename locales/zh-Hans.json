@@ -21,11 +21,17 @@
   "poster.music.metric1": "编曲时间",
   "poster.music.metric2": "使用 Flame Source OS 后",
 
-  "poster.restaurant.tag": "餐饮 · 翻译",
-  "poster.restaurant.headline": "Google翻译把「脆皮五花肉」\n翻成了没人敢点的东西。",
-  "poster.restaurant.body": "通用翻译工具不懂餐饮。一个字的偏差就能让「脆皮五花肉」变得面目全非。Flame Source OS 提供语境感知的实时菜单翻译——支持缅甸语等大多数工具无法处理的语言。",
-  "poster.restaurant.metric1": "改进前的错误订单",
-  "poster.restaurant.metric2": "改进后的错误订单",
+  "poster.restaurant.tag": "餐饮 · AR 智能眼镜",
+  "poster.restaurant.headline": "「少油、多做一点、不要辣。」\n你的缅甸服务员\n每个字都听懂了。",
+  "poster.restaurant.body": "你的员工学菜名很快——这是简单的部分。真正的难题是「少盐」「更脆一点」「再煮久一点」。AR 智能眼镜为你的服务员实时显示顾客说的每一个字——不再有尴尬的翻译停顿，只有自然流畅的对话。下班后，AI 教练应用用真实场景反复训练他们，直到眼镜变成安全网，而不是拐杖。",
+  "poster.restaurant.metric1": "每周错误订单数",
+  "poster.restaurant.metric2": "现在的错误订单数",
+
+  "poster.sales.tag": "销售赋能",
+  "poster.sales.headline": "她入职第一周，\n卖得像十年老手。",
+  "poster.sales.body": "新销售失败的原因是关键时刻没人在身边指导。Flame Source OS 实时倾听每一次客户对话，指导你的销售代表下一步该说什么。就像让你最优秀的销售经理出现在每个房间。全天候可用于练习。",
+  "poster.sales.metric1": "以前的上手时间",
+  "poster.sales.metric2": "有 AI 教练后",
 
   "poster.scroll": "滚动",
   "poster.enter": "进入",

@@ -21,11 +21,17 @@
   "poster.music.metric1": "oras ng arrangement",
   "poster.music.metric2": "gamit ang Flame Source OS",
 
-  "poster.restaurant.tag": "F&B · Pagsasalin",
-  "poster.restaurant.headline": "Isang Maling Karakter.\nMaling Putahe. Galit na Customer.",
-  "poster.restaurant.body": "Hindi nauunawaan ng mga generic na translation tool ang pagkain. Isang maling karakter lang, magiging hindi na makilala ang \"crispy pork belly.\" Nagbibigay ang Flame Source OS ng context-aware, real-time na pagsasalin ng menu — kasama ang Burmese at iba pang mga wikang hindi sinusuportahan ng karamihang tool.",
-  "poster.restaurant.metric1": "maling order dati",
+  "poster.restaurant.tag": "F&B · AR Smart Glasses",
+  "poster.restaurant.headline": "\"Konti lang mantika. Mas malutong. Walang sili.\"\nNaintindihan ng Iyong Burmese Server\nang Bawat Salita.",
+  "poster.restaurant.body": "Mabilis matuto ng pangalan ng pagkain ang mga staff mo — iyan ang madaling bahagi. Ang mahirap ay \"konti lang asin\", \"mas malutong\", \"lutohin pa\". Ang AR smart glasses ay nagbibigay sa iyong server ng real-time na subtitle ng eksaktong sinabi ng customer — walang awkward na translation pause, natural na usapan lang. Pagkatapos ng shift, nag-drill ang AI teacher app sa kanila gamit ang totoong requests hanggang maging safety net ang salamin, hindi saklay.",
+  "poster.restaurant.metric1": "maling order / linggo",
   "poster.restaurant.metric2": "maling order ngayon",
+
+  "poster.sales.tag": "Sales Enablement",
+  "poster.sales.headline": "Unang Linggo Niya sa Floor.\nNagbenta Siya Parang Sampung Taon Nang Beterano.",
+  "poster.sales.body": "Nabibigo ang bagong salesperson dahil walang katabi nila kapag kailangan. Nakikinig ang Flame Source OS sa bawat usapan ng customer sa real time at kino-coach ang iyong rep kung ano ang susunod na sasabihin. Parang naroon ang pinakamagaling mong sales manager sa bawat kwarto. Available 24/7 para sa practice.",
+  "poster.sales.metric1": "ramp-up time dati",
+  "poster.sales.metric2": "may AI coaching",
 
   "poster.scroll": "I-scroll",
   "poster.enter": "Pumasok",
