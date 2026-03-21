@@ -29,7 +29,7 @@
 | 1 | Blue `#60a5fa` | Recruitment | "500 Resumes a Day. 490 Were Noise." | 500 resumes → 10 worth interviewing |
 | 2 | Green `#4ade80` | Finance | "Three People. Forty Hours. Every Month." | 40h manual → 0 errors over 6 months |
 | 3 | Purple `#c084fc` | Music Production | "The Song Was Ready. The Arrangement Took Weeks." | 3 wk → 2 days |
-| 4 | Amber `#fbbf24` | F&B Translation | "One Wrong Character. Wrong Dish. Angry Customer." | 12/wk wrong orders → 0 |
+| 4 | Amber `#fbbf24` | F&B AR Smart Glasses | "\"Less Oil. More Done. No Chili.\" Your Burmese Server Understood Every Word." | 12/wk wrong orders → 0 |
 
 - 底部: 进度圆点 (4个，颜色跟随当前主题) + "Scroll" / "Enter" 提示文字
 - 右上角: 计数器 `1 / 4`
