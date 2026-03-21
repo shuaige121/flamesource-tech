@@ -111,6 +111,9 @@ img { max-width: 100%; display: block; }
 .poster-bg--amber .poster-bg-overlay {
   background: linear-gradient(100deg, rgba(10,6,2,0.92) 0%, rgba(25,16,4,0.75) 45%, rgba(40,25,5,0.6) 100%);
 }
+.poster-bg--teal .poster-bg-overlay {
+  background: linear-gradient(100deg, rgba(2,12,16,0.92) 0%, rgba(4,25,30,0.75) 45%, rgba(8,40,50,0.6) 100%);
+}
 
 /* Poster inner layout */
 .poster-inner {
@@ -149,6 +152,7 @@ img { max-width: 100%; display: block; }
 .poster-slide[data-theme="green"] .poster-tag { background: rgba(74,222,128,0.1); color: #86efac; border-color: rgba(74,222,128,0.25); }
 .poster-slide[data-theme="purple"] .poster-tag { background: rgba(192,132,252,0.1); color: #d8b4fe; border-color: rgba(192,132,252,0.25); }
 .poster-slide[data-theme="amber"] .poster-tag { background: rgba(251,191,36,0.1); color: #fcd34d; border-color: rgba(251,191,36,0.25); }
+.poster-slide[data-theme="teal"] .poster-tag { background: rgba(45,212,191,0.1); color: #5eead4; border-color: rgba(45,212,191,0.25); }
 
 .poster-headline {
   font-family: var(--font-heading);
@@ -181,6 +185,7 @@ img { max-width: 100%; display: block; }
 .poster-slide[data-theme="green"] .poster-metric-val { color: #4ade80; }
 .poster-slide[data-theme="purple"] .poster-metric-val { color: #c084fc; }
 .poster-slide[data-theme="amber"] .poster-metric-val { color: #fbbf24; }
+.poster-slide[data-theme="teal"] .poster-metric-val { color: #2dd4bf; }
 
 .poster-metric-label {
   font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.4;
@@ -206,6 +211,7 @@ img { max-width: 100%; display: block; }
 .poster-carousel[data-active-theme="green"] .poster-dot.active { background: #4ade80; }
 .poster-carousel[data-active-theme="purple"] .poster-dot.active { background: #c084fc; }
 .poster-carousel[data-active-theme="amber"] .poster-dot.active { background: #fbbf24; }
+.poster-carousel[data-active-theme="teal"] .poster-dot.active { background: #2dd4bf; }
 
 .poster-scroll-hint {
   display: flex; flex-direction: column; align-items: center; gap: 4px;
@@ -542,6 +548,90 @@ section { padding: var(--section-gap) 0; }
 .footer a { color: var(--text-muted); }
 .footer a:hover { color: var(--accent); }
 
+/* ═══════════════════
+   VIEW CASE STUDY LINK
+   ═══════════════════ */
+.poster-case-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 20px;
+  font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.8);
+  cursor: pointer; background: none; border: none; padding: 0;
+  font-family: var(--font); transition: color 0.2s, gap 0.2s;
+}
+.poster-case-link:hover { color: #fff; gap: 10px; }
+.poster-case-link svg { width: 16px; height: 16px; stroke: currentColor; }
+.poster-slide .poster-case-link {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1), color 0.2s, gap 0.2s;
+}
+.poster-slide.active .poster-case-link { opacity: 1; transform: none; transition-delay: 0.48s; }
+
+/* ═══════════════
+   CASE STUDY MODAL
+   ═══════════════ */
+.case-modal {
+  position: fixed; inset: 0; z-index: 1100;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.case-modal.open { opacity: 1; pointer-events: auto; }
+.case-modal-backdrop {
+  position: absolute; inset: 0; background: rgba(0,0,0,0.8);
+}
+.case-modal-content {
+  position: relative; z-index: 1;
+  max-width: 720px; width: 92%; max-height: 85vh; overflow-y: auto;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 48px 40px;
+  transform: translateY(40px);
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.case-modal.open .case-modal-content { transform: translateY(0); }
+.case-modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: none; border: none; color: var(--text-muted);
+  font-size: 1.8rem; line-height: 1; cursor: pointer;
+  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+  border-radius: 8px; transition: all 0.2s;
+}
+.case-modal-close:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.case-modal-tag {
+  display: inline-block; font-family: var(--mono); font-size: 0.75rem;
+  font-weight: 500; padding: 4px 12px; border-radius: 4px;
+  background: var(--accent-dim); color: var(--accent-light);
+  border: 1px solid rgba(226,88,34,0.2);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
+}
+.case-modal-title {
+  font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800;
+  color: #fff; line-height: 1.25; margin-bottom: 28px;
+}
+.case-modal-section { margin-bottom: 20px; }
+.case-modal-section h3 {
+  font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700;
+  color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.case-modal-section p {
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8;
+}
+.case-modal-results {
+  list-style: none; padding: 0;
+}
+.case-modal-results li {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+  padding-left: 20px; position: relative; margin-bottom: 4px;
+}
+.case-modal-results li::before {
+  content: ''; position: absolute; left: 0; top: 10px;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+}
+.case-modal-quote {
+  margin-top: 24px; padding: 20px 24px; border-left: 3px solid var(--accent);
+  background: rgba(226,88,34,0.05); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.92rem; color: var(--text-secondary); font-style: italic; line-height: 1.75;
+}
+
 /* ══════════════
    RESPONSIVE
    ══════════════ */
@@ -577,6 +667,9 @@ section { padding: var(--section-gap) 0; }
   .poster-progress { bottom: max(20px, env(safe-area-inset-bottom, 0px)); gap: 10px; }
   .poster-scroll-hint { font-size: 0.65rem; }
   .poster-dot { width: 8px; height: 8px; }
+  .case-modal-content { padding: 32px 20px; }
+  .case-modal-title { font-size: 1.3rem; }
+  .poster-case-link { font-size: 0.8rem; margin-top: 14px; }
 }
 @media (max-width: 480px) {
   :root { --section-gap: 56px; }
@@ -653,6 +746,7 @@ section { padding: var(--section-gap) 0; }
         <span class="poster-tag" data-i18n="poster.recruitment.tag">Recruitment</span>
         <h2 class="poster-headline" data-i18n="poster.recruitment.headline">&ldquo;500 Resumes a Day.<br>490 Were Noise.&rdquo;</h2>
         <p class="poster-desc" data-i18n="poster.recruitment.body">Hiring managers are drowning in AI-generated resumes that all look the same. Manual screening burns hours and still misses great candidates. Flame Source OS reads, scores, and ranks every application in seconds &mdash; surfacing only the profiles worth interviewing.</p>
+        <button class="poster-case-link" data-case="0" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
       </div>
       <div class="poster-metrics-box">
         <div class="poster-metric">
@@ -678,6 +772,7 @@ section { padding: var(--section-gap) 0; }
         <span class="poster-tag" data-i18n="poster.finance.tag">Finance</span>
         <h2 class="poster-headline" data-i18n="poster.finance.headline">&ldquo;Three People. Forty Hours.<br>Every Month.&rdquo;</h2>
         <p class="poster-desc" data-i18n="poster.finance.body">Payroll, contract reconciliation, invoicing &mdash; a finance team of three spends 40 hours every month on tasks that should be automatic. At least one error makes it through every cycle. Flame Source OS automates the entire pipeline, end to end, with zero errors.</p>
+        <button class="poster-case-link" data-case="1" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
       </div>
       <div class="poster-metrics-box">
         <div class="poster-metric">
@@ -703,6 +798,7 @@ section { padding: var(--section-gap) 0; }
         <span class="poster-tag" data-i18n="poster.music.tag">Music Production</span>
         <h2 class="poster-headline" data-i18n="poster.music.headline">&ldquo;The Song Was Ready.<br>The Arrangement Took Weeks.&rdquo;</h2>
         <p class="poster-desc" data-i18n="poster.music.body">A local musician had the melody but arrangement work stretched to three weeks every time. Working with Singapore artists, Flame Source OS accelerates arrangement, instrumentation, and mixing &mdash; turning weeks into days while preserving artistic intent.</p>
+        <button class="poster-case-link" data-case="2" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
       </div>
       <div class="poster-metrics-box">
         <div class="poster-metric">
@@ -725,9 +821,10 @@ section { padding: var(--section-gap) 0; }
     <div class="poster-bg poster-bg--amber"><img src="assets/poster-restaurant.jpg" alt="" loading="eager"><div class="poster-bg-overlay"></div></div>
     <div class="poster-inner">
       <div class="poster-content">
-        <span class="poster-tag" data-i18n="poster.restaurant.tag">F&amp;B &middot; Translation</span>
-        <h2 class="poster-headline" data-i18n="poster.restaurant.headline">&ldquo;One Wrong Character.<br>Wrong Dish. Angry Customer.&rdquo;</h2>
-        <p class="poster-desc" data-i18n="poster.restaurant.body">Generic translation tools don't understand food. One wrong character turns &ldquo;crispy pork belly&rdquo; into something unrecognisable. Flame Source OS provides context-aware, real-time menu translation &mdash; including Burmese and other languages most tools don't support.</p>
+        <span class="poster-tag" data-i18n="poster.restaurant.tag">F&amp;B &middot; AI Voice Manager</span>
+        <h2 class="poster-headline" data-i18n="poster.restaurant.headline">She Speaks Burmese.<br>The Customer Speaks Hokkien.<br>The Order Was Perfect.</h2>
+        <p class="poster-desc" data-i18n="poster.restaurant.body">Your server hears the order. The AI understands what the customer meant &mdash; not just what they said. Real-time voice translation with context-aware correction that catches miscommunication before it reaches the kitchen. Not a translator. An AI floor manager.</p>
+        <button class="poster-case-link" data-case="3" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
       </div>
       <div class="poster-metrics-box">
         <div class="poster-metric">
@@ -745,8 +842,34 @@ section { padding: var(--section-gap) 0; }
     </div>
   </div>
 
+  <!-- Poster 5: AI Sales Assistant (Teal) -->
+  <div class="poster-slide" data-theme="teal" data-index="4">
+    <div class="poster-bg poster-bg--teal"><img src="assets/poster-sales.jpg" alt="" loading="eager"><div class="poster-bg-overlay"></div></div>
+    <div class="poster-inner">
+      <div class="poster-content">
+        <span class="poster-tag" data-i18n="poster.sales.tag">Sales &middot; AI Coach</span>
+        <h2 class="poster-headline" data-i18n="poster.sales.headline">&ldquo;New Sales Rep. Day One.<br>Already Closing.&rdquo;</h2>
+        <p class="poster-desc" data-i18n="poster.sales.body">Training costs are killing your margins. New reps take months to ramp up. Flame Source OS listens to every conversation and coaches in real time &mdash; like having your best sales manager in every rep&rsquo;s ear.</p>
+        <button class="poster-case-link" data-case="4" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
+      </div>
+      <div class="poster-metrics-box">
+        <div class="poster-metric">
+          <span class="poster-metric-val"><span data-count="3">0</span> mo</span>
+          <span class="poster-metric-label" data-i18n="poster.sales.metric1">ramp-up time before</span>
+        </div>
+        <div class="poster-metric-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </div>
+        <div class="poster-metric">
+          <span class="poster-metric-val"><span data-count="2">0</span> wk</span>
+          <span class="poster-metric-label" data-i18n="poster.sales.metric2">ramp-up time after</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Counter -->
-  <div class="poster-counter"><span class="poster-counter-current">1</span> / 4</div>
+  <div class="poster-counter"><span class="poster-counter-current">1</span> / 5</div>
 
   <!-- Progress dots + scroll hint -->
   <div class="poster-progress">
@@ -755,10 +878,40 @@ section { padding: var(--section-gap) 0; }
       <span class="poster-dot"></span>
       <span class="poster-dot"></span>
       <span class="poster-dot"></span>
+      <span class="poster-dot"></span>
     </div>
     <div class="poster-scroll-hint">
       <span data-i18n="poster.scroll">Scroll</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m-6-6 6 6 6-6"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDY MODAL -->
+<div class="case-modal" id="caseModal">
+  <div class="case-modal-backdrop"></div>
+  <div class="case-modal-content">
+    <button class="case-modal-close">&times;</button>
+    <span class="case-modal-tag"></span>
+    <h2 class="case-modal-title"></h2>
+    <div class="case-modal-body">
+      <div class="case-modal-section">
+        <h3>Client</h3>
+        <p class="case-modal-client"></p>
+      </div>
+      <div class="case-modal-section">
+        <h3>Challenge</h3>
+        <p class="case-modal-challenge"></p>
+      </div>
+      <div class="case-modal-section">
+        <h3>Solution</h3>
+        <p class="case-modal-solution"></p>
+      </div>
+      <div class="case-modal-section">
+        <h3>Results</h3>
+        <ul class="case-modal-results"></ul>
+      </div>
+      <blockquote class="case-modal-quote"></blockquote>
     </div>
   </div>
 </div>
@@ -1018,7 +1171,7 @@ section { padding: var(--section-gap) 0; }
   var lastWheelTime = 0;
   var WHEEL_THRESHOLD = 60;
   var TRANSITION_MS = 750;
-  var themes = ['blue', 'green', 'purple', 'amber'];
+  var themes = ['blue', 'green', 'purple', 'amber', 'teal'];
 
   /* Animate poster counters */
   function animatePosterCounters(slideEl) {
@@ -1078,10 +1231,45 @@ section { padding: var(--section-gap) 0; }
       });
     }, 200);
 
-    setTimeout(function() {
-      carousel.style.display = 'none';
-    }, 800);
+    setTimeout(function() { transitioning = false; }, 800);
   }
+
+  /* Scroll-back: bring carousel back when at top and scrolling up */
+  function reviveCarousel() {
+    if (!dismissed) return;
+    dismissed = false;
+    transitioning = true;
+    carousel.classList.remove('dismissed');
+    document.body.classList.add('scroll-locked');
+    window.scrollTo(0, 0);
+
+    /* Reset to last poster so user can scroll backwards */
+    var lastIdx = slides.length - 1;
+    if (currentIdx !== lastIdx) {
+      slides[currentIdx].classList.remove('active');
+      dots[currentIdx].classList.remove('active');
+      slides[lastIdx].classList.add('active');
+      dots[lastIdx].classList.add('active');
+      currentIdx = lastIdx;
+      counterEl.textContent = lastIdx + 1;
+      carousel.setAttribute('data-active-theme', themes[lastIdx]);
+      /* Re-animate counters for this slide */
+      slides[lastIdx].querySelectorAll('[data-count]').forEach(function(el) { el.dataset.counted = ''; });
+      animatePosterCounters(slides[lastIdx]);
+    }
+
+    /* Update hint text */
+    var hintKey = 'poster.enter';
+    hintEl.setAttribute('data-i18n', hintKey);
+    hintEl.textContent = (currentTranslations && currentTranslations[hintKey]) ? currentTranslations[hintKey] : 'Enter';
+
+    setTimeout(function() { transitioning = false; }, TRANSITION_MS);
+  }
+
+  window.addEventListener('wheel', function(e) {
+    if (!dismissed || window.scrollY !== 0 || e.deltaY >= 0) return;
+    reviveCarousel();
+  }, { passive: true });
 
   /* Wheel handler on poster overlay */
   carousel.addEventListener('wheel', function(e) {
@@ -1143,6 +1331,101 @@ section { padding: var(--section-gap) 0; }
     a.addEventListener('click', function() {
       if (!dismissed) dismiss();
     });
+  });
+
+  /* ══════════════════════
+     CASE STUDY MODAL
+     ══════════════════════ */
+  var caseStudies = {
+    0: {
+      tag: 'Recruitment',
+      title: 'AI-Powered Resume Screening',
+      client: 'A mid-size recruitment agency in Singapore',
+      challenge: 'Processing 500+ resumes per open role manually, spending hours on screening while still missing qualified candidates.',
+      solution: 'Deployed Flame Source OS to automatically read, score, and rank every application based on job requirements, experience relevance, and skill matching.',
+      results: ['Screening time reduced from 4 hours to under 2 minutes per role', '98% accuracy in identifying top candidates', 'Placed 23% more candidates in first 3 months', 'HR team reallocated to relationship building'],
+      quote: '\u201cWe used to dread opening the inbox. Now we look forward to it.\u201d \u2014 Talent Acquisition Lead'
+    },
+    1: {
+      tag: 'Finance',
+      title: 'End-to-End Payroll Automation',
+      client: 'A regional services company with 200+ staff',
+      challenge: 'A three-person finance team spending 40 hours every month on payroll, contract reconciliation, and invoicing \u2014 with at least one error slipping through each cycle.',
+      solution: 'Flame Source OS automated the entire payroll and invoicing pipeline, from timesheet ingestion to final payment file generation, with built-in validation at every step.',
+      results: ['40 hours of manual work eliminated per month', 'Zero errors across 6 consecutive months', 'Finance team redirected to strategic analysis', 'Audit preparation time cut by 60%'],
+      quote: '\u201cWe went from firefighting errors to having time for actual financial strategy.\u201d \u2014 Finance Director'
+    },
+    2: {
+      tag: 'Music Production',
+      title: 'AI-Accelerated Music Arrangement',
+      client: 'An independent musician and producer in Singapore',
+      challenge: 'Arrangement, instrumentation, and mixing stretched to three weeks per track, limiting output and delaying releases.',
+      solution: 'Flame Source OS assists with arrangement suggestions, instrumentation layering, and preliminary mixing \u2014 working alongside the artist to preserve creative intent while drastically cutting production time.',
+      results: ['Arrangement time reduced from 3 weeks to 2 days', 'Doubled release cadence', 'Artist retained full creative control', 'Production cost per track reduced by 65%'],
+      quote: '\u201cIt\u2019s like having a co-producer who never sleeps and always gets my style.\u201d \u2014 Recording Artist'
+    },
+    3: {
+      tag: 'F&B \u00b7 AI Voice Manager',
+      title: 'AI Voice Manager for Restaurant Operations',
+      client: 'A busy hawker-style restaurant group with 4 outlets across Singapore',
+      challenge: 'The group relies heavily on Burmese workers facing a steep language barrier with customers who speak Mandarin, Hokkien, Teochew, and English \u2014 often in the same sentence. Traditional translation apps failed because customers mumble, mix dialects, and abbreviate dish names. 12 wrong orders per week across 4 outlets.',
+      solution: 'Flame Source OS was deployed as an AI Voice Manager \u2014 not a translator, but a context-aware communication layer. Using real-time STT and TTS, it bridges conversations between Burmese staff and customers in any language. When pronunciation is unclear, the LLM uses full context (the menu, time of day, what the table already ordered) to infer intent. It proactively alerts servers to confirm ambiguous orders. A training mode simulates realistic customer interactions during breaks.',
+      results: ['Wrong orders dropped from 12/week to 0 across all 4 outlets', 'Food waste from order errors eliminated \u2014 saving S$2,400/month', 'Order-taking time reduced by 35%', 'New staff reach floor-ready confidence in 5 days instead of 3 weeks'],
+      quote: '\u201cBefore this, my servers were afraid to take orders from the aunties. Now they walk up smiling because they know the AI has their back.\u201d \u2014 Restaurant Owner'
+    },
+    4: {
+      tag: 'Sales Enablement',
+      title: 'Real-Time AI Sales Coaching',
+      client: 'A study-abroad consultancy in Singapore with 15 sales advisors and high staff turnover',
+      challenge: 'Advisors need deep knowledge of 200+ programs across 8 countries, visa requirements, and financing options. New advisors took 12 weeks to become productive. 3 senior managers spent most of their time coaching junior advisors \u2014 an expensive, unscalable bottleneck. Same problem at a partner hair salon chain where stylists sell treatments while cutting hair.',
+      solution: 'Flame Source OS uses STT to transcribe live customer conversations in real time. The LLM \u2014 loaded with the full product catalog and objection-handling playbooks \u2014 delivers discreet coaching prompts to the advisor\u2019s screen or earpiece. Outside live sessions, the AI simulates realistic customer personas for 24/7 practice. For hair salons, prompts are delivered via earpiece, keeping hands free.',
+      results: ['New advisor ramp-up time: 12 weeks \u2192 3 weeks', 'Junior advisor conversion rate improved by 55%', 'Senior manager coaching hours reduced by 80%', 'AI practice used 6 hours/week per new rep, replacing 6 hours of manager shadowing'],
+      quote: '\u201cI used to lose sleep every time a new hire sat with a client alone. Now the AI is in the room, and I sleep fine.\u201d \u2014 Sales Director'
+    }
+  };
+
+  var caseModal = document.getElementById('caseModal');
+  var caseModalBackdrop = caseModal.querySelector('.case-modal-backdrop');
+  var caseModalClose = caseModal.querySelector('.case-modal-close');
+
+  function openCaseModal(idx) {
+    var data = caseStudies[idx];
+    if (!data) return;
+    caseModal.querySelector('.case-modal-tag').textContent = data.tag;
+    caseModal.querySelector('.case-modal-title').textContent = data.title;
+    caseModal.querySelector('.case-modal-client').textContent = data.client;
+    caseModal.querySelector('.case-modal-challenge').textContent = data.challenge;
+    caseModal.querySelector('.case-modal-solution').textContent = data.solution;
+    var resultsList = caseModal.querySelector('.case-modal-results');
+    resultsList.innerHTML = '';
+    data.results.forEach(function(r) {
+      var li = document.createElement('li');
+      li.textContent = r;
+      resultsList.appendChild(li);
+    });
+    caseModal.querySelector('.case-modal-quote').textContent = data.quote;
+    caseModal.classList.add('open');
+  }
+
+  function closeCaseModal() {
+    caseModal.classList.remove('open');
+  }
+
+  /* Click handlers for case study links */
+  document.querySelectorAll('.poster-case-link').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var idx = parseInt(btn.getAttribute('data-case'), 10);
+      openCaseModal(idx);
+    });
+  });
+
+  caseModalClose.addEventListener('click', closeCaseModal);
+  caseModalBackdrop.addEventListener('click', closeCaseModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && caseModal.classList.contains('open')) {
+      closeCaseModal();
+    }
   });
 
   /* ══════════════════════

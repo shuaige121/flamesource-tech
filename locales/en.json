@@ -21,11 +21,18 @@
   "poster.music.metric1": "arrangement time",
   "poster.music.metric2": "with Flame Source OS",
 
-  "poster.restaurant.tag": "F&B · Translation",
-  "poster.restaurant.headline": "Google Translate Turned 'Crispy Pork Belly'\nInto Something Nobody Would Order.",
-  "poster.restaurant.body": "Your menu has 120 items. Your staff speak three languages. Your customers speak six. One wrong character and table 4 gets the wrong dish. Flame Source OS translates menus in real time — with context, not guesswork. Burmese, Thai, Bahasa, Tamil. The languages Google still gets wrong.",
-  "poster.restaurant.metric1": "wrong orders before",
-  "poster.restaurant.metric2": "wrong orders after",
+  "poster.restaurant.tag": "F&B · AI Voice Manager",
+  "poster.restaurant.headline": "She Speaks Burmese.\nThe Customer Speaks Hokkien.\nThe Order Was Perfect.",
+  "poster.restaurant.body": "Your server hears the order. The AI understands what the customer meant — not just what they said. Real-time voice translation with context-aware correction that catches miscommunication before it reaches the kitchen. Not a translator. An AI floor manager.",
+  "poster.restaurant.metric1": "wrong orders / week",
+  "poster.restaurant.metric2": "wrong orders now",
+
+  "poster.sales.tag": "Sales Enablement",
+  "poster.sales.headline": "Her First Week on the Floor.\nShe Sold Like a Ten-Year Veteran.",
+  "poster.sales.body": "New salespeople fail because no one is beside them when it matters. Flame Source OS listens to every customer conversation in real time and coaches your rep on what to say next. Like having your best sales manager in every room. Available 24/7 for practice.",
+  "poster.sales.metric1": "ramp-up time before",
+  "poster.sales.metric2": "with AI coaching",
+  "poster.sales.caselink": "View Case Study →",
 
   "poster.scroll": "Scroll",
   "poster.enter": "Enter",
