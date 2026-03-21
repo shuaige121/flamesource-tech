@@ -29,18 +29,18 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg-deep: #060910;
-  --bg: #0a0e1a;
-  --bg-alt: #0f1320;
-  --bg-card: #131829;
+  --bg-deep: #04070d;
+  --bg: #0c1220;
+  --bg-alt: #151f30;
+  --bg-card: #1a2740;
   --accent: #e25822;
   --accent-light: #ff7b3a;
-  --accent-dim: rgba(226, 88, 34, 0.12);
-  --text: #f0f2f5;
-  --text-secondary: #b8bcc4;
-  --text-muted: #6b7280;
-  --border: #1e2336;
-  --border-light: #2a3148;
+  --accent-dim: rgba(226, 88, 34, 0.18);
+  --text: #ffffff;
+  --text-secondary: #dce1e8;
+  --text-muted: #94a0b4;
+  --border: #283a52;
+  --border-light: #354d6a;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: 'Manrope', 'Inter', sans-serif;
   --mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -100,16 +100,16 @@ img { max-width: 100%; display: block; }
   position: absolute; inset: 0;
 }
 .poster-bg--blue .poster-bg-overlay {
-  background: linear-gradient(135deg, rgba(5,13,26,0.88) 0%, rgba(10,30,61,0.72) 40%, rgba(15,40,71,0.82) 100%);
+  background: linear-gradient(100deg, rgba(2,8,20,0.92) 0%, rgba(5,15,35,0.75) 45%, rgba(10,25,50,0.6) 100%);
 }
 .poster-bg--green .poster-bg-overlay {
-  background: linear-gradient(135deg, rgba(4,15,10,0.88) 0%, rgba(8,40,24,0.72) 40%, rgba(13,48,32,0.82) 100%);
+  background: linear-gradient(100deg, rgba(2,10,6,0.92) 0%, rgba(4,25,14,0.75) 45%, rgba(8,35,20,0.6) 100%);
 }
 .poster-bg--purple .poster-bg-overlay {
-  background: linear-gradient(135deg, rgba(10,5,24,0.88) 0%, rgba(26,13,53,0.72) 40%, rgba(35,19,71,0.82) 100%);
+  background: linear-gradient(100deg, rgba(6,3,16,0.92) 0%, rgba(16,8,36,0.75) 45%, rgba(25,12,50,0.6) 100%);
 }
 .poster-bg--amber .poster-bg-overlay {
-  background: linear-gradient(135deg, rgba(15,10,3,0.88) 0%, rgba(38,26,6,0.72) 40%, rgba(51,35,6,0.82) 100%);
+  background: linear-gradient(100deg, rgba(10,6,2,0.92) 0%, rgba(25,16,4,0.75) 45%, rgba(40,25,5,0.6) 100%);
 }
 
 /* Poster inner layout */
@@ -154,10 +154,11 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
   line-height: 1.2; letter-spacing: -0.02em; color: #fff; margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 .poster-desc {
-  font-size: clamp(0.92rem, 1.5vw, 1.05rem); color: var(--text-secondary);
-  line-height: 1.85; max-width: 540px;
+  font-size: clamp(0.92rem, 1.5vw, 1.05rem); color: rgba(255,255,255,0.85);
+  line-height: 1.85; max-width: 540px; text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 /* Poster metrics (right) */
@@ -367,18 +368,18 @@ section { padding: var(--section-gap) 0; }
   font-size: clamp(2rem,4vw,2.8rem); font-weight: 800;
   line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 20px; color: #fff;
 }
-.section-desc { font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; line-height: 1.8; }
+.section-desc { font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; line-height: 1.8; opacity: 0.95; }
 
 /* ═══════════
    AI GAP
    ═══════════ */
-.ai-gap { border-top: 1px solid var(--border); }
+.ai-gap { border-top: 1px solid var(--border); background: var(--bg); }
 .ai-gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 60px; }
 .ai-gap-text { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; }
 .ai-gap-text + .ai-gap-text { margin-top: 20px; }
 .ai-gap-stat {
   text-align: center; padding: 48px 32px;
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  background: rgba(226,88,34,0.06); border: 1px solid rgba(226,88,34,0.2); border-radius: var(--radius);
 }
 .ai-gap-stat-number {
   font-family: var(--font-heading); font-size: clamp(3.5rem, 7vw, 5rem);
@@ -425,7 +426,7 @@ section { padding: var(--section-gap) 0; }
 /* ═══════════════
    CAPABILITIES
    ═══════════════ */
-.capabilities { border-top: 1px solid var(--border); background: var(--bg-alt); }
+.capabilities { border-top: 2px solid var(--accent-dim); background: var(--bg-alt); }
 .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
 .cap-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
@@ -454,7 +455,7 @@ section { padding: var(--section-gap) 0; }
 /* ════════
    TEAM
    ════════ */
-.team { border-top: 1px solid var(--border); }
+.team { border-top: 2px solid var(--accent-dim); background: var(--bg); }
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 60px; }
 .team-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
@@ -598,6 +599,11 @@ section { padding: var(--section-gap) 0; }
           <option value="zh-Hans">中文</option>
           <option value="ms">BM</option>
           <option value="ta">தமிழ்</option>
+          <option value="id">ID</option>
+          <option value="th">ไทย</option>
+          <option value="vi">VI</option>
+          <option value="my">မြန်မာ</option>
+          <option value="fil">FIL</option>
         </select>
       </li>
       <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Get in Touch</a></li>
@@ -746,9 +752,9 @@ section { padding: var(--section-gap) 0; }
   <div class="hero-grid-pattern"></div>
   <div class="container">
     <div class="hero-content">
-      <div class="hero-badge hero-anim" style="animation-delay:0.2s" data-i18n="hero.badge"><span class="hero-badge-dot"></span>Singapore</div>
+      <div class="hero-badge hero-anim" style="animation-delay:0.2s"><span class="hero-badge-dot"></span><span data-i18n="hero.badge">Singapore</span> <span style="opacity:0.5; margin-left:4px;">&#x1F1F8;&#x1F1EC;</span></div>
       <h1 class="hero-anim" style="animation-delay:0.5s" data-i18n="hero.headline">We Build AI That <span class="gradient-text">Works.</span></h1>
-      <p class="hero-sub hero-anim-fade" style="animation-delay:0.9s"><span data-i18n="hero.sub">Better decisions. Faster execution. Lower cost. Zero errors.</span><br><span data-i18n="hero.sub2">Meet <strong style="color:#fff">Flame Source OS</strong> &mdash; the AI operating system for real business outcomes.</span></p>
+      <p class="hero-sub hero-anim-fade" style="animation-delay:0.9s"><span data-i18n="hero.sub">Your team wastes 40% of its time on work a machine should do.</span><br><span data-i18n="hero.sub2">Flame Source OS fixes that &mdash; one workflow at a time.</span></p>
       <div class="hero-ctas hero-anim-fade" style="animation-delay:1.2s">
         <a href="#product" class="btn btn-primary" data-i18n="hero.cta1">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></a>
         <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Talk to Us</a>
@@ -1202,10 +1208,12 @@ section { padding: var(--section-gap) 0; }
 })();
 
 /* ── i18n ── */
-var LANGS = ['en', 'zh-Hans', 'ms', 'ta'];
-var LANG_LABELS = { 'en': 'EN', 'zh-Hans': '中文', 'ms': 'BM', 'ta': 'தமிழ்' };
+var LANGS = ['en', 'zh-Hans', 'ms', 'ta', 'id', 'th', 'vi', 'my', 'fil'];
+var LANG_LABELS = { 'en': 'EN', 'zh-Hans': '中文', 'ms': 'BM', 'ta': 'தமிழ்', 'id': 'ID', 'th': 'ไทย', 'vi': 'VI', 'my': 'မြန်မာ', 'fil': 'FIL' };
 var FONT_MAP = {
-  'ta': 'Noto+Sans+Tamil:wght@400;700'
+  'ta': 'Noto+Sans+Tamil:wght@400;700',
+  'th': 'Noto+Sans+Thai:wght@400;700',
+  'my': 'Noto+Sans+Myanmar:wght@400;700'
 };
 var currentLang = 'en';
 var currentTranslations = null;
