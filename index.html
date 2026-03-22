@@ -157,12 +157,12 @@ img { max-width: 100%; display: block; }
 .poster-headline {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
-  line-height: 1.2; letter-spacing: -0.02em; color: #fff; margin-bottom: 20px;
+  line-height: 1.35; letter-spacing: -0.02em; color: #fff; margin-bottom: 24px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 .poster-desc {
   font-size: clamp(0.92rem, 1.5vw, 1.05rem); color: rgba(255,255,255,0.85);
-  line-height: 1.85; max-width: 540px; text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  line-height: 1.75; max-width: 480px; text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 /* Poster metrics (right) */
@@ -170,14 +170,14 @@ img { max-width: 100%; display: block; }
   background: rgba(0,0,0,0.35);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--radius);
-  padding: 40px 36px;
-  display: flex; align-items: center; justify-content: center; gap: 24px;
+  padding: 36px 32px;
+  display: flex; align-items: center; justify-content: center; gap: 20px;
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
 }
-.poster-metric { text-align: center; flex: 1; }
+.poster-metric { text-align: center; flex: 1; display: flex; flex-direction: column; align-items: center; }
 .poster-metric-val {
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 5vw, 4rem); font-weight: 800; line-height: 1;
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem); font-weight: 800; line-height: 1;
   display: block;
 }
 /* Metric color themes */
@@ -188,13 +188,13 @@ img { max-width: 100%; display: block; }
 .poster-slide[data-theme="teal"] .poster-metric-val { color: #2dd4bf; }
 
 .poster-metric-label {
-  font-size: 0.85rem; color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.4;
+  font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 10px; line-height: 1.4;
 }
 .poster-metric-arrow {
-  font-size: 1.8rem; color: rgba(255,255,255,0.5);
-  display: flex; align-items: center; flex-shrink: 0;
+  font-size: 1.6rem; color: rgba(255,255,255,0.5);
+  display: flex; align-items: center; flex-shrink: 0; padding: 0 4px;
 }
-.poster-metric-arrow svg { width: 32px; height: 32px; stroke: rgba(255,255,255,0.5); }
+.poster-metric-arrow svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.5); }
 
 /* Progress bar & controls */
 .poster-progress {
@@ -362,11 +362,11 @@ img { max-width: 100%; display: block; }
 .hero h1 {
   font-family: var(--font-heading);
   font-size: clamp(2.6rem,5.5vw,4.2rem); font-weight: 800;
-  line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 24px; color: #fff;
+  line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 20px; color: #fff;
 }
 .hero-sub {
-  font-size: clamp(1.05rem,2vw,1.2rem); color: var(--text-secondary);
-  line-height: 1.8; margin-bottom: 40px; max-width: 640px;
+  font-size: clamp(0.95rem,1.8vw,1.1rem); color: var(--text-secondary);
+  line-height: 1.7; margin-bottom: 32px; max-width: 580px;
 }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 
@@ -398,7 +398,7 @@ section { padding: var(--section-gap) 0; }
 .section-title {
   font-family: var(--font-heading);
   font-size: clamp(2rem,4vw,2.8rem); font-weight: 800;
-  line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 20px; color: #fff;
+  line-height: 1.25; letter-spacing: -0.025em; margin-bottom: 20px; color: #fff;
 }
 .section-desc { font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; line-height: 1.8; opacity: 0.95; }
 
@@ -552,9 +552,9 @@ section { padding: var(--section-gap) 0; }
    VIEW CASE STUDY LINK
    ═══════════════════ */
 .poster-case-link {
-  display: inline-flex; align-items: center; gap: 6px; margin-top: 20px;
-  font-size: 0.88rem; font-weight: 600; color: rgba(255,255,255,0.8);
-  cursor: pointer; background: none; border: none; padding: 0;
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
+  font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.7);
+  cursor: pointer; background: none; border: none; padding: 4px 0;
   font-family: var(--font); transition: color 0.2s, gap 0.2s;
 }
 .poster-case-link:hover { color: #fff; gap: 10px; }
