@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Flame Source Technology</title>
+<meta name="description" content="Get in touch with Flame Source Technology. Tell us about the workflow problem you want to solve.">
+<meta property="og:title" content="Contact — Flame Source Technology">
+<meta property="og:description" content="Tell us about the workflow that's costing you the most time. We'll show you what automation looks like.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://flamesource.ai/contact">
+<meta property="og:image" content="https://flamesource.ai/assets/office-hongkong-st.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="https://flamesource.ai/contact?lang=en">
+<link rel="alternate" hreflang="zh-Hans" href="https://flamesource.ai/contact?lang=zh-Hans">
+<link rel="alternate" hreflang="ms" href="https://flamesource.ai/contact?lang=ms">
+<link rel="alternate" hreflang="ta" href="https://flamesource.ai/contact?lang=ta">
+<link rel="alternate" hreflang="x-default" href="https://flamesource.ai/contact">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #04070d;
+  --bg: #0c1220;
+  --bg-alt: #151f30;
+  --bg-card: #1a2740;
+  --accent: #e25822;
+  --accent-light: #ff7b3a;
+  --accent-dim: rgba(226, 88, 34, 0.18);
+  --text: #ffffff;
+  --text-secondary: #dce1e8;
+  --text-muted: #94a0b4;
+  --border: #283a52;
+  --border-light: #354d6a;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Manrope', 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --max-w: 1200px;
+  --section-gap: 140px;
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font); background: var(--bg); color: var(--text);
+  line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-light); }
+img { max-width: 100%; display: block; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+
+/* ══════
+   NAV
+   ══════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(6,9,16,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent; transition: all 0.35s;
+}
+.nav.scrolled { background: rgba(6,9,16,0.92); border-bottom-color: var(--border); }
+.nav-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between; height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 0.95rem; color: var(--text);
+}
+.nav-logo img { height: 36px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a {
+  color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--accent); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--text); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta {
+  padding: 8px 20px; border-radius: 8px; background: var(--accent); color: #fff !important;
+  font-size: 0.85rem; font-weight: 600; transition: all 0.25s;
+}
+.nav-cta::after { display: none; }
+.nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+.nav-toggle {
+  display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 8px;
+}
+.nav-toggle svg { width: 24px; height: 24px; }
+
+.lang-switcher {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.lang-switcher:hover { border-color: var(--accent); color: var(--text); }
+.lang-switcher option { background: var(--bg-deep); color: var(--text); }
+
+/* ═══════════
+   REVEAL
+   ═══════════ */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+
+/* ═══════════
+   BUTTONS
+   ═══════════ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px;
+  border-radius: var(--radius-sm); font-size: 0.95rem; font-weight: 600;
+  font-family: var(--font); cursor: pointer; transition: all 0.3s; border: none; text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #fff; box-shadow: 0 4px 20px rgba(226,88,34,0.25);
+}
+.btn-primary:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(226,88,34,0.35); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border-light); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.btn svg { width: 18px; height: 18px; }
+
+/* ═══════════
+   SECTIONS
+   ═══════════ */
+section { padding: var(--section-gap) 0; }
+.section-label {
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 500; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 14px;
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem,4vw,2.8rem); font-weight: 800;
+  line-height: 1.25; letter-spacing: -0.025em; margin-bottom: 20px; color: #fff;
+}
+.section-desc { font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; line-height: 1.8; opacity: 0.95; }
+
+/* ═══════════
+   PAGE HERO
+   ═══════════ */
+.page-hero {
+  padding: 160px 0 80px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 100%);
+}
+.page-hero .section-title { font-size: clamp(2.2rem,5vw,3.2rem); margin-bottom: 24px; }
+.page-hero .section-desc { max-width: 700px; }
+
+/* ═══════════════
+   CONTACT LAYOUT
+   ═══════════════ */
+.contact-grid {
+  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: start;
+}
+
+/* ═══════════
+   FORM
+   ═══════════ */
+.contact-form {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 40px 36px;
+}
+.form-group {
+  margin-bottom: 24px;
+}
+.form-group label {
+  display: block; font-size: 0.85rem; font-weight: 600; color: var(--text);
+  margin-bottom: 8px;
+}
+.form-group label .required {
+  color: var(--accent); margin-left: 2px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 12px 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.92rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(226,88,34,0.15);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+}
+.form-group select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a0b4' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.form-group select option {
+  background: var(--bg-deep); color: var(--text);
+}
+.form-group textarea {
+  resize: vertical; min-height: 120px;
+}
+.form-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+}
+.form-submit {
+  margin-top: 8px;
+}
+.form-submit .btn {
+  width: 100%; justify-content: center;
+}
+
+/* ═══════════
+   SIDEBAR
+   ═══════════ */
+.contact-sidebar {
+  position: sticky; top: 100px;
+}
+.sidebar-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 32px 28px; margin-bottom: 20px;
+}
+.sidebar-card h4 {
+  font-family: var(--font-heading); font-size: 1rem; font-weight: 700;
+  color: #fff; margin-bottom: 16px;
+}
+.sidebar-card p {
+  font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75;
+}
+.sidebar-card p + p { margin-top: 8px; }
+.sidebar-buttons {
+  display: flex; flex-direction: column; gap: 12px; margin-top: 20px;
+}
+.sidebar-buttons .btn { width: 100%; justify-content: center; }
+.sidebar-detail {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+}
+.sidebar-detail svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
+.sidebar-detail span, .sidebar-detail a { font-size: 0.88rem; color: var(--text-secondary); }
+
+/* Map placeholder */
+.map-placeholder {
+  background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius);
+  height: 200px; display: flex; align-items: center; justify-content: center;
+  margin-top: 20px; overflow: hidden;
+}
+.map-placeholder span {
+  font-size: 0.85rem; color: var(--text-muted);
+}
+
+/* Privacy note */
+.privacy-note {
+  margin-top: 20px; padding: 16px 20px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.privacy-note p {
+  font-size: 0.8rem; color: var(--text-muted); line-height: 1.7;
+}
+.privacy-note a { font-size: 0.8rem; }
+
+/* ═══════════
+   FOOTER
+   ═══════════ */
+.footer { border-top: 1px solid var(--border); padding: 40px 0; background: var(--bg-deep); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer p { font-size: 0.8rem; color: var(--text-muted); }
+.footer a { color: var(--text-muted); }
+.footer a:hover { color: var(--accent); }
+
+/* ══════════════
+   RESPONSIVE
+   ══════════════ */
+@media (max-width: 1024px) {
+  :root { --section-gap: 100px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-sidebar { position: static; }
+}
+@media (max-width: 768px) {
+  :root { --section-gap: 72px; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0;
+    background: rgba(6,9,16,0.98); border-bottom: 1px solid var(--border); padding: 24px 28px; gap: 20px;
+  }
+  .nav-toggle { display: block; }
+  .page-hero { padding: 120px 0 56px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 480px) {
+  :root { --section-gap: 56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="../assets/logo.png" alt="Flame Source">
+      <span>FLAME SOURCE</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/solutions/" data-i18n="nav.solutions">Solutions</a></li>
+      <li><a href="/case-studies/" data-i18n="nav.caseStudies">Case Studies</a></li>
+      <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
+      <li><a href="/company/" data-i18n="nav.company">Company</a></li>
+      <li>
+        <select id="langSwitcher" class="lang-switcher" onchange="setLang(this.value)">
+          <option value="en">EN</option>
+          <option value="zh-Hans">中文</option>
+          <option value="ms">BM</option>
+          <option value="ta">தமிழ்</option>
+          <option value="id">ID</option>
+          <option value="th">ไทย</option>
+          <option value="vi">VI</option>
+          <option value="my">မြန်မာ</option>
+          <option value="fil">FIL</option>
+        </select>
+      </li>
+      <li><a href="/contact/" class="nav-cta active" data-i18n="nav.talkToUs">Talk to Us</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label" data-i18n="contact.hero.label">Contact</p>
+      <h2 class="section-title" data-i18n="contact.hero.title">Tell Us About<br>Your Workflow Problem</h2>
+      <p class="section-desc" data-i18n="contact.hero.desc">The more detail you share about the manual work that's costing your team time, the better we can assess how automation can help.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT FORM + SIDEBAR -->
+<section style="padding-top: 80px;">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="contact-form reveal">
+        <form id="contactForm" action="#" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="contact.form.nameLabel">Your Name <span class="required">*</span></label>
+              <input type="text" name="name" required placeholder="Full name" data-i18n-placeholder="contact.form.namePlaceholder">
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.emailLabel">Email <span class="required">*</span></label>
+              <input type="email" name="email" required placeholder="work@company.com" data-i18n-placeholder="contact.form.emailPlaceholder">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="contact.form.companyLabel">Company Name <span class="required">*</span></label>
+              <input type="text" name="company" required placeholder="Your company" data-i18n-placeholder="contact.form.companyPlaceholder">
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.roleLabel">Your Role</label>
+              <select name="role">
+                <option value="" data-i18n="contact.form.roleDefault">Select your role</option>
+                <option value="owner" data-i18n="contact.form.roleOwner">Business Owner / Founder</option>
+                <option value="ops" data-i18n="contact.form.roleOps">Operations Director / Manager</option>
+                <option value="cfo" data-i18n="contact.form.roleCfo">CFO / Finance Lead</option>
+                <option value="hr" data-i18n="contact.form.roleHr">HR / Recruitment Lead</option>
+                <option value="sales" data-i18n="contact.form.roleSales">Sales Director / Manager</option>
+                <option value="tech" data-i18n="contact.form.roleTech">CTO / IT Lead</option>
+                <option value="other" data-i18n="contact.form.roleOther">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="contact.form.useCaseLabel">Which area interests you most?</label>
+            <select name="use_case">
+              <option value="" data-i18n="contact.form.useCaseDefault">Select an area</option>
+              <option value="recruitment" data-i18n="contact.form.useCaseRecruitment">Recruitment Operations</option>
+              <option value="finance" data-i18n="contact.form.useCaseFinance">Finance & Back-Office</option>
+              <option value="frontline" data-i18n="contact.form.useCaseFrontline">Frontline / F&B Operations</option>
+              <option value="sales" data-i18n="contact.form.useCaseSales">Sales Enablement</option>
+              <option value="creative" data-i18n="contact.form.useCaseCreative">Creative Production</option>
+              <option value="other" data-i18n="contact.form.useCaseOther">Other / Not Sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="contact.form.problemLabel">What manual workflow is costing your team the most time? <span class="required">*</span></label>
+            <textarea name="problem" required placeholder="Describe the process your team spends the most time on that you think could be automated..." data-i18n-placeholder="contact.form.problemPlaceholder"></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label data-i18n="contact.form.sizeLabel">Team Size</label>
+              <select name="team_size">
+                <option value="" data-i18n="contact.form.sizeDefault">Select team size</option>
+                <option value="1-20">1-20</option>
+                <option value="20-50">20-50</option>
+                <option value="50-100">50-100</option>
+                <option value="100-200">100-200</option>
+                <option value="200+">200+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-i18n="contact.form.phoneLabel">Phone / WhatsApp (optional)</label>
+              <input type="tel" name="phone" placeholder="+65 XXXX XXXX">
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Enquiry <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
+          </div>
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar">
+        <!-- Quick Contact -->
+        <div class="sidebar-card reveal reveal-d1">
+          <h4 data-i18n="contact.sidebar.quickTitle">Prefer a Quick Chat?</h4>
+          <p data-i18n="contact.sidebar.quickDesc">Skip the form. Reach us directly via WhatsApp or email.</p>
+          <div class="sidebar-buttons">
+            <a href="https://wa.me/6588165505" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.116 1.519 5.853L.05 23.998l6.288-1.65A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.003 0-3.868-.6-5.427-1.632l-.39-.23-3.732.98.996-3.642-.254-.403A9.706 9.706 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+              <span data-i18n="contact.sidebar.whatsapp">WhatsApp Us</span>
+            </a>
+            <a href="mailto:info@flamesource.ai" class="btn btn-outline">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:20px;height:20px;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <span data-i18n="contact.sidebar.email">Email Us</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Office Address -->
+        <div class="sidebar-card reveal reveal-d2">
+          <h4 data-i18n="contact.sidebar.officeTitle">Office</h4>
+          <div class="sidebar-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span data-i18n="contact.sidebar.address">39 Hongkong Street #03-01<br>Singapore 059678</span>
+          </div>
+          <div class="sidebar-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <a href="mailto:info@flamesource.ai">info@flamesource.ai</a>
+          </div>
+          <div class="sidebar-detail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="https://wa.me/6588165505" target="_blank" rel="noopener noreferrer">+65 8816 5505</a>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div class="map-placeholder">
+            <span data-i18n="contact.sidebar.mapPlaceholder">Map embed placeholder — 39 Hongkong Street, Singapore</span>
+          </div>
+        </div>
+
+        <!-- Privacy Note -->
+        <div class="privacy-note reveal reveal-d3">
+          <p data-i18n="contact.sidebar.privacy">Your data is protected under Singapore's PDPA. We collect only what you provide, use it solely to respond to your enquiry, and delete it within 12 months. We never sell or share your data. <a href="/#privacy">Read our full Privacy Policy</a>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <p data-i18n="footer.copy">&copy; 2024&ndash;2026 FLAME SOURCE TECHNOLOGY PTE. LTD. &nbsp;|&nbsp; UEN: 202432774E &nbsp;|&nbsp; Singapore</p>
+      <p><a href="/#privacy" data-i18n="footer.privacy">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  /* Nav scroll effect */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* Mobile nav toggle */
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() {
+    links.classList.toggle('open');
+  });
+
+  /* Reveal on scroll */
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(function(el) { observer.observe(el); });
+
+  /* Form submission placeholder */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      /* TODO: Wire up form submission (e.g., Cloudflare Workers, email API) */
+      var btn = form.querySelector('.form-submit .btn');
+      var origHTML = btn.innerHTML;
+      btn.innerHTML = 'Sent! We\'ll be in touch.';
+      btn.style.background = '#16a34a';
+      btn.style.boxShadow = '0 4px 20px rgba(22,163,74,0.25)';
+      setTimeout(function() {
+        btn.innerHTML = origHTML;
+        btn.style.background = '';
+        btn.style.boxShadow = '';
+        form.reset();
+      }, 3000);
+    });
+  }
+})();
+
+/* i18n */
+var LANGS = ['en', 'zh-Hans', 'ms', 'ta', 'id', 'th', 'vi', 'my', 'fil'];
+var FONT_MAP = {
+  'ta': 'Noto+Sans+Tamil:wght@400;700',
+  'th': 'Noto+Sans+Thai:wght@400;700',
+  'my': 'Noto+Sans+Myanmar:wght@400;700'
+};
+var currentLang = 'en';
+
+function loadFont(lang) {
+  if (!FONT_MAP[lang]) return;
+  if (document.querySelector('link[data-lang-font="' + lang + '"]')) return;
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=' + FONT_MAP[lang] + '&display=swap';
+  link.setAttribute('data-lang-font', lang);
+  document.head.appendChild(link);
+}
+
+function applyTranslations(t) {
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (t[key].indexOf('\n') !== -1) {
+        el.innerHTML = t[key].replace(/\n/g, '<br>');
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+  /* Translate placeholders */
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-placeholder');
+    if (t[key] !== undefined) {
+      el.placeholder = t[key];
+    }
+  });
+}
+
+async function setLang(lang) {
+  if (!LANGS.includes(lang)) lang = 'en';
+  try {
+    var res = await fetch('../locales/' + lang + '.json');
+    var t = await res.json();
+    applyTranslations(t);
+    document.documentElement.lang = lang === 'zh-Hans' ? 'zh' : lang;
+    currentLang = lang;
+    localStorage.setItem('fst-lang', lang);
+    var url = new URL(window.location);
+    url.searchParams.set('lang', lang);
+    history.replaceState(null, '', url);
+    var sel = document.getElementById('langSwitcher');
+    if (sel) sel.value = lang;
+    loadFont(lang);
+  } catch(e) {
+    console.error('i18n load error:', e);
+  }
+}
+
+(function() {
+  var urlLang = new URLSearchParams(location.search).get('lang');
+  var storedLang = localStorage.getItem('fst-lang');
+  var initLang = urlLang || storedLang || 'en';
+  if (LANGS.includes(initLang) && initLang !== 'en') {
+    setLang(initLang);
+  }
+})();
+</script>
+</body>
+</html>

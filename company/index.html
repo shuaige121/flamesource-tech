@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company — Flame Source Technology</title>
+<meta name="description" content="Flame Source Technology — Singapore-based applied automation company. Meet the team building AI that works for operations teams.">
+<meta property="og:title" content="Company — Flame Source Technology">
+<meta property="og:description" content="Singapore HQ. Three founders. One mission: automate the work your team shouldn't still be doing.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://flamesource.ai/company">
+<meta property="og:image" content="https://flamesource.ai/assets/office-hongkong-st.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="https://flamesource.ai/company?lang=en">
+<link rel="alternate" hreflang="zh-Hans" href="https://flamesource.ai/company?lang=zh-Hans">
+<link rel="alternate" hreflang="ms" href="https://flamesource.ai/company?lang=ms">
+<link rel="alternate" hreflang="ta" href="https://flamesource.ai/company?lang=ta">
+<link rel="alternate" hreflang="x-default" href="https://flamesource.ai/company">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #04070d;
+  --bg: #0c1220;
+  --bg-alt: #151f30;
+  --bg-card: #1a2740;
+  --accent: #e25822;
+  --accent-light: #ff7b3a;
+  --accent-dim: rgba(226, 88, 34, 0.18);
+  --text: #ffffff;
+  --text-secondary: #dce1e8;
+  --text-muted: #94a0b4;
+  --border: #283a52;
+  --border-light: #354d6a;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: 'Manrope', 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --max-w: 1200px;
+  --section-gap: 140px;
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font); background: var(--bg); color: var(--text);
+  line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--accent-light); }
+img { max-width: 100%; display: block; }
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+
+/* ══════
+   NAV
+   ══════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(6,9,16,0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent; transition: all 0.35s;
+}
+.nav.scrolled { background: rgba(6,9,16,0.92); border-bottom-color: var(--border); }
+.nav-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between; height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 0.95rem; color: var(--text);
+}
+.nav-logo img { height: 36px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a {
+  color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--accent); transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--text); }
+.nav-links a.active::after { width: 100%; }
+.nav-cta {
+  padding: 8px 20px; border-radius: 8px; background: var(--accent); color: #fff !important;
+  font-size: 0.85rem; font-weight: 600; transition: all 0.25s;
+}
+.nav-cta::after { display: none; }
+.nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+.nav-toggle {
+  display: none; background: none; border: none; color: var(--text); cursor: pointer; padding: 8px;
+}
+.nav-toggle svg { width: 24px; height: 24px; }
+
+.lang-switcher {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-family: var(--font);
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.lang-switcher:hover { border-color: var(--accent); color: var(--text); }
+.lang-switcher option { background: var(--bg-deep); color: var(--text); }
+
+/* ═══════════
+   REVEAL
+   ═══════════ */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+
+/* ═══════════
+   BUTTONS
+   ═══════════ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 14px 30px;
+  border-radius: var(--radius-sm); font-size: 0.95rem; font-weight: 600;
+  font-family: var(--font); cursor: pointer; transition: all 0.3s; border: none; text-decoration: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #fff; box-shadow: 0 4px 20px rgba(226,88,34,0.25);
+}
+.btn-primary:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(226,88,34,0.35); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border-light); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.btn svg { width: 18px; height: 18px; }
+
+/* ═══════════
+   SECTIONS
+   ═══════════ */
+section { padding: var(--section-gap) 0; }
+.section-label {
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 500; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 14px;
+}
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem,4vw,2.8rem); font-weight: 800;
+  line-height: 1.25; letter-spacing: -0.025em; margin-bottom: 20px; color: #fff;
+}
+.section-desc { font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; line-height: 1.8; opacity: 0.95; }
+
+/* ═══════════
+   PAGE HERO
+   ═══════════ */
+.page-hero {
+  padding: 160px 0 80px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 100%);
+}
+.page-hero .section-title { font-size: clamp(2.2rem,5vw,3.2rem); margin-bottom: 24px; }
+.page-hero .section-desc { max-width: 700px; }
+
+/* ═══════════
+   ABOUT
+   ═══════════ */
+.about-section { border-top: 1px solid var(--border); }
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 48px;
+}
+.about-text { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; }
+.about-text + .about-text { margin-top: 20px; }
+.about-text strong { color: var(--accent-light); font-weight: 600; }
+.about-image {
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border);
+}
+.about-image img { width: 100%; height: auto; }
+.about-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px;
+}
+.about-stat {
+  text-align: center; padding: 32px 20px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.about-stat-val {
+  font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800;
+  color: var(--accent-light); line-height: 1; margin-bottom: 8px;
+}
+.about-stat-label { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ═══════════
+   TEAM
+   ═══════════ */
+.team-section { border-top: 1px solid var(--border); background: var(--bg-alt); }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 60px; }
+.team-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; transition: all 0.35s; display: flex; flex-direction: column;
+}
+.team-card:hover { transform: translateY(-4px); border-color: rgba(226,88,34,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+.team-card-header {
+  padding: 32px 28px 18px;
+  background: linear-gradient(180deg, rgba(226,88,34,0.06) 0%, transparent 100%);
+  border-left: 3px solid var(--accent);
+}
+.team-highlight { color: var(--accent-light); font-weight: 600; }
+.team-card h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.team-name-cn { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+.team-role { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); font-weight: 500; }
+.team-card-body { padding: 0 28px 32px; flex: 1; display: flex; flex-direction: column; }
+.team-bio { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8; margin-top: 16px; }
+
+/* ═══════════════════
+   FLAME SOURCE OS
+   ═══════════════════ */
+.tech-section { border-top: 1px solid var(--border); }
+.tech-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 48px;
+}
+.tech-text { font-size: 1rem; color: var(--text-secondary); line-height: 1.85; }
+.tech-text + .tech-text { margin-top: 16px; }
+.tech-features {
+  list-style: none; padding: 0; margin-top: 24px;
+}
+.tech-features li {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+  padding-left: 24px; position: relative; margin-bottom: 8px;
+}
+.tech-features li::before {
+  content: ''; position: absolute; left: 0; top: 11px;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+}
+.tech-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 500;
+  padding: 6px 16px; border-radius: 100px;
+  background: var(--accent-dim); color: var(--accent-light);
+  border: 1px solid rgba(226,88,34,0.2); margin-bottom: 20px;
+}
+.tech-sidebar {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 36px 32px;
+}
+.tech-sidebar h4 {
+  font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700;
+  color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+.tech-sidebar p {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.75;
+}
+.tech-sidebar p + p { margin-top: 12px; }
+
+/* ═══════════
+   CONTACT INFO
+   ═══════════ */
+.contact-section { border-top: 1px solid var(--border); background: var(--bg-alt); }
+.contact-info {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 48px;
+}
+.contact-details h3 {
+  font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700;
+  color: #fff; margin-bottom: 8px;
+}
+.contact-details p {
+  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px;
+}
+.contact-detail-item {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+}
+.contact-detail-item svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; }
+.contact-detail-item span { font-size: 0.92rem; color: var(--text-secondary); }
+.contact-detail-item a { font-size: 0.92rem; }
+
+/* ═══════════
+   FOOTER
+   ═══════════ */
+.footer { border-top: 1px solid var(--border); padding: 40px 0; background: var(--bg-deep); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer p { font-size: 0.8rem; color: var(--text-muted); }
+.footer a { color: var(--text-muted); }
+.footer a:hover { color: var(--accent); }
+
+/* ══════════════
+   RESPONSIVE
+   ══════════════ */
+@media (max-width: 1024px) {
+  :root { --section-gap: 100px; }
+  .about-grid, .tech-grid, .contact-info { grid-template-columns: 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  :root { --section-gap: 72px; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0;
+    background: rgba(6,9,16,0.98); border-bottom: 1px solid var(--border); padding: 24px 28px; gap: 20px;
+  }
+  .nav-toggle { display: block; }
+  .page-hero { padding: 120px 0 56px; }
+  .team-grid { grid-template-columns: 1fr; }
+  .about-stats { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+}
+@media (max-width: 480px) {
+  :root { --section-gap: 56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="../assets/logo.png" alt="Flame Source">
+      <span>FLAME SOURCE</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/solutions/" data-i18n="nav.solutions">Solutions</a></li>
+      <li><a href="/case-studies/" data-i18n="nav.caseStudies">Case Studies</a></li>
+      <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
+      <li><a href="/company/" class="active" data-i18n="nav.company">Company</a></li>
+      <li>
+        <select id="langSwitcher" class="lang-switcher" onchange="setLang(this.value)">
+          <option value="en">EN</option>
+          <option value="zh-Hans">中文</option>
+          <option value="ms">BM</option>
+          <option value="ta">தமிழ்</option>
+          <option value="id">ID</option>
+          <option value="th">ไทย</option>
+          <option value="vi">VI</option>
+          <option value="my">မြန်မာ</option>
+          <option value="fil">FIL</option>
+        </select>
+      </li>
+      <li><a href="/contact/" class="nav-cta" data-i18n="nav.talkToUs">Talk to Us</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label" data-i18n="company.hero.label">Company</p>
+      <h2 class="section-title" data-i18n="company.hero.title">Applied Automation,<br>Made in Singapore</h2>
+      <p class="section-desc" data-i18n="company.hero.desc">Flame Source Technology is a Singapore-based applied automation company. We design and deploy workflow automation systems for operations teams.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label" data-i18n="company.about.label">About Us</p>
+      <h2 class="section-title" data-i18n="company.about.title">Who We Are</h2>
+    </div>
+    <div class="about-grid">
+      <div class="reveal reveal-d1">
+        <p class="about-text" data-i18n="company.about.p1">Placeholder about text. Flame Source Technology Pte. Ltd. is headquartered in Singapore. We are a solutions delivery company, not a SaaS product company.</p>
+        <p class="about-text" data-i18n="company.about.p2">Placeholder about text. We serve Singapore SMEs with 20-200 staff, focusing on operations-heavy teams drowning in manual processes.</p>
+        <p class="about-text" data-i18n="company.about.p3"><strong>Our mission:</strong> Automate the manual workflows your team shouldn't still be doing.</p>
+      </div>
+      <div class="about-image reveal reveal-d2">
+        <img src="../assets/office-hongkong-st.jpg" alt="Flame Source office at 39 Hongkong Street, Singapore" loading="lazy">
+      </div>
+    </div>
+    <div class="about-stats reveal">
+      <div class="about-stat">
+        <div class="about-stat-val" data-i18n="company.about.stat1Val">39</div>
+        <div class="about-stat-label" data-i18n="company.about.stat1Label">Hongkong Street, Singapore</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-val" data-i18n="company.about.stat2Val">34</div>
+        <div class="about-stat-label" data-i18n="company.about.stat2Label">Patents held</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-val" data-i18n="company.about.stat3Val">150+</div>
+        <div class="about-stat-label" data-i18n="company.about.stat3Label">Countries reached</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section" id="team">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label" data-i18n="company.team.label">Team</p>
+      <h2 class="section-title" data-i18n="company.team.title">The Founders</h2>
+    </div>
+    <div class="team-grid">
+      <!-- Founder 1 -->
+      <div class="team-card reveal reveal-d1">
+        <div class="team-card-header">
+          <h3 data-i18n="team.wu.name">Wu Beinan</h3>
+          <p class="team-name-cn">吴北南</p>
+          <p class="team-role" data-i18n="team.wu.role">Co-Founder &middot; Hardware &amp; BD</p>
+        </div>
+        <div class="team-card-body">
+          <p class="team-bio" data-i18n="team.wu.bio">Co-founded <span class="team-highlight">GameSir</span>, a consumer electronics brand in <span class="team-highlight">150+ countries</span>. Holds 34 patents in precision sensing and wireless technology. B.Eng., South China University of Technology.</p>
+        </div>
+      </div>
+      <!-- Founder 2 -->
+      <div class="team-card reveal reveal-d2">
+        <div class="team-card-header">
+          <h3 data-i18n="team.chen.name">Chen Jinzhu</h3>
+          <p class="team-name-cn">陈金柱</p>
+          <p class="team-role" data-i18n="team.chen.role">Chief Technology Officer</p>
+        </div>
+        <div class="team-card-body">
+          <p class="team-bio" data-i18n="team.chen.bio"><span class="team-highlight"><span id="cjYears"></span> years</span> in software engineering. Former CTO leading a <span class="team-highlight">100+ engineer</span> team, delivering products with RMB 100M+ monthly revenue. Specialist in distributed systems and AI automation.</p>
+        </div>
+      </div>
+      <!-- Founder 3 -->
+      <div class="team-card reveal reveal-d3">
+        <div class="team-card-header">
+          <h3 data-i18n="team.leonard.name">Leonard Zhou</h3>
+          <p class="team-name-cn">周利安</p>
+          <p class="team-role" data-i18n="team.leonard.role">Co-Founder &middot; SG Operations</p>
+        </div>
+        <div class="team-card-body">
+          <p class="team-bio" data-i18n="team.leonard.bio"><span class="team-highlight">Singaporean</span> entrepreneur applying AI to real business problems. Built <span class="team-highlight">AI marketing automation</span> and digital ordering platforms for local F&amp;B. B.Com (Marketing), University College Dublin.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POWERED BY FLAME SOURCE OS -->
+<section class="tech-section" id="technology">
+  <div class="container">
+    <div class="reveal">
+      <span class="tech-badge">Powered by Flame Source OS</span>
+      <p class="section-label" data-i18n="company.tech.label">Technology</p>
+      <h2 class="section-title" data-i18n="company.tech.title">The Engine Behind<br>Every Solution</h2>
+    </div>
+    <div class="tech-grid">
+      <div class="reveal reveal-d1">
+        <p class="tech-text" data-i18n="company.tech.p1">Flame Source OS is our internal delivery platform — the AI operating system that powers every automation solution we deploy.</p>
+        <p class="tech-text" data-i18n="company.tech.p2">It orchestrates models, tools, and workflows so your team focuses on decisions, not configuration.</p>
+        <ul class="tech-features">
+          <li data-i18n="company.tech.f1">Model routing — automatically selects the right AI model for each task</li>
+          <li data-i18n="company.tech.f2">Skill library — pre-built, domain-specific capabilities</li>
+          <li data-i18n="company.tech.f3">Zero prompt engineering — describe outcomes in plain language</li>
+          <li data-i18n="company.tech.f4">Integration layer — connects to ERPs, CRMs, databases, and custom APIs</li>
+        </ul>
+      </div>
+      <div class="tech-sidebar reveal reveal-d2">
+        <h4 data-i18n="company.tech.sidebarTitle">How It's Different</h4>
+        <p data-i18n="company.tech.sidebar1">Flame Source OS is not a product you buy. It's the platform we use to build and deliver your automation solutions.</p>
+        <p data-i18n="company.tech.sidebar2">Every solution we deploy runs on this platform, ensuring consistent quality, reliability, and the ability to evolve as your needs change.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT INFO -->
+<section class="contact-section" id="contact-info">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label" data-i18n="company.contact.label">Contact</p>
+      <h2 class="section-title" data-i18n="company.contact.title">Get in Touch</h2>
+    </div>
+    <div class="contact-info reveal reveal-d1">
+      <div class="contact-details">
+        <h3 data-i18n="company.contact.hqTitle">Singapore Headquarters</h3>
+        <p data-i18n="company.contact.hqAddress">FLAME SOURCE TECHNOLOGY PTE. LTD.<br>39 Hongkong Street #03-01<br>Singapore 059678</p>
+        <p data-i18n="company.contact.uen">UEN: 202432774E</p>
+        <div class="contact-detail-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <a href="mailto:info@flamesource.ai">info@flamesource.ai</a>
+        </div>
+        <div class="contact-detail-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <a href="mailto:bd@flamesource.ai">bd@flamesource.ai</a>
+        </div>
+        <div class="contact-detail-item">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;color:var(--accent);"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.116 1.519 5.853L.05 23.998l6.288-1.65A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.003 0-3.868-.6-5.427-1.632l-.39-.23-3.732.98.996-3.642-.254-.403A9.706 9.706 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+          <a href="https://wa.me/6588165505" target="_blank" rel="noopener noreferrer">+65 8816 5505</a>
+        </div>
+      </div>
+      <div>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="/contact/" class="btn btn-primary" data-i18n="company.contact.ctaForm">Contact Form <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></a>
+          <a href="https://wa.me/6588165505" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-i18n="company.contact.ctaWhatsApp">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <p data-i18n="footer.copy">&copy; 2024&ndash;2026 FLAME SOURCE TECHNOLOGY PTE. LTD. &nbsp;|&nbsp; UEN: 202432774E &nbsp;|&nbsp; Singapore</p>
+      <p><a href="/#privacy" data-i18n="footer.privacy">Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  /* CJ years calculation */
+  var cjEl = document.getElementById('cjYears');
+  if (cjEl) cjEl.textContent = new Date().getFullYear() - 2008;
+
+  /* Nav scroll effect */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  /* Mobile nav toggle */
+  var toggle = document.getElementById('navToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() {
+    links.classList.toggle('open');
+  });
+
+  /* Reveal on scroll */
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
+
+/* i18n */
+var LANGS = ['en', 'zh-Hans', 'ms', 'ta', 'id', 'th', 'vi', 'my', 'fil'];
+var FONT_MAP = {
+  'ta': 'Noto+Sans+Tamil:wght@400;700',
+  'th': 'Noto+Sans+Thai:wght@400;700',
+  'my': 'Noto+Sans+Myanmar:wght@400;700'
+};
+var currentLang = 'en';
+
+function loadFont(lang) {
+  if (!FONT_MAP[lang]) return;
+  if (document.querySelector('link[data-lang-font="' + lang + '"]')) return;
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = 'https://fonts.googleapis.com/css2?family=' + FONT_MAP[lang] + '&display=swap';
+  link.setAttribute('data-lang-font', lang);
+  document.head.appendChild(link);
+}
+
+function applyTranslations(t) {
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (key === 'team.chen.bio') {
+        var years = new Date().getFullYear() - 2008;
+        el.textContent = years + ' ' + t[key];
+        return;
+      }
+      if (t[key].indexOf('\n') !== -1) {
+        el.innerHTML = t[key].replace(/\n/g, '<br>');
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+}
+
+async function setLang(lang) {
+  if (!LANGS.includes(lang)) lang = 'en';
+  try {
+    var res = await fetch('../locales/' + lang + '.json');
+    var t = await res.json();
+    applyTranslations(t);
+    document.documentElement.lang = lang === 'zh-Hans' ? 'zh' : lang;
+    currentLang = lang;
+    localStorage.setItem('fst-lang', lang);
+    var url = new URL(window.location);
+    url.searchParams.set('lang', lang);
+    history.replaceState(null, '', url);
+    var sel = document.getElementById('langSwitcher');
+    if (sel) sel.value = lang;
+    loadFont(lang);
+  } catch(e) {
+    console.error('i18n load error:', e);
+  }
+}
+
+(function() {
+  var urlLang = new URLSearchParams(location.search).get('lang');
+  var storedLang = localStorage.getItem('fst-lang');
+  var initLang = urlLang || storedLang || 'en';
+  if (LANGS.includes(initLang) && initLang !== 'en') {
+    setLang(initLang);
+  }
+})();
+</script>
+</body>
+</html>
