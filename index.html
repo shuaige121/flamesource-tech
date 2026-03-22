@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flame Source OS — We Build AI That Works</title>
-<meta name="description" content="Flame Source OS — the AI operating system that turns business problems into working solutions. Model routing, skill library, zero prompt engineering.">
-<meta property="og:title" content="Flame Source OS — We Build AI That Works">
-<meta property="og:description" content="The AI operating system. Give us the problem. Get back the result.">
+<title>Flame Source Technology — Workflow Automation for Operations Teams</title>
+<meta name="description" content="Flame Source Technology automates the manual workflows your team shouldn't still be doing — hiring, payroll, frontline communication, sales enablement. Singapore-based. Outcome-measured.">
+<meta property="og:title" content="Flame Source Technology — Workflow Automation for Operations Teams">
+<meta property="og:description" content="We automate the workflows your team shouldn't still be doing. Singapore-based. Outcome-measured.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flamesource.ai">
 <meta property="og:image" content="https://flamesource.ai/assets/office-hongkong-st.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Flame Source OS — We Build AI That Works">
-<meta name="twitter:description" content="The AI operating system. Give us the problem. Get back the result.">
+<meta name="twitter:title" content="Flame Source Technology — Workflow Automation for Operations Teams">
+<meta name="twitter:description" content="We automate the workflows your team shouldn't still be doing. Singapore-based. Outcome-measured.">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
@@ -45,7 +45,7 @@
   --font-heading: 'Manrope', 'Inter', sans-serif;
   --mono: 'JetBrains Mono', 'Fira Code', monospace;
   --max-w: 1200px;
-  --section-gap: 140px;
+  --section-gap: 120px;
   --radius: 16px;
   --radius-sm: 10px;
 }
@@ -55,7 +55,6 @@ body {
   font-family: var(--font); background: var(--bg); color: var(--text);
   line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
-body.scroll-locked { overflow: hidden; }
 a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
 a:hover { color: var(--accent-light); }
 img { max-width: 100%; display: block; }
@@ -64,172 +63,14 @@ img { max-width: 100%; display: block; }
 .gradient-text {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, #ffb088 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShimmer 4s ease-in-out infinite;
 }
-
-/* ══════════════════════════════════════
-   POSTER CAROUSEL (forced full-screen)
-   ══════════════════════════════════════ */
-.poster-carousel {
-  position: fixed; inset: 0; z-index: 900;
-  background: var(--bg-deep);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+@keyframes gradientShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-.poster-carousel.dismissed {
-  opacity: 0; transform: translateY(-40px);
-  pointer-events: none;
-}
-
-/* Individual poster slide */
-.poster-slide {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  padding: 90px 0 80px;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1);
-}
-.poster-slide.active { opacity: 1; pointer-events: auto; }
-
-/* Poster backgrounds */
-.poster-bg {
-  position: absolute; inset: 0; z-index: 0;
-}
-.poster-bg img {
-  width: 100%; height: 100%; object-fit: cover;
-}
-.poster-bg-overlay {
-  position: absolute; inset: 0;
-}
-.poster-bg--blue .poster-bg-overlay {
-  background: linear-gradient(100deg, rgba(2,8,20,0.92) 0%, rgba(5,15,35,0.75) 45%, rgba(10,25,50,0.6) 100%);
-}
-.poster-bg--green .poster-bg-overlay {
-  background: linear-gradient(100deg, rgba(2,10,6,0.92) 0%, rgba(4,25,14,0.75) 45%, rgba(8,35,20,0.6) 100%);
-}
-.poster-bg--purple .poster-bg-overlay {
-  background: linear-gradient(100deg, rgba(6,3,16,0.92) 0%, rgba(16,8,36,0.75) 45%, rgba(25,12,50,0.6) 100%);
-}
-.poster-bg--amber .poster-bg-overlay {
-  background: linear-gradient(100deg, rgba(10,6,2,0.92) 0%, rgba(25,16,4,0.75) 45%, rgba(40,25,5,0.6) 100%);
-}
-.poster-bg--teal .poster-bg-overlay {
-  background: linear-gradient(100deg, rgba(2,12,16,0.92) 0%, rgba(4,25,30,0.75) 45%, rgba(8,40,50,0.6) 100%);
-}
-
-/* Poster inner layout */
-.poster-inner {
-  position: relative; z-index: 1;
-  max-width: var(--max-w); width: 100%; margin: 0 auto; padding: 0 40px;
-  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;
-}
-
-/* Poster content (left) */
-.poster-content { display: flex; flex-direction: column; }
-
-/* Staggered entrance for poster content */
-.poster-slide .poster-tag,
-.poster-slide .poster-headline,
-.poster-slide .poster-desc {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
-}
-.poster-slide .poster-metrics-box {
-  opacity: 0; transform: translateY(24px) scale(0.97);
-  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
-}
-.poster-slide.active .poster-tag       { opacity: 1; transform: none; transition-delay: 0.15s; }
-.poster-slide.active .poster-headline   { opacity: 1; transform: none; transition-delay: 0.28s; }
-.poster-slide.active .poster-desc       { opacity: 1; transform: none; transition-delay: 0.40s; }
-.poster-slide.active .poster-metrics-box { opacity: 1; transform: none; transition-delay: 0.50s; }
-
-.poster-tag {
-  display: inline-flex; align-items: center; gap: 6px; width: fit-content;
-  font-family: var(--mono); font-size: 0.75rem; font-weight: 500;
-  padding: 5px 14px; border-radius: 4px; border: 1px solid;
-  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px;
-}
-/* Tag color themes */
-.poster-slide[data-theme="blue"] .poster-tag { background: rgba(96,165,250,0.1); color: #93bbfd; border-color: rgba(96,165,250,0.25); }
-.poster-slide[data-theme="green"] .poster-tag { background: rgba(74,222,128,0.1); color: #86efac; border-color: rgba(74,222,128,0.25); }
-.poster-slide[data-theme="purple"] .poster-tag { background: rgba(192,132,252,0.1); color: #d8b4fe; border-color: rgba(192,132,252,0.25); }
-.poster-slide[data-theme="amber"] .poster-tag { background: rgba(251,191,36,0.1); color: #fcd34d; border-color: rgba(251,191,36,0.25); }
-.poster-slide[data-theme="teal"] .poster-tag { background: rgba(45,212,191,0.1); color: #5eead4; border-color: rgba(45,212,191,0.25); }
-
-.poster-headline {
-  font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
-  line-height: 1.35; letter-spacing: -0.02em; color: #fff; margin-bottom: 24px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-}
-.poster-desc {
-  font-size: clamp(0.92rem, 1.5vw, 1.05rem); color: rgba(255,255,255,0.85);
-  line-height: 1.75; max-width: 480px; text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-}
-
-/* Poster metrics (right) */
-.poster-metrics-box {
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: var(--radius);
-  padding: 36px 32px;
-  display: flex; align-items: center; justify-content: center; gap: 20px;
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-}
-.poster-metric { text-align: center; flex: 1; display: flex; flex-direction: column; align-items: center; }
-.poster-metric-val {
-  font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 4.5vw, 3.5rem); font-weight: 800; line-height: 1;
-  display: block;
-}
-/* Metric color themes */
-.poster-slide[data-theme="blue"] .poster-metric-val { color: #60a5fa; }
-.poster-slide[data-theme="green"] .poster-metric-val { color: #4ade80; }
-.poster-slide[data-theme="purple"] .poster-metric-val { color: #c084fc; }
-.poster-slide[data-theme="amber"] .poster-metric-val { color: #fbbf24; }
-.poster-slide[data-theme="teal"] .poster-metric-val { color: #2dd4bf; }
-
-.poster-metric-label {
-  font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-top: 10px; line-height: 1.4;
-}
-.poster-metric-arrow {
-  font-size: 1.6rem; color: rgba(255,255,255,0.5);
-  display: flex; align-items: center; flex-shrink: 0; padding: 0 4px;
-}
-.poster-metric-arrow svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.5); }
-
-/* Progress bar & controls */
-.poster-progress {
-  position: absolute; bottom: max(32px, env(safe-area-inset-bottom, 0px)); left: 0; right: 0; z-index: 10;
-  display: flex; flex-direction: column; align-items: center; gap: 16px;
-}
-.poster-dots { display: flex; gap: 10px; }
-.poster-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: rgba(255,255,255,0.35); transition: all 0.4s;
-}
-.poster-dot.active { transform: scale(1.2); }
-.poster-carousel[data-active-theme="blue"] .poster-dot.active { background: #60a5fa; }
-.poster-carousel[data-active-theme="green"] .poster-dot.active { background: #4ade80; }
-.poster-carousel[data-active-theme="purple"] .poster-dot.active { background: #c084fc; }
-.poster-carousel[data-active-theme="amber"] .poster-dot.active { background: #fbbf24; }
-.poster-carousel[data-active-theme="teal"] .poster-dot.active { background: #2dd4bf; }
-
-.poster-scroll-hint {
-  display: flex; flex-direction: column; align-items: center; gap: 4px;
-  font-size: 0.72rem; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase;
-  animation: hintBounce 2s ease-in-out infinite;
-}
-.poster-scroll-hint svg { width: 16px; height: 16px; stroke: rgba(255,255,255,0.5); }
-@keyframes hintBounce {
-  0%, 100% { transform: translateY(0); opacity: 0.7; }
-  50% { transform: translateY(6px); opacity: 1; }
-}
-
-/* Counter for poster index */
-.poster-counter {
-  position: absolute; top: 90px; right: 40px; z-index: 10;
-  font-family: var(--mono); font-size: 0.82rem; color: rgba(255,255,255,0.45);
-}
-.poster-counter-current { color: #fff; font-weight: 700; font-size: 1.1rem; }
 
 /* ══════════════════
    REVEAL ANIMATIONS
@@ -244,40 +85,10 @@ img { max-width: 100%; display: block; }
 .reveal-d3 { transition-delay: 0.24s; }
 .reveal-d4 { transition-delay: 0.32s; }
 
-/* Hero text clip-path entrance */
-@keyframes clipReveal {
-  from { clip-path: inset(0 100% 0 0); opacity: 0; }
-  to   { clip-path: inset(0 0 0 0); opacity: 1; }
-}
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.hero-anim { opacity: 0; }
-.hero-anim.animate { animation: clipReveal 1s cubic-bezier(0.16,1,0.3,1) forwards; }
-.hero-anim-fade { opacity: 0; }
-
-/* Gradient text shimmer animation */
-@keyframes gradientShimmer {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-.gradient-text {
-  background-size: 200% 200%;
-  animation: gradientShimmer 4s ease-in-out infinite;
-}
-
-/* Hero stat highlight pulse */
-.hero-stat-highlight {
-  color: var(--accent-light); font-weight: 700;
-  animation: statPulse 3s ease-in-out infinite;
-}
-@keyframes statPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; text-shadow: 0 0 20px rgba(226,88,34,0.5); }
-}
-.hero-anim-fade.animate { animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards; }
 
 /* ══════
    NAV
@@ -297,7 +108,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700; font-size: 0.95rem; color: var(--text);
 }
 .nav-logo img { height: 36px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
 .nav-links a {
   color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;
   transition: color 0.2s; position: relative;
@@ -326,49 +137,31 @@ img { max-width: 100%; display: block; }
   position: relative; min-height: 100vh; display: flex; align-items: center;
   padding: 120px 0 100px; overflow: hidden;
 }
-.hero-slides { position: absolute; inset: 0; z-index: 0; }
-.hero-slide {
-  position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out;
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
 }
-.hero-slide.active { opacity: 1; }
-.hero-slide img { width: 100%; height: 100%; object-fit: cover; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(135deg, rgba(6,9,16,0.92) 0%, rgba(6,9,16,0.72) 50%, rgba(6,9,16,0.88) 100%);
+  background: linear-gradient(135deg, rgba(6,9,16,0.93) 0%, rgba(6,9,16,0.78) 50%, rgba(6,9,16,0.90) 100%);
 }
-.hero-grid-pattern {
-  position: absolute; inset: 0; z-index: 2;
-  background-image: linear-gradient(rgba(226,88,34,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(226,88,34,0.04) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black 20%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black 20%, transparent 100%);
-  animation: gridDrift 20s linear infinite;
-}
-@keyframes gridDrift {
-  from { background-position: 0 0; }
-  to { background-position: 80px 80px; }
-}
-.hero-content { position: relative; z-index: 3; max-width: 820px; }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 100px;
-  background: var(--accent-dim); border: 1px solid rgba(226,88,34,0.2);
-  font-size: 0.8rem; font-weight: 500; color: var(--accent-light); margin-bottom: 28px;
-}
-.hero-badge-dot {
-  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(0.8); } }
+.hero-content { position: relative; z-index: 3; max-width: 720px; }
 .hero h1 {
   font-family: var(--font-heading);
-  font-size: clamp(2.6rem,5.5vw,4.2rem); font-weight: 800;
-  line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 20px; color: #fff;
+  font-size: clamp(2.4rem,5vw,3.6rem); font-weight: 800;
+  line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 20px; color: #fff;
 }
 .hero-sub {
-  font-size: clamp(0.95rem,1.8vw,1.1rem); color: var(--text-secondary);
-  line-height: 1.7; margin-bottom: 32px; max-width: 580px;
+  font-size: clamp(0.95rem,1.6vw,1.1rem); color: var(--text-secondary);
+  line-height: 1.8; margin-bottom: 36px; max-width: 600px;
 }
-.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+.hero-powered {
+  font-size: 0.8rem; color: var(--text-muted); font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
+.hero-powered a { color: var(--text-muted); }
+.hero-powered a:hover { color: var(--accent-light); }
 
 /* ═══════════
    BUTTONS
@@ -400,123 +193,244 @@ section { padding: var(--section-gap) 0; }
   font-size: clamp(2rem,4vw,2.8rem); font-weight: 800;
   line-height: 1.25; letter-spacing: -0.025em; margin-bottom: 20px; color: #fff;
 }
-.section-desc { font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; line-height: 1.8; opacity: 0.95; }
+.section-desc { font-size: 1.05rem; color: var(--text-secondary); max-width: 640px; line-height: 1.8; }
 
-/* ═══════════
-   AI GAP
-   ═══════════ */
-.ai-gap { border-top: 1px solid var(--border); background: var(--bg); }
-.ai-gap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 60px; }
-.ai-gap-text { font-size: 1.05rem; color: var(--text-secondary); line-height: 1.85; }
-.ai-gap-text + .ai-gap-text { margin-top: 20px; }
-.ai-gap-stat {
-  text-align: center; padding: 48px 32px;
-  background: rgba(226,88,34,0.06); border: 1px solid rgba(226,88,34,0.2); border-radius: var(--radius);
+/* ═════════════
+   PROOF STRIP
+   ═════════════ */
+.proof-strip {
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  background: var(--bg-deep); padding: 28px 0;
 }
-.ai-gap-stat-number {
-  font-family: var(--font-heading); font-size: clamp(3.5rem, 7vw, 5rem);
-  font-weight: 800; line-height: 1; margin-bottom: 12px;
+.proof-strip-inner {
+  display: flex; justify-content: center; align-items: center;
+  gap: 12px; flex-wrap: wrap;
 }
-.ai-gap-stat-label { font-size: 1rem; color: var(--text-secondary); line-height: 1.6; }
+.proof-item {
+  font-size: 0.82rem; color: var(--text-muted); font-weight: 500;
+  letter-spacing: 0.02em; white-space: nowrap;
+}
+.proof-divider {
+  width: 4px; height: 4px; border-radius: 50%; background: var(--border-light);
+  flex-shrink: 0;
+}
 
-/* ═══════════════════
-   FLAME SOURCE OS
-   ═══════════════════ */
-.product { position: relative; overflow: hidden; border-top: 1px solid var(--border); }
-.product-bg { position: absolute; inset: 0; z-index: 0; }
-.product-bg img { width: 100%; height: 100%; object-fit: cover; }
-.product-bg-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(6,9,16,0.93) 0%, rgba(6,9,16,0.8) 50%, rgba(6,9,16,0.93) 100%);
+/* ══════════════════
+   SOLUTION CARDS
+   ══════════════════ */
+.solutions { border-top: 1px solid var(--border); background: var(--bg); }
+.solutions-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px;
 }
-.product .container { position: relative; z-index: 1; }
-.product-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
-.product-feature {
-  background: rgba(19,24,41,0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 32px 28px; transition: all 0.35s; position: relative; overflow: hidden;
+.solution-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 36px 28px; transition: all 0.35s; position: relative; overflow: hidden;
 }
-.product-feature::before {
+.solution-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
   opacity: 0; transition: opacity 0.35s;
 }
-.product-feature:hover {
+.solution-card:hover {
   border-color: rgba(226,88,34,0.3); transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
-.product-feature:hover::before { opacity: 1; }
-.product-feature-icon {
-  width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--accent-dim);
+.solution-card:hover::before { opacity: 1; }
+.solution-icon {
+  width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--accent-dim);
   display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
   border: 1px solid rgba(226,88,34,0.2);
 }
-.product-feature-icon svg { width: 22px; height: 22px; color: var(--accent); }
-.product-feature h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
-.product-feature p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.75; }
+.solution-icon svg { width: 24px; height: 24px; color: var(--accent); }
+.solution-card h3 {
+  font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700;
+  color: #fff; margin-bottom: 12px;
+}
+.solution-card p {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px;
+}
+.solution-link {
+  font-size: 0.88rem; font-weight: 600; color: var(--accent);
+  display: inline-flex; align-items: center; gap: 4px; transition: gap 0.2s;
+}
+.solution-link:hover { gap: 8px; color: var(--accent-light); }
+.solutions-also {
+  text-align: center; margin-top: 32px; font-size: 0.9rem; color: var(--text-muted);
+}
+.solutions-also span { color: var(--text-secondary); font-weight: 500; }
 
-/* ═══════════════
-   CAPABILITIES
-   ═══════════════ */
-.capabilities { border-top: 2px solid var(--accent-dim); background: var(--bg-alt); }
-.cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
-.cap-card {
+/* ══════════════════
+   FEATURED CASE STUDY
+   ══════════════════ */
+.case-study { border-top: 1px solid var(--border); background: var(--bg-alt); }
+.case-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 32px 28px; transition: all 0.35s; position: relative; overflow: hidden;
+  padding: 48px 40px; max-width: 800px; margin-top: 48px; position: relative; overflow: hidden;
 }
-.cap-card:hover {
-  border-color: rgba(226,88,34,0.3); transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+.case-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
 }
-.cap-card::after {
-  content: ''; position: absolute; inset: -1px; border-radius: var(--radius);
-  background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(226,88,34,0.08), transparent 60%);
-  z-index: 0; pointer-events: none; opacity: 0; transition: opacity 0.3s;
-}
-.cap-card:hover::after { opacity: 1; }
-.cap-card > * { position: relative; z-index: 1; }
-.cap-icon {
-  width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--accent-dim);
-  display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+.case-tag {
+  display: inline-block; font-family: var(--mono); font-size: 0.75rem; font-weight: 500;
+  padding: 4px 12px; border-radius: 4px;
+  background: var(--accent-dim); color: var(--accent-light);
   border: 1px solid rgba(226,88,34,0.2);
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
 }
-.cap-icon svg { width: 22px; height: 22px; color: var(--accent); }
-.cap-card h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
-.cap-card p { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.75; }
+.case-card h3 {
+  font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700;
+  color: #fff; margin-bottom: 24px; line-height: 1.4;
+}
+.case-detail { margin-bottom: 16px; }
+.case-detail-label {
+  font-family: var(--mono); font-size: 0.75rem; font-weight: 600;
+  color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.case-detail p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; }
+.case-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 20px;
+  font-size: 0.92rem; font-weight: 600; color: var(--accent); transition: gap 0.2s;
+}
+.case-link:hover { gap: 10px; color: var(--accent-light); }
+
+/* ════════════════
+   PROCESS TIMELINE
+   ════════════════ */
+.process { border-top: 1px solid var(--border); background: var(--bg); }
+.process-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px;
+}
+.process-step {
+  text-align: center; position: relative; padding: 32px 20px;
+}
+.process-step-number {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--accent-dim); border: 2px solid var(--accent);
+  font-family: var(--font-heading); font-size: 1.1rem; font-weight: 800;
+  color: var(--accent-light); margin-bottom: 16px;
+}
+.process-step h3 {
+  font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
+  color: #fff; margin-bottom: 10px;
+}
+.process-step p {
+  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;
+}
+/* Connector line between steps */
+.process-step::after {
+  content: ''; position: absolute; top: 56px; right: -12px;
+  width: 24px; height: 2px; background: var(--border-light);
+}
+.process-step:last-child::after { display: none; }
+
+/* ══════════════════
+   WHY FLAME SOURCE
+   ══════════════════ */
+.why-us { border-top: 1px solid var(--border); background: var(--bg-alt); }
+.why-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; align-items: center; margin-top: 48px;
+}
+.why-content p {
+  font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px;
+}
+.why-facts {
+  list-style: none; padding: 0; margin: 0;
+}
+.why-facts li {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
+  padding-left: 20px; position: relative; margin-bottom: 8px;
+}
+.why-facts li::before {
+  content: ''; position: absolute; left: 0; top: 10px;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+}
+.why-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+  font-size: 0.92rem; font-weight: 600; color: var(--accent); transition: gap 0.2s;
+}
+.why-link:hover { gap: 10px; color: var(--accent-light); }
+.why-visual {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 40px 32px; text-align: center;
+}
+.why-visual-badge {
+  font-family: var(--mono); font-size: 0.82rem; color: var(--accent-light);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;
+}
+.why-visual-headline {
+  font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800;
+  color: #fff; line-height: 1.3; margin-bottom: 16px;
+}
+.why-visual p {
+  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.75;
+}
 
 /* ════════
    TEAM
    ════════ */
-.team { border-top: 2px solid var(--accent-dim); background: var(--bg); }
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 60px; }
+.team { border-top: 1px solid var(--border); background: var(--bg); }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
 .team-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
   overflow: hidden; transition: all 0.35s; display: flex; flex-direction: column;
 }
 .team-card:hover { transform: translateY(-4px); border-color: rgba(226,88,34,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
 .team-card-header {
-  padding: 32px 28px 18px;
+  padding: 28px 24px 14px;
   background: linear-gradient(180deg, rgba(226,88,34,0.06) 0%, transparent 100%);
   border-left: 3px solid var(--accent);
 }
 .team-highlight { color: var(--accent-light); font-weight: 600; }
-.team-card h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
-.team-name-cn { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
-.team-role { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); font-weight: 500; }
-.team-card-body { padding: 0 28px 32px; flex: 1; display: flex; flex-direction: column; }
-.team-bio { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8; margin-top: 16px; }
+.team-card h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.team-name-cn { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.team-role { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); font-weight: 500; }
+.team-card-body { padding: 0 24px 24px; flex: 1; }
+.team-bio { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; margin-top: 12px; }
+.team-more {
+  text-align: center; margin-top: 32px;
+}
+.team-more a {
+  font-size: 0.92rem; font-weight: 600; color: var(--accent);
+  display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s;
+}
+.team-more a:hover { gap: 10px; color: var(--accent-light); }
 
 /* ═══════════
-   CONTACT
+   CONTACT CTA
    ═══════════ */
-.contact { position: relative; overflow: hidden; border-top: 1px solid var(--border); }
-.contact-bg { position: absolute; inset: 0; z-index: 0; }
-.contact-bg img { width: 100%; height: 100%; object-fit: cover; }
-.contact-bg-overlay {
+.contact-cta {
+  position: relative; overflow: hidden; border-top: 1px solid var(--border);
+}
+.contact-cta-bg { position: absolute; inset: 0; z-index: 0; }
+.contact-cta-bg img { width: 100%; height: 100%; object-fit: cover; }
+.contact-cta-bg-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(6,9,16,0.94) 0%, rgba(6,9,16,0.82) 50%, rgba(6,9,16,0.94) 100%);
 }
-.contact .container { position: relative; z-index: 1; }
+.contact-cta .container { position: relative; z-index: 1; }
+.contact-cta-content { max-width: 640px; }
+.contact-cta-content h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem,4vw,2.8rem); font-weight: 800;
+  line-height: 1.25; color: #fff; margin-bottom: 24px;
+}
+.contact-cta-buttons { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
+.contact-cta-address {
+  font-size: 0.9rem; color: var(--text-muted); line-height: 1.7;
+}
+.contact-cta-address strong { color: var(--text-secondary); font-weight: 600; }
+.contact-cta-emails { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.contact-cta-email {
+  background: none; border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 16px; color: var(--text-secondary); font-family: var(--mono);
+  font-size: 0.8rem; cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 8px;
+}
+.contact-cta-email:hover { border-color: var(--accent); color: var(--accent-light); }
+.contact-cta-email svg { width: 14px; height: 14px; }
 
 /* ═══════════
    PRIVACY
@@ -544,140 +458,12 @@ section { padding: var(--section-gap) 0; }
    ══════════ */
 .footer { border-top: 1px solid var(--border); padding: 40px 0; background: var(--bg-deep); }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer-nav { display: flex; gap: 24px; list-style: none; margin-bottom: 0; }
+.footer-nav a { color: var(--text-muted); font-size: 0.8rem; font-weight: 500; }
+.footer-nav a:hover { color: var(--accent); }
 .footer p { font-size: 0.8rem; color: var(--text-muted); }
 .footer a { color: var(--text-muted); }
 .footer a:hover { color: var(--accent); }
-
-/* ═══════════════════
-   VIEW CASE STUDY LINK
-   ═══════════════════ */
-.poster-case-link {
-  display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
-  font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.7);
-  cursor: pointer; background: none; border: none; padding: 4px 0;
-  font-family: var(--font); transition: color 0.2s, gap 0.2s;
-}
-.poster-case-link:hover { color: #fff; gap: 10px; }
-.poster-case-link svg { width: 16px; height: 16px; stroke: currentColor; }
-.poster-slide .poster-case-link {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1), color 0.2s, gap 0.2s;
-}
-.poster-slide.active .poster-case-link { opacity: 1; transform: none; transition-delay: 0.48s; }
-
-/* ═══════════════
-   CASE STUDY MODAL
-   ═══════════════ */
-.case-modal {
-  position: fixed; inset: 0; z-index: 1100;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.35s ease;
-}
-.case-modal.open { opacity: 1; pointer-events: auto; }
-.case-modal-backdrop {
-  position: absolute; inset: 0; background: rgba(0,0,0,0.8);
-}
-.case-modal-content {
-  position: relative; z-index: 1;
-  max-width: 720px; width: 92%; max-height: 85vh; overflow-y: auto;
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 48px 40px;
-  transform: translateY(40px);
-  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
-}
-.case-modal.open .case-modal-content { transform: translateY(0); }
-.case-modal-close {
-  position: absolute; top: 16px; right: 16px;
-  background: none; border: none; color: var(--text-muted);
-  font-size: 1.8rem; line-height: 1; cursor: pointer;
-  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
-  border-radius: 8px; transition: all 0.2s;
-}
-.case-modal-close:hover { color: #fff; background: rgba(255,255,255,0.08); }
-.case-modal-tag {
-  display: inline-block; font-family: var(--mono); font-size: 0.75rem;
-  font-weight: 500; padding: 4px 12px; border-radius: 4px;
-  background: var(--accent-dim); color: var(--accent-light);
-  border: 1px solid rgba(226,88,34,0.2);
-  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px;
-}
-.case-modal-title {
-  font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800;
-  color: #fff; line-height: 1.25; margin-bottom: 28px;
-}
-.case-modal-section { margin-bottom: 20px; }
-.case-modal-section h3 {
-  font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700;
-  color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.08em;
-  margin-bottom: 8px;
-}
-.case-modal-section p {
-  font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8;
-}
-.case-modal-results {
-  list-style: none; padding: 0;
-}
-.case-modal-results li {
-  font-size: 0.92rem; color: var(--text-secondary); line-height: 1.8;
-  padding-left: 20px; position: relative; margin-bottom: 4px;
-}
-.case-modal-results li::before {
-  content: ''; position: absolute; left: 0; top: 10px;
-  width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
-}
-.case-modal-quote {
-  margin-top: 24px; padding: 20px 24px; border-left: 3px solid var(--accent);
-  background: rgba(226,88,34,0.05); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 0.92rem; color: var(--text-secondary); font-style: italic; line-height: 1.75;
-}
-
-/* ══════════════
-   RESPONSIVE
-   ══════════════ */
-@media (max-width: 1024px) {
-  :root { --section-gap: 100px; }
-  .poster-inner { grid-template-columns: 1fr; gap: 32px; }
-  .poster-metrics-box { max-width: 420px; }
-}
-@media (max-width: 768px) {
-  :root { --section-gap: 72px; }
-  .nav-links { display: none; }
-  .nav-links.open {
-    display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0;
-    background: rgba(6,9,16,0.98); border-bottom: 1px solid var(--border); padding: 24px 28px; gap: 20px;
-  }
-  .nav-toggle { display: block; }
-  .hero { min-height: auto; padding: 120px 0 72px; }
-  .ai-gap-grid { grid-template-columns: 1fr; gap: 40px; }
-  .product-features { grid-template-columns: 1fr; }
-  .cap-grid { grid-template-columns: 1fr; }
-  .team-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
-  .poster-inner { padding: 0 20px; gap: 16px; }
-  .poster-slide { padding: 64px 0 60px; align-items: flex-start; overflow-y: auto; }
-  .poster-headline { font-size: clamp(1.25rem, 5vw, 1.7rem); margin-bottom: 10px; }
-  .poster-desc { font-size: 0.82rem; line-height: 1.65; }
-  .poster-tag { margin-bottom: 14px; font-size: 0.7rem; padding: 3px 10px; }
-  .poster-metrics-box { padding: 16px 14px; gap: 10px; }
-  .poster-metric-val { font-size: clamp(1.6rem, 7vw, 2.2rem); }
-  .poster-metric-label { font-size: 0.68rem; }
-  .poster-counter { top: 64px; right: 16px; font-size: 0.75rem; }
-  .poster-counter-current { font-size: 0.95rem; }
-  .poster-progress { bottom: max(20px, env(safe-area-inset-bottom, 0px)); gap: 10px; }
-  .poster-scroll-hint { font-size: 0.65rem; }
-  .poster-dot { width: 8px; height: 8px; }
-  .case-modal-content { padding: 32px 20px; }
-  .case-modal-title { font-size: 1.3rem; }
-  .poster-case-link { font-size: 0.8rem; margin-top: 14px; }
-}
-@media (max-width: 480px) {
-  :root { --section-gap: 56px; }
-  .hero-ctas { flex-direction: column; }
-  .hero-ctas .btn { width: 100%; justify-content: center; }
-  .poster-metrics-box { flex-direction: column; gap: 12px; }
-  .poster-metric-arrow { transform: rotate(90deg); }
-}
 
 /* ══════════════════
    LANGUAGE SWITCHER
@@ -698,20 +484,58 @@ section { padding: var(--section-gap) 0; }
 }
 .lang-switcher:hover { border-color: var(--accent); color: var(--text); }
 .lang-switcher option { background: var(--bg-deep); color: var(--text); }
+
+/* ══════════════
+   RESPONSIVE
+   ══════════════ */
+@media (max-width: 1024px) {
+  :root { --section-gap: 90px; }
+  .solutions-grid { grid-template-columns: 1fr 1fr; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .process-step::after { display: none; }
+  .why-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 768px) {
+  :root { --section-gap: 72px; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0;
+    background: rgba(6,9,16,0.98); border-bottom: 1px solid var(--border); padding: 24px 28px; gap: 20px;
+  }
+  .nav-toggle { display: block; }
+  .hero { min-height: auto; padding: 120px 0 72px; }
+  .solutions-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
+  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-nav { justify-content: center; }
+  .case-card { padding: 32px 24px; }
+  .proof-strip-inner { gap: 8px; }
+  .proof-item { font-size: 0.75rem; }
+}
+@media (max-width: 480px) {
+  :root { --section-gap: 56px; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn { width: 100%; justify-content: center; }
+  .contact-cta-buttons { flex-direction: column; }
+  .contact-cta-buttons .btn { width: 100%; justify-content: center; }
+}
 </style>
 </head>
-<body class="scroll-locked">
+<body>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">
+    <a href="/" class="nav-logo">
       <img src="assets/logo.png" alt="Flame Source">
       <span>FLAME SOURCE</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#product" data-i18n="nav.product">Flame Source OS</a></li>
-      <li><a href="#team" data-i18n="nav.team">Team</a></li>
+      <li><a href="/solutions/" data-i18n="nav.solutions">Solutions</a></li>
+      <li><a href="/case-studies/" data-i18n="nav.caseStudies">Case Studies</a></li>
+      <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
+      <li><a href="/company/" data-i18n="nav.company">Company</a></li>
       <li>
         <select id="langSwitcher" class="lang-switcher" onchange="setLang(this.value)">
           <option value="en">EN</option>
@@ -725,7 +549,7 @@ section { padding: var(--section-gap) 0; }
           <option value="fil">FIL</option>
         </select>
       </li>
-      <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Get in Touch</a></li>
+      <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Talk to Us</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -733,302 +557,168 @@ section { padding: var(--section-gap) 0; }
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════════════
-     POSTER CAROUSEL — forced full-screen viewing
-     ═══════════════════════════════════════════ -->
-<div class="poster-carousel" id="posterCarousel" data-active-theme="blue">
-
-  <!-- Poster 1: Recruitment (Blue) -->
-  <div class="poster-slide active" data-theme="blue" data-index="0">
-    <div class="poster-bg poster-bg--blue"><img src="assets/poster-recruitment.jpg" alt="" loading="eager"><div class="poster-bg-overlay"></div></div>
-    <div class="poster-inner">
-      <div class="poster-content">
-        <span class="poster-tag" data-i18n="poster.recruitment.tag">Recruitment</span>
-        <h2 class="poster-headline" data-i18n="poster.recruitment.headline">&ldquo;500 Resumes a Day.<br>490 Were Noise.&rdquo;</h2>
-        <p class="poster-desc" data-i18n="poster.recruitment.body">Hiring managers are drowning in AI-generated resumes that all look the same. Manual screening burns hours and still misses great candidates. Flame Source OS reads, scores, and ranks every application in seconds &mdash; surfacing only the profiles worth interviewing.</p>
-        <button class="poster-case-link" data-case="0" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
-      </div>
-      <div class="poster-metrics-box">
-        <div class="poster-metric">
-          <span class="poster-metric-val" data-count="500">0</span>
-          <span class="poster-metric-label" data-i18n="poster.recruitment.metric1">resumes per role</span>
-        </div>
-        <div class="poster-metric-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-        </div>
-        <div class="poster-metric">
-          <span class="poster-metric-val" data-count="10">0</span>
-          <span class="poster-metric-label" data-i18n="poster.recruitment.metric2">worth interviewing</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Poster 2: Finance (Green) -->
-  <div class="poster-slide" data-theme="green" data-index="1">
-    <div class="poster-bg poster-bg--green"><img src="assets/poster-finance.jpg" alt="" loading="eager"><div class="poster-bg-overlay"></div></div>
-    <div class="poster-inner">
-      <div class="poster-content">
-        <span class="poster-tag" data-i18n="poster.finance.tag">Finance</span>
-        <h2 class="poster-headline" data-i18n="poster.finance.headline">&ldquo;Three People. Forty Hours.<br>Every Month.&rdquo;</h2>
-        <p class="poster-desc" data-i18n="poster.finance.body">Payroll, contract reconciliation, invoicing &mdash; a finance team of three spends 40 hours every month on tasks that should be automatic. At least one error makes it through every cycle. Flame Source OS automates the entire pipeline, end to end, with zero errors.</p>
-        <button class="poster-case-link" data-case="1" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
-      </div>
-      <div class="poster-metrics-box">
-        <div class="poster-metric">
-          <span class="poster-metric-val"><span data-count="40">0</span>h</span>
-          <span class="poster-metric-label" data-i18n="poster.finance.metric1">manual work / month</span>
-        </div>
-        <div class="poster-metric-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-        </div>
-        <div class="poster-metric">
-          <span class="poster-metric-val">0</span>
-          <span class="poster-metric-label" data-i18n="poster.finance.metric2">errors over 6 months</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Poster 3: Music (Purple) -->
-  <div class="poster-slide" data-theme="purple" data-index="2">
-    <div class="poster-bg poster-bg--purple"><img src="assets/poster-music.jpg" alt="" loading="eager"><div class="poster-bg-overlay"></div></div>
-    <div class="poster-inner">
-      <div class="poster-content">
-        <span class="poster-tag" data-i18n="poster.music.tag">Music Production</span>
-        <h2 class="poster-headline" data-i18n="poster.music.headline">&ldquo;The Song Was Ready.<br>The Arrangement Took Weeks.&rdquo;</h2>
-        <p class="poster-desc" data-i18n="poster.music.body">A local musician had the melody but arrangement work stretched to three weeks every time. Working with Singapore artists, Flame Source OS accelerates arrangement, instrumentation, and mixing &mdash; turning weeks into days while preserving artistic intent.</p>
-        <button class="poster-case-link" data-case="2" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
-      </div>
-      <div class="poster-metrics-box">
-        <div class="poster-metric">
-          <span class="poster-metric-val"><span data-count="3">0</span> wk</span>
-          <span class="poster-metric-label" data-i18n="poster.music.metric1">arrangement time</span>
-        </div>
-        <div class="poster-metric-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-        </div>
-        <div class="poster-metric">
-          <span class="poster-metric-val"><span data-count="2">0</span> days</span>
-          <span class="poster-metric-label" data-i18n="poster.music.metric2">with Flame Source OS</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Poster 4: Restaurant Translation (Amber) -->
-  <div class="poster-slide" data-theme="amber" data-index="3">
-    <div class="poster-bg poster-bg--amber"><img src="assets/poster-restaurant.jpg" alt="" loading="eager"><div class="poster-bg-overlay"></div></div>
-    <div class="poster-inner">
-      <div class="poster-content">
-        <span class="poster-tag" data-i18n="poster.restaurant.tag">F&amp;B &middot; AR Smart Glasses</span>
-        <h2 class="poster-headline" data-i18n="poster.restaurant.headline">&ldquo;Less Oil. More Done. No Chili.&rdquo;<br>Your Burmese Server Understood<br>Every Word.</h2>
-        <p class="poster-desc" data-i18n="poster.restaurant.body">Your staff learn dish names fast &mdash; that&rsquo;s the easy part. The killer is &ldquo;less salt&rdquo;, &ldquo;crispier&rdquo;, &ldquo;cook it more&rdquo;. AR smart glasses give your server real-time subtitles of exactly what the customer said &mdash; no awkward translation pauses, just a natural conversation. Off the floor, the AI teacher app drills them on real requests until the glasses become a safety net, not a crutch.</p>
-        <button class="poster-case-link" data-case="3" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
-      </div>
-      <div class="poster-metrics-box">
-        <div class="poster-metric">
-          <span class="poster-metric-val"><span data-count="12">0</span>/wk</span>
-          <span class="poster-metric-label" data-i18n="poster.restaurant.metric1">wrong orders before</span>
-        </div>
-        <div class="poster-metric-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-        </div>
-        <div class="poster-metric">
-          <span class="poster-metric-val">0</span>
-          <span class="poster-metric-label" data-i18n="poster.restaurant.metric2">wrong orders after</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Poster 5: AI Sales Assistant (Teal) -->
-  <div class="poster-slide" data-theme="teal" data-index="4">
-    <div class="poster-bg poster-bg--teal"><img src="assets/poster-sales.jpg" alt="" loading="eager"><div class="poster-bg-overlay"></div></div>
-    <div class="poster-inner">
-      <div class="poster-content">
-        <span class="poster-tag" data-i18n="poster.sales.tag">Sales &middot; AI Coach</span>
-        <h2 class="poster-headline" data-i18n="poster.sales.headline">&ldquo;New Sales Rep. Day One.<br>Already Closing.&rdquo;</h2>
-        <p class="poster-desc" data-i18n="poster.sales.body">Training costs are killing your margins. New reps take months to ramp up. Flame Source OS listens to every conversation and coaches in real time &mdash; like having your best sales manager in every rep&rsquo;s ear.</p>
-        <button class="poster-case-link" data-case="4" data-i18n="poster.caseLink">View Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
-      </div>
-      <div class="poster-metrics-box">
-        <div class="poster-metric">
-          <span class="poster-metric-val"><span data-count="3">0</span> mo</span>
-          <span class="poster-metric-label" data-i18n="poster.sales.metric1">ramp-up time before</span>
-        </div>
-        <div class="poster-metric-arrow">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-        </div>
-        <div class="poster-metric">
-          <span class="poster-metric-val"><span data-count="2">0</span> wk</span>
-          <span class="poster-metric-label" data-i18n="poster.sales.metric2">ramp-up time after</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Counter -->
-  <div class="poster-counter"><span class="poster-counter-current">1</span> / 5</div>
-
-  <!-- Progress dots + scroll hint -->
-  <div class="poster-progress">
-    <div class="poster-dots">
-      <span class="poster-dot active"></span>
-      <span class="poster-dot"></span>
-      <span class="poster-dot"></span>
-      <span class="poster-dot"></span>
-      <span class="poster-dot"></span>
-    </div>
-    <div class="poster-scroll-hint">
-      <span data-i18n="poster.scroll">Scroll</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m-6-6 6 6 6-6"/></svg>
-    </div>
-  </div>
-</div>
-
-<!-- CASE STUDY MODAL -->
-<div class="case-modal" id="caseModal">
-  <div class="case-modal-backdrop"></div>
-  <div class="case-modal-content">
-    <button class="case-modal-close">&times;</button>
-    <span class="case-modal-tag"></span>
-    <h2 class="case-modal-title"></h2>
-    <div class="case-modal-body">
-      <div class="case-modal-section">
-        <h3>Client</h3>
-        <p class="case-modal-client"></p>
-      </div>
-      <div class="case-modal-section">
-        <h3>Challenge</h3>
-        <p class="case-modal-challenge"></p>
-      </div>
-      <div class="case-modal-section">
-        <h3>Solution</h3>
-        <p class="case-modal-solution"></p>
-      </div>
-      <div class="case-modal-section">
-        <h3>Results</h3>
-        <ul class="case-modal-results"></ul>
-      </div>
-      <blockquote class="case-modal-quote"></blockquote>
-    </div>
-  </div>
-</div>
-
-<!-- ═════════════════════════
-     MAIN PAGE (below posters)
-     ═════════════════════════ -->
-
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="hero-slides">
-    <div class="hero-slide active"><img src="assets/office-hongkong-st.jpg" alt=""></div>
-    <div class="hero-slide"><img src="assets/office-onenorth.jpg" alt=""></div>
-    <div class="hero-slide"><img src="assets/office-interior.jpg" alt=""></div>
+  <div class="hero-bg">
+    <img src="assets/office-hongkong-st.jpg" alt="" loading="eager">
   </div>
   <div class="hero-overlay"></div>
-  <div class="hero-grid-pattern"></div>
   <div class="container">
     <div class="hero-content">
-      <div class="hero-badge hero-anim" style="animation-delay:0.2s"><span class="hero-badge-dot"></span><span data-i18n="hero.badge">Singapore</span></div>
-      <h1 class="hero-anim" style="animation-delay:0.5s" data-i18n="hero.headline">We Build AI That <span class="gradient-text">Works.</span></h1>
-      <p class="hero-sub hero-anim-fade" style="animation-delay:0.9s"><span data-i18n="hero.sub">Your team wastes <span class="hero-stat-highlight">40%</span> of its time on work a machine should do.</span><br><span data-i18n="hero.sub2">Flame Source OS fixes that &mdash; one workflow at a time.</span></p>
-      <div class="hero-ctas hero-anim-fade" style="animation-delay:1.2s">
-        <a href="#product" class="btn btn-primary" data-i18n="hero.cta1">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></a>
-        <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Talk to Us</a>
+      <h1 data-i18n="hero.headline">We automate the workflows your team <span class="gradient-text">shouldn't still be doing.</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">Hiring. Payroll. Frontline communication. Sales enablement. Singapore-based. Outcome-measured.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Talk to Us</a>
+        <a href="/case-studies/" class="btn btn-outline" data-i18n="hero.cta2">See Case Studies</a>
+      </div>
+      <p class="hero-powered" data-i18n="hero.powered">Powered by <a href="/solutions/">Flame Source OS</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="container">
+    <div class="proof-strip-inner">
+      <span class="proof-item" data-i18n="proof.singapore">Singapore-based</span>
+      <span class="proof-divider"></span>
+      <span class="proof-item" data-i18n="proof.sectors">3 sectors deployed</span>
+      <span class="proof-divider"></span>
+      <span class="proof-item" data-i18n="proof.outcome">Outcome-measured delivery</span>
+      <span class="proof-divider"></span>
+      <span class="proof-item" data-i18n="proof.est">Est. 2024</span>
+    </div>
+  </div>
+</div>
+
+<!-- SOLUTION PILLARS -->
+<section class="solutions" id="solutions">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label" data-i18n="solutions.label">What We Do</p>
+      <h2 class="section-title" data-i18n="solutions.title">Three Problems We Solve</h2>
+    </div>
+    <div class="solutions-grid">
+
+      <!-- Card 1: Recruitment Operations -->
+      <div class="solution-card reveal reveal-d1">
+        <div class="solution-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 data-i18n="solutions.recruitment.title">Recruitment Operations</h3>
+        <p data-i18n="solutions.recruitment.desc">Automated resume screening, scoring, and ranking. Your hiring managers stop drowning in applications and start interviewing the right people.</p>
+        <a href="/solutions/" class="solution-link" data-i18n="solutions.learnMore">Learn more <span>&rarr;</span></a>
+      </div>
+
+      <!-- Card 2: Finance & Back-Office -->
+      <div class="solution-card reveal reveal-d2">
+        <div class="solution-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <h3 data-i18n="solutions.finance.title">Finance &amp; Back-Office</h3>
+        <p data-i18n="solutions.finance.desc">Payroll, reconciliation, and invoicing on autopilot. Eliminate the monthly grind that ties up your finance team and still lets errors through.</p>
+        <a href="/solutions/" class="solution-link" data-i18n="solutions.learnMore">Learn more <span>&rarr;</span></a>
+      </div>
+
+      <!-- Card 3: Frontline Communication -->
+      <div class="solution-card reveal reveal-d3">
+        <div class="solution-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3 data-i18n="solutions.frontline.title">Frontline Communication</h3>
+        <p data-i18n="solutions.frontline.desc">AR smart glasses and voice AI for multilingual service teams. Real-time subtitles, contextual translation, and off-floor training that actually works.</p>
+        <a href="/solutions/" class="solution-link" data-i18n="solutions.learnMore">Learn more <span>&rarr;</span></a>
+      </div>
+
+    </div>
+    <p class="solutions-also reveal reveal-d4" data-i18n="solutions.also">Also: <span>Sales Enablement</span> | <span>Creative Production</span></p>
+  </div>
+</section>
+
+<!-- FEATURED CASE STUDY -->
+<section class="case-study" id="case-study">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label" data-i18n="caseStudy.label">Case Study</p>
+      <h2 class="section-title" data-i18n="caseStudy.title">Real Problem. Real Outcome.</h2>
+    </div>
+    <div class="case-card reveal reveal-d1">
+      <span class="case-tag" data-i18n="caseStudy.tag">F&amp;B &middot; AR Smart Glasses</span>
+      <h3 data-i18n="caseStudy.headline">Multi-outlet restaurant group eliminated order errors with AR smart glasses for multilingual staff</h3>
+
+      <div class="case-detail">
+        <p class="case-detail-label" data-i18n="caseStudy.clientLabel">Client</p>
+        <p data-i18n="caseStudy.client">A multi-outlet restaurant group in Singapore employing Burmese service staff</p>
+      </div>
+
+      <div class="case-detail">
+        <p class="case-detail-label" data-i18n="caseStudy.challengeLabel">Challenge</p>
+        <p data-i18n="caseStudy.challenge">Staff learned dish names quickly, but nuanced customer requests &mdash; "less oil", "crispier", "no chili" &mdash; caused 12 wrong orders per week across outlets. The breakdown was in modifier language, not menu vocabulary.</p>
+      </div>
+
+      <div class="case-detail">
+        <p class="case-detail-label" data-i18n="caseStudy.outcomeLabel">Outcome</p>
+        <p data-i18n="caseStudy.outcome">Wrong orders dropped to zero. New staff floor-ready in 5 days instead of 3 weeks. Food waste from modifier errors eliminated, saving S$2,400/month. Staff voluntary turnover down 40%.</p>
+      </div>
+
+      <a href="/case-studies/" class="case-link" data-i18n="caseStudy.readMore">Read full case study <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label" data-i18n="process.label">How We Work</p>
+      <h2 class="section-title" data-i18n="process.title">Four Steps. No Surprises.</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal reveal-d1">
+        <div class="process-step-number">1</div>
+        <h3 data-i18n="process.step1.title">Diagnose</h3>
+        <p data-i18n="process.step1.desc">We map your current workflow and find where time and money leak.</p>
+      </div>
+      <div class="process-step reveal reveal-d2">
+        <div class="process-step-number">2</div>
+        <h3 data-i18n="process.step2.title">Design</h3>
+        <p data-i18n="process.step2.desc">We architect an automation solution using Flame Source OS.</p>
+      </div>
+      <div class="process-step reveal reveal-d3">
+        <div class="process-step-number">3</div>
+        <h3 data-i18n="process.step3.title">Deploy</h3>
+        <p data-i18n="process.step3.desc">We integrate into your existing systems. No rip-and-replace.</p>
+      </div>
+      <div class="process-step reveal reveal-d4">
+        <div class="process-step-number">4</div>
+        <h3 data-i18n="process.step4.title">Support</h3>
+        <p data-i18n="process.step4.desc">Ongoing monitoring, optimization, and team training.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE AI GAP -->
-<section class="ai-gap" id="ai-gap">
+<!-- WHY FLAME SOURCE -->
+<section class="why-us" id="why-us">
   <div class="container">
     <div class="reveal">
-      <p class="section-label" data-i18n="gap.label">The Problem</p>
-      <h2 class="section-title" data-i18n="gap.title">Everyone Has AI.<br>Nobody Gets Results.</h2>
+      <p class="section-label" data-i18n="whyUs.label">Why Us</p>
+      <h2 class="section-title" data-i18n="whyUs.title">Built on Experience. Delivered in Singapore.</h2>
     </div>
-    <div class="ai-gap-grid">
-      <div class="reveal reveal-d1">
-        <p class="ai-gap-text" data-i18n="gap.body1">Companies pour money into AI tools, hire prompt engineers, and stack APIs &mdash; yet most projects stall before reaching production. The models are powerful, but the last mile &mdash; connecting AI to messy, real-world workflows &mdash; is where everything breaks down.</p>
-        <p class="ai-gap-text" data-i18n="gap.body2">The gap isn't intelligence. It's execution. Businesses don't need another chatbot. They need AI that plugs into their operations and delivers measurable outcomes &mdash; without requiring a PhD to maintain.</p>
+    <div class="why-grid">
+      <div class="why-content reveal reveal-d1">
+        <p data-i18n="whyUs.body">Flame Source OS is our internal delivery platform &mdash; the engine that powers every solution we build. It orchestrates AI models, tools, and workflows so your team gets outcomes, not configuration headaches.</p>
+        <ul class="why-facts">
+          <li data-i18n="whyUs.fact1">34 patents in precision sensing and wireless technology</li>
+          <li data-i18n="whyUs.fact2">Hardware deployed in 150+ countries via GameSir</li>
+          <li data-i18n="whyUs.fact3">Singapore-registered &mdash; UEN 202432774E</li>
+        </ul>
+        <a href="/solutions/" class="why-link" data-i18n="whyUs.techLink">Learn more about our technology <span>&rarr;</span></a>
       </div>
-      <div class="ai-gap-stat reveal reveal-d2">
-        <div class="ai-gap-stat-number gradient-text" data-count="73">0%</div>
-        <p class="ai-gap-stat-label" data-i18n="gap.stat">of enterprise AI projects<br>never make it to production</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FLAME SOURCE OS -->
-<section class="product" id="product">
-  <div class="product-bg">
-    <img src="assets/office-onenorth.jpg" alt="" loading="lazy">
-    <div class="product-bg-overlay"></div>
-  </div>
-  <div class="container">
-    <div class="reveal">
-      <p class="section-label" data-i18n="product.label">Flame Source OS</p>
-      <h2 class="section-title" data-i18n="product.title">Give Us the Problem.<br>Get Back the Result.</h2>
-      <p class="section-desc" data-i18n="product.desc">An AI operating system that orchestrates models, tools, and workflows &mdash; so your team focuses on decisions, not configuration.</p>
-    </div>
-    <div class="product-features">
-      <div class="product-feature reveal reveal-d1">
-        <div class="product-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h3 data-i18n="product.f1.title">Model Routing</h3>
-        <p data-i18n="product.f1.body">Automatically selects the right AI model for each task &mdash; balancing speed, accuracy, and cost. No manual prompt tuning. No model lock-in.</p>
-      </div>
-      <div class="product-feature reveal reveal-d2">
-        <div class="product-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-        </div>
-        <h3 data-i18n="product.f2.title">Skill Library</h3>
-        <p data-i18n="product.f2.body">Pre-built, domain-specific skills for recruitment, finance, content, translation, and more. Each skill encodes expert logic &mdash; not just prompts.</p>
-      </div>
-      <div class="product-feature reveal reveal-d3">
-        <div class="product-feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
-        </div>
-        <h3 data-i18n="product.f3.title">Zero Prompt Engineering</h3>
-        <p data-i18n="product.f3.body">Describe the outcome you need in plain language. The OS handles decomposition, tool selection, error recovery, and quality checks.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CAPABILITIES -->
-<section class="capabilities" id="capabilities">
-  <div class="container">
-    <div class="reveal">
-      <p class="section-label" data-i18n="cap.label">Under the Hood</p>
-      <h2 class="section-title" data-i18n="cap.title">What Powers Flame Source OS</h2>
-      <p class="section-desc" data-i18n="cap.desc">Three layers of capability that make the operating system work.</p>
-    </div>
-    <div class="cap-grid">
-      <div class="cap-card reveal reveal-d1">
-        <div class="cap-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 10V8M12 16v-2M10 12H8M16 12h-2M7 7.5l3 2.5M14 10l3-2.5M7 16.5l3-2.5M14 14l3 2.5"/></svg>
-        </div>
-        <h3 data-i18n="cap.c1.title">AI Orchestration</h3>
-        <p data-i18n="cap.c1.body">Multi-model routing, task decomposition, and autonomous error recovery. The OS picks the right model, chains the right tools, and verifies every output before delivery.</p>
-      </div>
-      <div class="cap-card reveal reveal-d2">
-        <div class="cap-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <h3 data-i18n="cap.c2.title">Integration Engineering</h3>
-        <p data-i18n="cap.c2.body">Connectors to ERPs, CRMs, databases, and custom APIs. We wire AI into your existing stack &mdash; no rip-and-replace, no six-month migration.</p>
-      </div>
-      <div class="cap-card reveal reveal-d3">
-        <div class="cap-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h4M9 17h2"/></svg>
-        </div>
-        <h3 data-i18n="cap.c3.title">Intelligent Hardware</h3>
-        <p data-i18n="cap.c3.body">When software alone isn't enough, we design IoT sensors and edge devices that feed real-world data directly into the AI pipeline. 34 patents. 150+ countries.</p>
+      <div class="why-visual reveal reveal-d2">
+        <p class="why-visual-badge" data-i18n="whyUs.badge">Powered By</p>
+        <p class="why-visual-headline" data-i18n="whyUs.osName">Flame Source OS</p>
+        <p data-i18n="whyUs.osDesc">Multi-model orchestration, domain-specific skill library, and zero prompt engineering. Give us the problem &mdash; get back the result.</p>
       </div>
     </div>
   </div>
@@ -1049,7 +739,7 @@ section { padding: var(--section-gap) 0; }
           <p class="team-role" data-i18n="team.wu.role">Co-Founder &middot; Hardware &amp; BD</p>
         </div>
         <div class="team-card-body">
-          <p class="team-bio" data-i18n="team.wu.bio">Co-founded <span class="team-highlight">GameSir</span>, a consumer electronics brand in <span class="team-highlight">150+ countries</span>. Holds 34 patents in precision sensing and wireless technology. B.Eng., South China University of Technology.</p>
+          <p class="team-bio" data-i18n="team.wu.bio">Co-founded <span class="team-highlight">GameSir</span>, a consumer electronics brand in <span class="team-highlight">150+ countries</span>. Holds 34 patents in precision sensing and wireless technology.</p>
         </div>
       </div>
       <div class="team-card reveal reveal-d2">
@@ -1059,7 +749,7 @@ section { padding: var(--section-gap) 0; }
           <p class="team-role" data-i18n="team.chen.role">Chief Technology Officer</p>
         </div>
         <div class="team-card-body">
-          <p class="team-bio" data-i18n="team.chen.bio"><span class="team-highlight"><span id="cjYears"></span> years</span> in software engineering. Former CTO leading a <span class="team-highlight">100+ engineer</span> team, delivering products with RMB 100M+ monthly revenue. Specialist in distributed systems and AI automation.</p>
+          <p class="team-bio"><span class="team-highlight"><span id="cjYears"></span> years</span> <span data-i18n="team.chen.bio">in software engineering. Former CTO leading a 100+ engineer team, delivering products with RMB 100M+ monthly revenue. Specialist in distributed systems and AI automation.</span></p>
         </div>
       </div>
       <div class="team-card reveal reveal-d3">
@@ -1069,46 +759,53 @@ section { padding: var(--section-gap) 0; }
           <p class="team-role" data-i18n="team.leonard.role">Co-Founder &middot; SG Operations</p>
         </div>
         <div class="team-card-body">
-          <p class="team-bio" data-i18n="team.leonard.bio"><span class="team-highlight">Singaporean</span> entrepreneur applying AI to real business problems. Built <span class="team-highlight">AI marketing automation</span> and digital ordering platforms for local F&amp;B. B.Com (Marketing), University College Dublin.</p>
+          <p class="team-bio" data-i18n="team.leonard.bio"><span class="team-highlight">Singaporean</span> entrepreneur applying AI to real business problems. Built AI marketing automation and digital ordering platforms for local F&amp;B.</p>
         </div>
       </div>
+    </div>
+    <div class="team-more reveal">
+      <a href="/company/" data-i18n="team.meetFull">Meet the full team <span>&rarr;</span></a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-bg">
+<!-- CONTACT CTA -->
+<section class="contact-cta" id="contact">
+  <div class="contact-cta-bg">
     <img src="assets/office-interior.jpg" alt="" loading="lazy">
-    <div class="contact-bg-overlay"></div>
+    <div class="contact-cta-bg-overlay"></div>
   </div>
   <div class="container">
-    <div class="reveal">
-      <p class="section-label" data-i18n="contact.label">Get In Touch</p>
-      <h2 class="section-title" data-i18n="contact.title">Let's Talk</h2>
-    </div>
-    <div class="reveal reveal-d1" style="max-width: 640px; margin-top: 40px;">
-      <h3 style="font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:6px;">FLAME SOURCE TECHNOLOGY PTE. LTD.</h3>
-      <p style="color:var(--text-secondary); font-size:0.95rem; margin-bottom:36px;" data-i18n="contact.address">39 Hongkong Street #03-01, Singapore 059678</p>
-      <div style="display:flex; flex-wrap:wrap; gap:14px;">
-        <a href="https://wa.me/6588165505" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="flex:1; min-width:200px; justify-content:center;">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.116 1.519 5.853L.05 23.998l6.288-1.65A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.003 0-3.868-.6-5.427-1.632l-.39-.23-3.732.98.996-3.642-.254-.403A9.706 9.706 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
-          <span data-i18n="contact.whatsapp">WhatsApp Us</span>
-        </a>
-        <a href="mailto:info@flamesource.ai" class="btn btn-outline" style="flex:1; min-width:200px; justify-content:center;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:20px;height:20px;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          <span data-i18n="contact.email">Email Us</span>
-        </a>
+    <div class="contact-cta-content">
+      <div class="reveal">
+        <h2 data-i18n="contact.headline">Ready to automate?</h2>
       </div>
-      <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:28px;">
-        <button onclick="copyText('info@flamesource.ai', this)" style="background:none; border:1px solid var(--border); border-radius:8px; padding:10px 18px; color:var(--text-secondary); font-family:var(--mono); font-size:0.82rem; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:8px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:15px;height:15px;"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          info@flamesource.ai
-        </button>
-        <button onclick="copyText('bd@flamesource.ai', this)" style="background:none; border:1px solid var(--border); border-radius:8px; padding:10px 18px; color:var(--text-secondary); font-family:var(--mono); font-size:0.82rem; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:8px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:15px;height:15px;"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          bd@flamesource.ai
-        </button>
+      <div class="reveal reveal-d1">
+        <div class="contact-cta-buttons">
+          <a href="mailto:info@flamesource.ai" class="btn btn-primary" data-i18n="contact.talkToUs">Talk to Us
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
+          <a href="https://wa.me/6588165505" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.121.553 4.116 1.519 5.853L.05 23.998l6.288-1.65A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.003 0-3.868-.6-5.427-1.632l-.39-.23-3.732.98.996-3.642-.254-.403A9.706 9.706 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+            <span data-i18n="contact.whatsapp">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="contact-cta-address">
+          <strong>FLAME SOURCE TECHNOLOGY PTE. LTD.</strong><br>
+          <span data-i18n="contact.address">39 Hongkong Street #03-01, Singapore 059678</span>
+        </div>
+        <div class="contact-cta-emails">
+          <button onclick="copyText('info@flamesource.ai', this)" class="contact-cta-email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            info@flamesource.ai
+          </button>
+          <button onclick="copyText('bd@flamesource.ai', this)" class="contact-cta-email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            bd@flamesource.ai
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -1146,8 +843,16 @@ section { padding: var(--section-gap) 0; }
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <p data-i18n="footer.copy">&copy; 2024&ndash;2026 FLAME SOURCE TECHNOLOGY PTE. LTD. &nbsp;|&nbsp; UEN: 202432774E &nbsp;|&nbsp; Singapore</p>
-      <p><a href="#privacy" data-i18n="footer.privacy">Privacy Policy</a></p>
+      <div>
+        <ul class="footer-nav">
+          <li><a href="/solutions/" data-i18n="nav.solutions">Solutions</a></li>
+          <li><a href="/case-studies/" data-i18n="nav.caseStudies">Case Studies</a></li>
+          <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
+          <li><a href="/company/" data-i18n="nav.company">Company</a></li>
+          <li><a href="#privacy" data-i18n="footer.privacy">Privacy</a></li>
+        </ul>
+        <p style="margin-top:10px;" data-i18n="footer.copy">&copy; 2024&ndash;2026 FLAME SOURCE TECHNOLOGY PTE. LTD. &nbsp;|&nbsp; UEN: 202432774E &nbsp;|&nbsp; Singapore</p>
+      </div>
     </div>
   </div>
 </footer>
@@ -1155,282 +860,6 @@ section { padding: var(--section-gap) 0; }
 <script>
 (function() {
   'use strict';
-
-  /* ═══════════════════════════════
-     POSTER CAROUSEL — scroll-jacking
-     ═══════════════════════════════ */
-  var carousel = document.getElementById('posterCarousel');
-  var slides = carousel.querySelectorAll('.poster-slide');
-  var dots = carousel.querySelectorAll('.poster-dot');
-  var counterEl = carousel.querySelector('.poster-counter-current');
-  var hintEl = carousel.querySelector('.poster-scroll-hint span');
-  var currentIdx = 0;
-  var transitioning = false;
-  var dismissed = false;
-  var wheelAccum = 0;
-  var lastWheelTime = 0;
-  var WHEEL_THRESHOLD = 60;
-  var TRANSITION_MS = 750;
-  var themes = ['blue', 'green', 'purple', 'amber', 'teal'];
-
-  /* Animate poster counters */
-  function animatePosterCounters(slideEl) {
-    slideEl.querySelectorAll('[data-count]').forEach(function(el) {
-      if (el.dataset.counted) return;
-      el.dataset.counted = '1';
-      var target = parseInt(el.getAttribute('data-count'), 10);
-      var duration = 1200;
-      var start = performance.now();
-      (function step(now) {
-        var p = Math.min((now - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.round(eased * target);
-        if (p < 1) requestAnimationFrame(step);
-      })(performance.now());
-    });
-  }
-
-  /* Initial poster counter animation */
-  animatePosterCounters(slides[0]);
-
-  function goTo(idx) {
-    if (transitioning || idx === currentIdx || idx < 0 || idx >= slides.length) return;
-    transitioning = true;
-
-    slides[currentIdx].classList.remove('active');
-    slides[idx].classList.add('active');
-    dots[currentIdx].classList.remove('active');
-    dots[idx].classList.add('active');
-    counterEl.textContent = idx + 1;
-    carousel.setAttribute('data-active-theme', themes[idx]);
-
-    /* Update hint text on last slide */
-    var isLast = (idx === slides.length - 1);
-    var hintKey = isLast ? 'poster.enter' : 'poster.scroll';
-    hintEl.setAttribute('data-i18n', hintKey);
-    var fallback = isLast ? 'Enter' : 'Scroll';
-    hintEl.textContent = (currentTranslations && currentTranslations[hintKey]) ? currentTranslations[hintKey] : fallback;
-
-    currentIdx = idx;
-    animatePosterCounters(slides[idx]);
-
-    setTimeout(function() { transitioning = false; }, TRANSITION_MS);
-  }
-
-  function dismiss() {
-    if (dismissed) return;
-    dismissed = true;
-    transitioning = true;
-    carousel.classList.add('dismissed');
-    document.body.classList.remove('scroll-locked');
-
-    /* Trigger hero animations after posters dismiss */
-    setTimeout(function() {
-      document.querySelectorAll('.hero-anim, .hero-anim-fade').forEach(function(el) {
-        el.classList.add('animate');
-      });
-    }, 200);
-
-    setTimeout(function() { transitioning = false; }, 800);
-  }
-
-  /* Scroll-back: bring carousel back when at top and scrolling up */
-  function reviveCarousel() {
-    if (!dismissed) return;
-    dismissed = false;
-    transitioning = true;
-    carousel.classList.remove('dismissed');
-    document.body.classList.add('scroll-locked');
-    window.scrollTo(0, 0);
-
-    /* Reset to last poster so user can scroll backwards */
-    var lastIdx = slides.length - 1;
-    if (currentIdx !== lastIdx) {
-      slides[currentIdx].classList.remove('active');
-      dots[currentIdx].classList.remove('active');
-      slides[lastIdx].classList.add('active');
-      dots[lastIdx].classList.add('active');
-      currentIdx = lastIdx;
-      counterEl.textContent = lastIdx + 1;
-      carousel.setAttribute('data-active-theme', themes[lastIdx]);
-      /* Re-animate counters for this slide */
-      slides[lastIdx].querySelectorAll('[data-count]').forEach(function(el) { el.dataset.counted = ''; });
-      animatePosterCounters(slides[lastIdx]);
-    }
-
-    /* Update hint text */
-    var hintKey = 'poster.enter';
-    hintEl.setAttribute('data-i18n', hintKey);
-    hintEl.textContent = (currentTranslations && currentTranslations[hintKey]) ? currentTranslations[hintKey] : 'Enter';
-
-    setTimeout(function() { transitioning = false; }, TRANSITION_MS);
-  }
-
-  window.addEventListener('wheel', function(e) {
-    if (!dismissed || window.scrollY !== 0 || e.deltaY >= 0) return;
-    reviveCarousel();
-  }, { passive: true });
-
-  /* Wheel handler on poster overlay */
-  carousel.addEventListener('wheel', function(e) {
-    e.preventDefault();
-    if (transitioning) return;
-
-    var now = Date.now();
-    if (now - lastWheelTime > 300) wheelAccum = 0;
-    lastWheelTime = now;
-    wheelAccum += Math.abs(e.deltaY);
-    if (wheelAccum < WHEEL_THRESHOLD) return;
-    wheelAccum = 0;
-
-    if (e.deltaY > 0) {
-      if (currentIdx < slides.length - 1) goTo(currentIdx + 1);
-      else dismiss();
-    } else {
-      if (currentIdx > 0) goTo(currentIdx - 1);
-    }
-  }, { passive: false });
-
-  /* Touch support */
-  var touchStartY = 0;
-  var touchStartTime = 0;
-  carousel.addEventListener('touchstart', function(e) {
-    touchStartY = e.touches[0].clientY;
-    touchStartTime = Date.now();
-  }, { passive: true });
-
-  carousel.addEventListener('touchend', function(e) {
-    if (dismissed || transitioning) return;
-    var diff = touchStartY - e.changedTouches[0].clientY;
-    var elapsed = Date.now() - touchStartTime;
-    if (Math.abs(diff) > 40 && elapsed < 600) {
-      if (diff > 0) {
-        if (currentIdx < slides.length - 1) goTo(currentIdx + 1);
-        else dismiss();
-      } else {
-        if (currentIdx > 0) goTo(currentIdx - 1);
-      }
-    }
-  }, { passive: true });
-
-  /* Keyboard support */
-  document.addEventListener('keydown', function(e) {
-    if (dismissed) return;
-    if (e.key === 'ArrowDown' || e.key === ' ') {
-      e.preventDefault();
-      if (currentIdx < slides.length - 1) goTo(currentIdx + 1);
-      else dismiss();
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      if (currentIdx > 0) goTo(currentIdx - 1);
-    }
-  });
-
-  /* Nav link clicks dismiss posters */
-  document.querySelectorAll('.nav-links a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      if (!dismissed) dismiss();
-    });
-  });
-
-  /* ══════════════════════
-     CASE STUDY MODAL
-     ══════════════════════ */
-  var caseStudies = {
-    0: {
-      tag: 'Recruitment',
-      title: 'AI-Powered Resume Screening',
-      client: 'A mid-size recruitment agency in Singapore',
-      challenge: 'Processing 500+ resumes per open role manually, spending hours on screening while still missing qualified candidates.',
-      solution: 'Deployed Flame Source OS to automatically read, score, and rank every application based on job requirements, experience relevance, and skill matching.',
-      results: ['Screening time reduced from 4 hours to under 2 minutes per role', '98% accuracy in identifying top candidates', 'Placed 23% more candidates in first 3 months', 'HR team reallocated to relationship building'],
-      quote: '\u201cWe used to dread opening the inbox. Now we look forward to it.\u201d \u2014 Talent Acquisition Lead'
-    },
-    1: {
-      tag: 'Finance',
-      title: 'End-to-End Payroll Automation',
-      client: 'A regional services company with 200+ staff',
-      challenge: 'A three-person finance team spending 40 hours every month on payroll, contract reconciliation, and invoicing \u2014 with at least one error slipping through each cycle.',
-      solution: 'Flame Source OS automated the entire payroll and invoicing pipeline, from timesheet ingestion to final payment file generation, with built-in validation at every step.',
-      results: ['40 hours of manual work eliminated per month', 'Zero errors across 6 consecutive months', 'Finance team redirected to strategic analysis', 'Audit preparation time cut by 60%'],
-      quote: '\u201cWe went from firefighting errors to having time for actual financial strategy.\u201d \u2014 Finance Director'
-    },
-    2: {
-      tag: 'Music Production',
-      title: 'AI-Accelerated Music Arrangement',
-      client: 'An independent musician and producer in Singapore',
-      challenge: 'Arrangement, instrumentation, and mixing stretched to three weeks per track, limiting output and delaying releases.',
-      solution: 'Flame Source OS assists with arrangement suggestions, instrumentation layering, and preliminary mixing \u2014 working alongside the artist to preserve creative intent while drastically cutting production time.',
-      results: ['Arrangement time reduced from 3 weeks to 2 days', 'Doubled release cadence', 'Artist retained full creative control', 'Production cost per track reduced by 65%'],
-      quote: '\u201cIt\u2019s like having a co-producer who never sleeps and always gets my style.\u201d \u2014 Recording Artist'
-    },
-    3: {
-      tag: 'F&B \u00b7 AR Smart Glasses',
-      title: 'AR Smart Glasses + AI Teacher for Restaurant Staff',
-      client: 'A multi-outlet restaurant group in Singapore employing Burmese service staff',
-      challenge: 'Burmese servers pick up dish names quickly \u2014 the menu vocabulary is small and repetitive. The real breakdown is nuanced customer requests: \u201cless oil\u201d, \u201cless salt\u201d, \u201ccook it more\u201d, \u201cmore tender\u201d, \u201ccrispier\u201d, \u201cno chili\u201d, \u201cextra garlic\u201d. These modifiers are where 12 wrong orders per week were coming from \u2014 not the dish itself, but how it should be prepared.',
-      solution: 'Servers wear AR smart glasses that display real-time subtitles of the customer\u2019s speech in Burmese. The conversation flows naturally \u2014 no \u201cyou speak, pause, translate, I speak, pause, translate\u201d ping-pong. When pronunciation is imperfect on either side, the LLM uses context (the menu, common modifiers, what\u2019s already been ordered) to interpret intent correctly. Off the floor, staff use the AI teacher app (myanmar-learning.web.app) to practise handling real restaurant requests \u2014 the AI simulates customers with different accents and specific modification habits.',
-      results: ['Wrong orders dropped from 12/week to 0 across all outlets', 'Food waste from modifier errors eliminated \u2014 saving S$2,400/month', 'New staff floor-ready in 5 days instead of 3 weeks', 'Staff voluntary turnover down 40% \u2014 confidence up, frustration gone'],
-      quote: '\u201cThe dish names were never the problem \u2014 my girls learned those in a week. It was \u2018less oil, more done, no chili\u2019 that killed us. Now the glasses catch every word and the app trains them until they don\u2019t even need the glasses.\u201d \u2014 Restaurant Owner'
-    },
-    4: {
-      tag: 'Sales Enablement',
-      title: 'Real-Time AI Sales Coaching',
-      client: 'A study-abroad consultancy in Singapore with 15 sales advisors and high staff turnover',
-      challenge: 'Advisors need deep knowledge of 200+ programs across 8 countries, visa requirements, and financing options. New advisors took 12 weeks to become productive. 3 senior managers spent most of their time coaching junior advisors \u2014 an expensive, unscalable bottleneck. Same problem at a partner hair salon chain where stylists sell treatments while cutting hair.',
-      solution: 'Flame Source OS uses STT to transcribe live customer conversations in real time. The LLM \u2014 loaded with the full product catalog and objection-handling playbooks \u2014 delivers discreet coaching prompts to the advisor\u2019s screen or earpiece. Outside live sessions, the AI simulates realistic customer personas for 24/7 practice. For hair salons, prompts are delivered via earpiece, keeping hands free.',
-      results: ['New advisor ramp-up time: 12 weeks \u2192 3 weeks', 'Junior advisor conversion rate improved by 55%', 'Senior manager coaching hours reduced by 80%', 'AI practice used 6 hours/week per new rep, replacing 6 hours of manager shadowing'],
-      quote: '\u201cI used to lose sleep every time a new hire sat with a client alone. Now the AI is in the room, and I sleep fine.\u201d \u2014 Sales Director'
-    }
-  };
-
-  var caseModal = document.getElementById('caseModal');
-  var caseModalBackdrop = caseModal.querySelector('.case-modal-backdrop');
-  var caseModalClose = caseModal.querySelector('.case-modal-close');
-
-  function openCaseModal(idx) {
-    var data = caseStudies[idx];
-    if (!data) return;
-    caseModal.querySelector('.case-modal-tag').textContent = data.tag;
-    caseModal.querySelector('.case-modal-title').textContent = data.title;
-    caseModal.querySelector('.case-modal-client').textContent = data.client;
-    caseModal.querySelector('.case-modal-challenge').textContent = data.challenge;
-    caseModal.querySelector('.case-modal-solution').textContent = data.solution;
-    var resultsList = caseModal.querySelector('.case-modal-results');
-    resultsList.innerHTML = '';
-    data.results.forEach(function(r) {
-      var li = document.createElement('li');
-      li.textContent = r;
-      resultsList.appendChild(li);
-    });
-    caseModal.querySelector('.case-modal-quote').textContent = data.quote;
-    caseModal.classList.add('open');
-  }
-
-  function closeCaseModal() {
-    caseModal.classList.remove('open');
-  }
-
-  /* Click handlers for case study links */
-  document.querySelectorAll('.poster-case-link').forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      var idx = parseInt(btn.getAttribute('data-case'), 10);
-      openCaseModal(idx);
-    });
-  });
-
-  caseModalClose.addEventListener('click', closeCaseModal);
-  caseModalBackdrop.addEventListener('click', closeCaseModal);
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && caseModal.classList.contains('open')) {
-      closeCaseModal();
-    }
-  });
-
-  /* ══════════════════════
-     REST OF PAGE JS
-     ══════════════════════ */
 
   /* Chen Jinzhu dynamic years */
   var cjEl = document.getElementById('cjYears');
@@ -1450,17 +879,6 @@ section { padding: var(--section-gap) 0; }
     a.addEventListener('click', function() { links.classList.remove('open'); });
   });
 
-  /* Hero photo carousel (6s interval) */
-  var heroSlides = document.querySelectorAll('.hero-slide');
-  var heroIdx = 0;
-  if (heroSlides.length > 1) {
-    setInterval(function() {
-      heroSlides[heroIdx].classList.remove('active');
-      heroIdx = (heroIdx + 1) % heroSlides.length;
-      heroSlides[heroIdx].classList.add('active');
-    }, 6000);
-  }
-
   /* Reveal on scroll */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -1474,34 +892,16 @@ section { padding: var(--section-gap) 0; }
     reveals.forEach(function(el) { el.classList.add('visible'); });
   }
 
-  /* Counter animation for main page */
-  var counters = document.querySelectorAll('.ai-gap-stat-number[data-count]');
-  if ('IntersectionObserver' in window) {
-    var counterObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        counterObs.unobserve(el);
-        var target = parseInt(el.getAttribute('data-count'), 10);
-        var duration = 1400;
-        var start = performance.now();
-        (function step(now) {
-          var p = Math.min((now - start) / duration, 1);
-          var eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(eased * target) + '%';
-          if (p < 1) requestAnimationFrame(step);
-        })(performance.now());
-      });
-    }, { threshold: 0.3 });
-    counters.forEach(function(el) { counterObs.observe(el); });
-  }
-
-  /* Card hover glow */
-  document.querySelectorAll('.cap-card').forEach(function(card) {
-    card.addEventListener('mousemove', function(e) {
-      var rect = card.getBoundingClientRect();
-      card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
-      card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+  /* Smooth scroll for anchor links */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var id = a.getAttribute('href');
+      if (id === '#') return;
+      var target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 
@@ -1509,7 +909,7 @@ section { padding: var(--section-gap) 0; }
   window.copyText = function(text, btn) {
     navigator.clipboard.writeText(text).then(function() {
       var origHTML = btn.innerHTML;
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" style="width:15px;height:15px"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
       btn.style.borderColor = '#16a34a'; btn.style.color = '#16a34a';
       setTimeout(function() { btn.innerHTML = origHTML; btn.style.borderColor = ''; btn.style.color = ''; }, 2000);
     });
@@ -1541,7 +941,7 @@ function applyTranslations(t) {
   document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var key = el.getAttribute('data-i18n');
     if (t[key] !== undefined) {
-      // Special handling for hero headline with accent span
+      /* Special handling for hero headline with accent span */
       if (key === 'hero.headline' && t['hero.headline.accent']) {
         var accent = t['hero.headline.accent'];
         var full = t[key];
@@ -1549,23 +949,18 @@ function applyTranslations(t) {
         el.innerHTML = before + '<span class="gradient-text">' + accent + '</span>';
         return;
       }
-      // Special handling for hero badge (preserve dot span)
-      if (key === 'hero.badge') {
-        el.innerHTML = '<span class="hero-badge-dot"></span>' + t[key];
-        return;
-      }
-      // Special handling for hero.cta1 (preserve arrow SVG)
+      /* Special handling for hero.cta1 (preserve arrow SVG) */
       if (key === 'hero.cta1') {
-        el.innerHTML = t[key] + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg>';
+        el.innerHTML = t[key];
         return;
       }
-      // Special handling for Chen Jinzhu bio (prepend years)
+      /* Special handling for Chen Jinzhu bio (prepend years) */
       if (key === 'team.chen.bio') {
         var years = new Date().getFullYear() - 2008;
         el.textContent = years + ' ' + t[key];
         return;
       }
-      // Handle newlines in translations
+      /* Handle newlines in translations */
       if (t[key].indexOf('\n') !== -1) {
         el.innerHTML = t[key].replace(/\n/g, '<br>');
       } else {
@@ -1585,21 +980,21 @@ async function setLang(lang) {
     document.documentElement.lang = lang === 'zh-Hans' ? 'zh' : lang;
     currentLang = lang;
     localStorage.setItem('fst-lang', lang);
-    // Update URL without reload
+    /* Update URL without reload */
     var url = new URL(window.location);
     url.searchParams.set('lang', lang);
     history.replaceState(null, '', url);
-    // Update switcher
+    /* Update switcher */
     var sel = document.getElementById('langSwitcher');
     if (sel) sel.value = lang;
-    // Load font if needed
+    /* Load font if needed */
     loadFont(lang);
   } catch(e) {
     console.error('i18n load error:', e);
   }
 }
 
-// Init language
+/* Init language */
 (function() {
   var urlLang = new URLSearchParams(location.search).get('lang');
   var storedLang = localStorage.getItem('fst-lang');
