@@ -216,9 +216,10 @@ section { padding: var(--section-gap) 0; }
 }
 .case-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 36px 32px; transition: all 0.35s; position: relative; overflow: hidden;
+  padding: 0 32px 36px; transition: all 0.35s; position: relative; overflow: hidden;
   display: flex; flex-direction: column; text-decoration: none;
 }
+.case-card img:first-child { margin-left: -32px; margin-right: -32px; width: calc(100% + 64px); max-width: none; }
 .case-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
@@ -263,6 +264,41 @@ section { padding: var(--section-gap) 0; }
 }
 .case-card:hover .case-card-link { gap: 10px; }
 .case-card-link svg { width: 16px; height: 16px; stroke: currentColor; }
+
+/* ═══════════════
+   PARALLAX CUTOUT
+   ═══════════════ */
+.parallax-container {
+  perspective: 800px;
+  display: flex;
+  justify-content: center;
+}
+.parallax-cutout {
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+  max-height: 300px;
+  width: auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+}
+
+/* ═══════════════
+   NAV DROPDOWN
+   ═══════════════ */
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu {
+  display: none; position: absolute; top: 100%; left: -16px;
+  background: rgba(6,9,16,0.95); backdrop-filter: blur(20px);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 0; min-width: 200px; z-index: 1001;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: block; padding: 10px 20px; font-size: 0.85rem;
+  color: var(--text-secondary); transition: all 0.2s;
+}
+.nav-dropdown-menu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-dropdown-menu a::after { display: none; }
 
 /* ═══════════
    FOOTER
@@ -311,10 +347,27 @@ section { padding: var(--section-gap) 0; }
       <span>FLAME SOURCE</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/solutions/" data-i18n="nav.solutions">Solutions</a></li>
+      <li class="nav-dropdown">
+        <a href="/solutions/" data-i18n="nav.solutions">Solutions</a>
+        <div class="nav-dropdown-menu">
+          <a href="/solutions/#recruitment">Recruitment Ops</a>
+          <a href="/solutions/#finance">Finance &amp; Back-Office</a>
+          <a href="/solutions/#frontline">Frontline Communication</a>
+          <a href="/solutions/#sales">Sales Enablement</a>
+          <a href="/solutions/#creative">Creative Production</a>
+        </div>
+      </li>
       <li><a href="/case-studies/" class="active" data-i18n="nav.caseStudies">Case Studies</a></li>
       <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
-      <li><a href="/company/" data-i18n="nav.company">Company</a></li>
+      <li class="nav-dropdown">
+        <a href="/company/" data-i18n="nav.company">Company</a>
+        <div class="nav-dropdown-menu">
+          <a href="/company/#about">About Us</a>
+          <a href="/company/#careers">Careers</a>
+          <a href="/company/#compliance">Compliance</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </li>
       <li>
         <select id="langSwitcher" class="lang-switcher" onchange="setLang(this.value)">
           <option value="en">EN</option>
@@ -366,6 +419,10 @@ section { padding: var(--section-gap) 0; }
 
       <!-- Case Study 1: Recruitment -->
       <div class="case-card reveal reveal-d1" data-industry="recruitment">
+        <img src="../assets/poster-recruitment.jpg" alt="Recruitment operations automation" loading="lazy" style="width:100%; height:200px; object-fit:cover; border-radius:12px 12px 0 0; margin-bottom:20px;">
+        <div class="parallax-container">
+          <img src="../assets/cutout-recruitment.png" alt="Recruitment automation" class="parallax-cutout" loading="lazy">
+        </div>
         <span class="case-card-tag" data-i18n="caseStudies.card1.tag">Recruitment</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card1.title">Automated Resume Screening for a Recruitment Consultancy</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card1.excerpt">We deployed automated resume screening and ranking for a Singapore recruitment consultancy. Every incoming application is now scored and shortlisted without manual review, letting consultants focus on candidate conversations instead of document triage.</p>
@@ -378,6 +435,10 @@ section { padding: var(--section-gap) 0; }
 
       <!-- Case Study 2: Property Services + Finance -->
       <div class="case-card reveal reveal-d2" data-industry="finance">
+        <img src="../assets/poster-finance.jpg" alt="Finance and property services automation" loading="lazy" style="width:100%; height:200px; object-fit:cover; border-radius:12px 12px 0 0; margin-bottom:20px;">
+        <div class="parallax-container">
+          <img src="../assets/cutout-finance.png" alt="Finance automation" class="parallax-cutout" loading="lazy">
+        </div>
         <span class="case-card-tag" data-i18n="caseStudies.card2.tag">Property Services &middot; Finance</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card2.title">Two Workflow Solutions for a Property Services Company</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card2.excerpt">We delivered two solutions for the same Singapore property services client: rental operations automation to streamline tenant and unit management, and finance automation to handle invoicing and reconciliation. Manual data entry and end-of-month scrambles were replaced with structured workflows.</p>
@@ -390,6 +451,10 @@ section { padding: var(--section-gap) 0; }
 
       <!-- Case Study 3: F&B / Restaurant -->
       <div class="case-card reveal reveal-d3" data-industry="fnb">
+        <img src="../assets/poster-restaurant.jpg" alt="AR glasses for multilingual restaurant staff" loading="lazy" style="width:100%; height:200px; object-fit:cover; border-radius:12px 12px 0 0; margin-bottom:20px;">
+        <div class="parallax-container">
+          <img src="../assets/cutout-restaurant.png" alt="Restaurant AR glasses" class="parallax-cutout" loading="lazy">
+        </div>
         <span class="case-card-tag" data-i18n="caseStudies.card3.tag">F&amp;B &middot; AR Smart Glasses</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card3.title">AR Glasses and AI Training for Multilingual Restaurant Staff</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card3.excerpt">We deployed AR smart glasses that give Burmese service staff real-time subtitles for nuanced customer requests &mdash; &ldquo;less oil&rdquo;, &ldquo;crispier&rdquo;, &ldquo;no chili&rdquo;. An AI teacher app lets staff practise real phrases during breaks, turning the glasses from a dependency into a safety net.</p>
@@ -402,6 +467,10 @@ section { padding: var(--section-gap) 0; }
 
       <!-- Case Study 4: Sales Coaching -->
       <div class="case-card reveal reveal-d4" data-industry="sales">
+        <img src="../assets/poster-sales.jpg" alt="AI sales coaching system" loading="lazy" style="width:100%; height:200px; object-fit:cover; border-radius:12px 12px 0 0; margin-bottom:20px;">
+        <div class="parallax-container">
+          <img src="../assets/cutout-sales.png" alt="Sales coaching" class="parallax-cutout" loading="lazy">
+        </div>
         <span class="case-card-tag" data-i18n="caseStudies.card4.tag">Sales &middot; AI Coach</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card4.title">Real-Time AI Coaching for Customer-Facing Sales Teams</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card4.excerpt">We built a real-time AI coaching system using speech-to-text during live customer conversations. Deployed across a creative services studio, a study-abroad consultancy, and hair salons. New staff also get an AI practice partner to rehearse conversations before going live.</p>
@@ -414,6 +483,10 @@ section { padding: var(--section-gap) 0; }
 
       <!-- Case Study 5: Music Production -->
       <div class="case-card reveal" data-industry="creative">
+        <img src="../assets/poster-music.jpg" alt="Music arrangement acceleration" loading="lazy" style="width:100%; height:200px; object-fit:cover; border-radius:12px 12px 0 0; margin-bottom:20px;">
+        <div class="parallax-container">
+          <img src="../assets/cutout-music.png" alt="Music production" class="parallax-cutout" loading="lazy">
+        </div>
         <span class="case-card-tag" data-i18n="caseStudies.card5.tag">Music Production</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card5.title">Arrangement and Instrumentation Acceleration for an Emerging Artist</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card5.excerpt">We helped an emerging Singapore musician &mdash; mentored by award-winning local producers &mdash; accelerate the arrangement and instrumentation process. The creative direction stayed entirely with the artist; the repetitive production work moved dramatically faster.</p>
@@ -439,6 +512,7 @@ section { padding: var(--section-gap) 0; }
           <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
           <li><a href="/company/" data-i18n="nav.company">Company</a></li>
           <li><a href="/#privacy" data-i18n="footer.privacy">Privacy</a></li>
+          <li><a href="https://x.com/FlameSource_SG" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @FlameSource_SG</a></li>
         </ul>
         <p style="margin-top:10px;" data-i18n="footer.copy">&copy; 2024&ndash;2026 FLAME SOURCE TECHNOLOGY PTE. LTD. &nbsp;|&nbsp; UEN: 202432774E &nbsp;|&nbsp; Singapore</p>
       </div>
@@ -551,6 +625,32 @@ async function setLang(lang) {
     setLang(initLang);
   }
 })();
+
+/* Parallax hover effect on cutout images */
+document.querySelectorAll('.parallax-container').forEach(function(container) {
+  var img = container.querySelector('.parallax-cutout');
+  if (!img) return;
+  container.addEventListener('mousemove', function(e) {
+    var rect = container.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width - 0.5;
+    var y = (e.clientY - rect.top) / rect.height - 0.5;
+    img.style.transform = 'rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg) translateX(' + (x * 15) + 'px) translateY(' + (y * 10) + 'px)';
+  });
+  container.addEventListener('mouseleave', function() {
+    img.style.transform = 'rotateY(0) rotateX(0) translateX(0) translateY(0)';
+  });
+});
+
+/* Mobile gyroscope */
+if (window.DeviceOrientationEvent) {
+  window.addEventListener('deviceorientation', function(e) {
+    var x = (e.gamma || 0) / 45;
+    var y = (e.beta || 0) / 45 - 0.5;
+    document.querySelectorAll('.parallax-cutout').forEach(function(img) {
+      img.style.transform = 'rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg)';
+    });
+  });
+}
 </script>
 </body>
 </html>

@@ -273,6 +273,37 @@ section { padding: var(--section-gap) 0; }
   margin-top: 32px;
 }
 
+/* ═══════════════
+   NAV DROPDOWN
+   ═══════════════ */
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu {
+  display: none; position: absolute; top: 100%; left: -16px;
+  background: rgba(6,9,16,0.95); backdrop-filter: blur(20px);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 0; min-width: 200px; z-index: 1001;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: block; padding: 10px 20px; font-size: 0.85rem;
+  color: var(--text-secondary); transition: all 0.2s;
+}
+.nav-dropdown-menu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-dropdown-menu a::after { display: none; }
+
+/* ═══════════════════
+   PILLAR SECTION BG
+   ═══════════════════ */
+.solution-pillar { position: relative; overflow: hidden; }
+.pillar-bg { position: absolute; inset: 0; z-index: 0; }
+.pillar-bg img { width: 100%; height: 100%; object-fit: cover; }
+.pillar-bg-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(12,18,32,0.95) 0%, rgba(12,18,32,0.88) 50%, rgba(12,18,32,0.95) 100%);
+}
+.solution-pillar > .container { position: relative; z-index: 1; }
+
 /* ═══════════
    FOOTER
    ═══════════ */
@@ -321,10 +352,27 @@ section { padding: var(--section-gap) 0; }
       <span>FLAME SOURCE</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/solutions/" class="active" data-i18n="nav.solutions">Solutions</a></li>
+      <li class="nav-dropdown">
+        <a href="/solutions/" class="active" data-i18n="nav.solutions">Solutions</a>
+        <div class="nav-dropdown-menu">
+          <a href="/solutions/#recruitment">Recruitment Ops</a>
+          <a href="/solutions/#finance">Finance &amp; Back-Office</a>
+          <a href="/solutions/#frontline">Frontline Communication</a>
+          <a href="/solutions/#sales">Sales Enablement</a>
+          <a href="/solutions/#creative">Creative Production</a>
+        </div>
+      </li>
       <li><a href="/case-studies/" data-i18n="nav.caseStudies">Case Studies</a></li>
       <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
-      <li><a href="/company/" data-i18n="nav.company">Company</a></li>
+      <li class="nav-dropdown">
+        <a href="/company/" data-i18n="nav.company">Company</a>
+        <div class="nav-dropdown-menu">
+          <a href="/company/#about">About Us</a>
+          <a href="/company/#careers">Careers</a>
+          <a href="/company/#compliance">Compliance</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </li>
       <li>
         <select id="langSwitcher" class="lang-switcher" onchange="setLang(this.value)">
           <option value="en">EN</option>
@@ -359,6 +407,10 @@ section { padding: var(--section-gap) 0; }
 
 <!-- PILLAR 1: RECRUITMENT OPERATIONS -->
 <section class="solution-pillar" id="recruitment">
+  <div class="pillar-bg">
+    <img src="../assets/poster-recruitment.jpg" alt="" loading="lazy">
+    <div class="pillar-bg-overlay"></div>
+  </div>
   <div class="container">
     <div class="reveal">
       <span class="pillar-number">01</span>
@@ -385,6 +437,7 @@ section { padding: var(--section-gap) 0; }
         </div>
       </div>
       <div class="pillar-sidebar reveal reveal-d2">
+        <img src="../assets/poster-recruitment.jpg" alt="Recruitment operations" loading="lazy" style="width:100%; height:180px; object-fit:cover; border-radius:12px; margin-bottom:20px;">
         <h4 data-i18n="solutions.recruitment.sidebarTitle">What Changed</h4>
         <ul>
           <li data-i18n="solutions.recruitment.outcome1">Screening time reduced from hours to minutes</li>
@@ -398,6 +451,10 @@ section { padding: var(--section-gap) 0; }
 
 <!-- PILLAR 2: FINANCE & BACK-OFFICE -->
 <section class="solution-pillar" id="finance">
+  <div class="pillar-bg">
+    <img src="../assets/poster-finance.jpg" alt="" loading="lazy">
+    <div class="pillar-bg-overlay"></div>
+  </div>
   <div class="container">
     <div class="reveal">
       <span class="pillar-number">02</span>
@@ -424,6 +481,7 @@ section { padding: var(--section-gap) 0; }
         </div>
       </div>
       <div class="pillar-sidebar reveal reveal-d2">
+        <img src="../assets/poster-finance.jpg" alt="Finance automation" loading="lazy" style="width:100%; height:180px; object-fit:cover; border-radius:12px; margin-bottom:20px;">
         <h4 data-i18n="solutions.finance.sidebarTitle">What Changed</h4>
         <ul>
           <li data-i18n="solutions.finance.outcome1">Monthly close process significantly shortened</li>
@@ -437,6 +495,10 @@ section { padding: var(--section-gap) 0; }
 
 <!-- PILLAR 3: FRONTLINE MULTILINGUAL EXECUTION -->
 <section class="solution-pillar" id="frontline">
+  <div class="pillar-bg">
+    <img src="../assets/poster-restaurant.jpg" alt="" loading="lazy">
+    <div class="pillar-bg-overlay"></div>
+  </div>
   <div class="container">
     <div class="reveal">
       <span class="pillar-number">03</span>
@@ -448,7 +510,7 @@ section { padding: var(--section-gap) 0; }
         <p class="pillar-problem" data-i18n="solutions.frontline.problem"><strong>The problem:</strong> Your service staff learn dish names and basic flows quickly. The persistent problem is nuanced customer requests — "less oil", "crispier", "no chili" — the modifiers where dining preferences actually live. These get lost in translation, causing wrong orders, food waste, and frustration for staff who know they misunderstood but cannot pinpoint what was said.</p>
         <div class="pillar-workflow">
           <h4 data-i18n="solutions.frontline.workflowLabel">What We Deliver</h4>
-          <p data-i18n="solutions.frontline.workflow">We deploy AR smart glasses that provide real-time subtitles during customer interactions — including the specific modifiers — displayed in the staff member's field of view. The interaction stays natural; no need to ask customers to repeat themselves. Separately, we build a web-based training app that staff use during breaks to practise real customer phrases with spaced repetition. Over time, staff internalise the language and rely on the glasses less. Our Guangzhou team assists with hardware sourcing to keep costs manageable.</p>
+          <p data-i18n="solutions.frontline.workflow">We deploy AR smart glasses that provide real-time subtitles during customer interactions — including the specific modifiers — displayed in the staff member's field of view. The interaction stays natural; no need to ask customers to repeat themselves. Separately, we build a web-based training app that staff use during breaks to practise real customer phrases with spaced repetition. Over time, staff internalise the language and rely on the glasses less. Our hardware team handles procurement and supply chain to keep costs manageable.</p>
         </div>
         <div class="pillar-workflow" style="margin-top: 24px;">
           <h4 data-i18n="solutions.frontline.deliveryLabel">Delivery</h4>
@@ -463,6 +525,7 @@ section { padding: var(--section-gap) 0; }
         </div>
       </div>
       <div class="pillar-sidebar reveal reveal-d2">
+        <img src="../assets/poster-restaurant.jpg" alt="AR glasses for F&B" loading="lazy" style="width:100%; height:180px; object-fit:cover; border-radius:12px; margin-bottom:20px;">
         <h4 data-i18n="solutions.frontline.sidebarTitle">What Changed</h4>
         <ul>
           <li data-i18n="solutions.frontline.outcome1">Wrong orders from modifier misunderstandings effectively eliminated</li>
@@ -476,6 +539,10 @@ section { padding: var(--section-gap) 0; }
 
 <!-- PILLAR 4: SALES ENABLEMENT -->
 <section class="solution-pillar" id="sales">
+  <div class="pillar-bg">
+    <img src="../assets/poster-sales.jpg" alt="" loading="lazy">
+    <div class="pillar-bg-overlay"></div>
+  </div>
   <div class="container">
     <div class="reveal">
       <span class="pillar-number">04</span>
@@ -502,6 +569,7 @@ section { padding: var(--section-gap) 0; }
         </div>
       </div>
       <div class="pillar-sidebar reveal reveal-d2">
+        <img src="../assets/poster-sales.jpg" alt="AI sales coaching" loading="lazy" style="width:100%; height:180px; object-fit:cover; border-radius:12px; margin-bottom:20px;">
         <h4 data-i18n="solutions.sales.sidebarTitle">What Changed</h4>
         <ul>
           <li data-i18n="solutions.sales.outcome1">New staff productive on the floor significantly sooner — handling customer conversations with confidence from week one</li>
@@ -515,6 +583,10 @@ section { padding: var(--section-gap) 0; }
 
 <!-- PILLAR 5: CREATIVE PRODUCTION -->
 <section class="solution-pillar" id="creative">
+  <div class="pillar-bg">
+    <img src="../assets/poster-music.jpg" alt="" loading="lazy">
+    <div class="pillar-bg-overlay"></div>
+  </div>
   <div class="container">
     <div class="reveal">
       <span class="pillar-number">05</span>
@@ -541,6 +613,7 @@ section { padding: var(--section-gap) 0; }
         </div>
       </div>
       <div class="pillar-sidebar reveal reveal-d2">
+        <img src="../assets/poster-music.jpg" alt="Music production acceleration" loading="lazy" style="width:100%; height:180px; object-fit:cover; border-radius:12px; margin-bottom:20px;">
         <h4 data-i18n="solutions.creative.sidebarTitle">What Changed</h4>
         <ul>
           <li data-i18n="solutions.creative.outcome1">Arrangement turnaround compressed from weeks to days per track</li>
@@ -563,6 +636,7 @@ section { padding: var(--section-gap) 0; }
           <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
           <li><a href="/company/" data-i18n="nav.company">Company</a></li>
           <li><a href="/#privacy" data-i18n="footer.privacy">Privacy</a></li>
+          <li><a href="https://x.com/FlameSource_SG" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @FlameSource_SG</a></li>
         </ul>
         <p style="margin-top:10px;" data-i18n="footer.copy">&copy; 2024&ndash;2026 FLAME SOURCE TECHNOLOGY PTE. LTD. &nbsp;|&nbsp; UEN: 202432774E &nbsp;|&nbsp; Singapore</p>
       </div>

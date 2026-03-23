@@ -302,6 +302,31 @@ section { padding: var(--section-gap) 0; }
 .contact-detail-item span { font-size: 0.92rem; color: var(--text-secondary); }
 .contact-detail-item a { font-size: 0.92rem; }
 
+/* ═══════════════
+   NAV DROPDOWN
+   ═══════════════ */
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu {
+  display: none; position: absolute; top: 100%; left: -16px;
+  background: rgba(6,9,16,0.95); backdrop-filter: blur(20px);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 8px 0; min-width: 200px; z-index: 1001;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: block; padding: 10px 20px; font-size: 0.85rem;
+  color: var(--text-secondary); transition: all 0.2s;
+}
+.nav-dropdown-menu a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+.nav-dropdown-menu a::after { display: none; }
+
+/* ═══════════════
+   CAREERS
+   ═══════════════ */
+.careers-section { border-top: 1px solid var(--border); background: var(--bg); }
+.careers-content { margin-top: 36px; }
+
 /* ═══════════
    FOOTER
    ═══════════ */
@@ -351,10 +376,27 @@ section { padding: var(--section-gap) 0; }
       <span>FLAME SOURCE</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="/solutions/" data-i18n="nav.solutions">Solutions</a></li>
+      <li class="nav-dropdown">
+        <a href="/solutions/" data-i18n="nav.solutions">Solutions</a>
+        <div class="nav-dropdown-menu">
+          <a href="/solutions/#recruitment">Recruitment Ops</a>
+          <a href="/solutions/#finance">Finance &amp; Back-Office</a>
+          <a href="/solutions/#frontline">Frontline Communication</a>
+          <a href="/solutions/#sales">Sales Enablement</a>
+          <a href="/solutions/#creative">Creative Production</a>
+        </div>
+      </li>
       <li><a href="/case-studies/" data-i18n="nav.caseStudies">Case Studies</a></li>
       <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
-      <li><a href="/company/" class="active" data-i18n="nav.company">Company</a></li>
+      <li class="nav-dropdown">
+        <a href="/company/" class="active" data-i18n="nav.company">Company</a>
+        <div class="nav-dropdown-menu">
+          <a href="/company/#about">About Us</a>
+          <a href="/company/#careers">Careers</a>
+          <a href="/company/#compliance">Compliance</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </li>
       <li>
         <select id="langSwitcher" class="lang-switcher" onchange="setLang(this.value)">
           <option value="en">EN</option>
@@ -381,8 +423,8 @@ section { padding: var(--section-gap) 0; }
   <div class="container">
     <div class="reveal">
       <p class="section-label" data-i18n="company.hero.label">Company</p>
-      <h2 class="section-title" data-i18n="company.hero.title">Singapore Office.<br>Guangzhou Engineering.<br>Real Systems Delivered.</h2>
-      <p class="section-desc" data-i18n="company.hero.desc">Flame Source Technology is a Singapore-registered company that designs and deploys workflow automation for operations teams. We combine local project delivery with a deep engineering bench in Guangzhou.</p>
+      <h2 class="section-title" data-i18n="company.hero.title">Three Offices Across Singapore.<br>Real Systems Delivered.</h2>
+      <p class="section-desc" data-i18n="company.hero.desc">Flame Source Technology is a Singapore-registered company that designs and deploys workflow automation for operations teams. With offices at Razer HQ (one-north), Hongkong Street, and Suntec City, we are embedded in the business districts we serve.</p>
     </div>
   </div>
 </section>
@@ -397,7 +439,7 @@ section { padding: var(--section-gap) 0; }
     <div class="about-grid">
       <div class="reveal reveal-d1">
         <p class="about-text" data-i18n="company.about.p1">Flame Source Technology Pte. Ltd. (UEN 202432774E) was incorporated in Singapore in 2024. Our office is at 39 Hongkong Street, in the heart of the CBD. We are a solutions delivery company &mdash; we don't sell software subscriptions, we design and deploy automation systems that solve specific operational problems for our clients.</p>
-        <p class="about-text" data-i18n="company.about.p2">Our team spans <strong>Singapore and Guangzhou</strong>. Singapore handles client relationships, project management, and go-to-market. Our Guangzhou office brings deep engineering capacity &mdash; software development, hardware prototyping, and supply chain access for components like AR smart glasses and IoT sensors. This dual presence lets us move quickly from concept to working system.</p>
+        <p class="about-text" data-i18n="company.about.p2">Our team operates from <strong>three Singapore offices</strong> &mdash; Razer HQ in the one-north tech corridor, 39 Hongkong Street in the CBD, and Suntec City. Engineering, client delivery, hardware prototyping, and supply chain management all happen locally, letting us move quickly from concept to working system.</p>
         <p class="about-text" data-i18n="company.about.p3">We work with operations-heavy SMEs across F&amp;B, recruitment, financial services, and education. The problems we solve are unglamorous but expensive &mdash; manual screening, payroll reconciliation, multilingual staff communication, sales follow-up. If your team is still doing it by hand, we can probably automate it.</p>
       </div>
       <div class="about-image reveal reveal-d2">
@@ -410,8 +452,8 @@ section { padding: var(--section-gap) 0; }
         <div class="about-stat-label" data-i18n="company.about.stat1Label">Incorporated in Singapore</div>
       </div>
       <div class="about-stat">
-        <div class="about-stat-val" data-i18n="company.about.stat2Val">SG + GZ</div>
-        <div class="about-stat-label" data-i18n="company.about.stat2Label">Singapore ops &amp; Guangzhou engineering</div>
+        <div class="about-stat-val" data-i18n="company.about.stat2Val">3 Offices</div>
+        <div class="about-stat-label" data-i18n="company.about.stat2Label">Across Singapore</div>
       </div>
       <div class="about-stat">
         <div class="about-stat-val" data-i18n="company.about.stat3Val">34</div>
@@ -437,7 +479,7 @@ section { padding: var(--section-gap) 0; }
           <p class="team-role" data-i18n="team.wu.role">Co-Founder &middot; Hardware &amp; BD</p>
         </div>
         <div class="team-card-body">
-          <p class="team-bio" data-i18n="company.team.wu.bio">Co-founded <span class="team-highlight">GameSir</span>, a gaming peripherals brand now sold in <span class="team-highlight">150+ countries</span>. Holds <span class="team-highlight">34 patents</span> in precision sensing and wireless technology. Manages our Guangzhou hardware supply chain and manufacturing partnerships. B.Eng., South China University of Technology.</p>
+          <p class="team-bio" data-i18n="company.team.wu.bio">Co-founded <span class="team-highlight">GameSir</span>, a gaming peripherals brand now sold in <span class="team-highlight">150+ countries</span>. Holds <span class="team-highlight">34 patents</span> in precision sensing and wireless technology. Manages our hardware supply chain and manufacturing partnerships. B.Eng., South China University of Technology.</p>
         </div>
       </div>
       <!-- Founder 2 -->
@@ -448,7 +490,7 @@ section { padding: var(--section-gap) 0; }
           <p class="team-role" data-i18n="team.chen.role">Chief Technology Officer</p>
         </div>
         <div class="team-card-body">
-          <p class="team-bio"><span class="team-highlight"><span id="cjYears"></span> years</span> <span data-i18n="company.team.chen.bio">in software engineering. Previously led a 100+ engineer team building products that reached RMB 100M+ monthly revenue. Runs our Guangzhou development team. Deep expertise in distributed systems, AI automation, and high-throughput backend architecture.</span></p>
+          <p class="team-bio"><span class="team-highlight"><span id="cjYears"></span> years</span> <span data-i18n="company.team.chen.bio">in software engineering. Previously led a 100+ engineer team building products that reached RMB 100M+ monthly revenue. Leads our engineering team. Deep expertise in distributed systems, AI automation, and high-throughput backend architecture.</span></p>
         </div>
       </div>
       <!-- Founder 3 -->
@@ -466,29 +508,45 @@ section { padding: var(--section-gap) 0; }
   </div>
 </section>
 
-<!-- POWERED BY FLAME SOURCE OS -->
-<section class="tech-section" id="technology">
+<!-- CAREERS -->
+<section class="careers-section" id="careers">
   <div class="container">
     <div class="reveal">
-      <span class="tech-badge">Powered by Flame Source OS</span>
-      <p class="section-label" data-i18n="company.tech.label">Technology</p>
-      <h2 class="section-title" data-i18n="company.tech.title">How We Build</h2>
+      <p class="section-label">Careers</p>
+      <h2 class="section-title">Work With Us</h2>
+      <p class="section-desc">We're a small team that moves fast. If you're excited about building automation systems that solve real problems for real businesses, we'd like to hear from you.</p>
+    </div>
+    <div class="careers-content reveal reveal-d1">
+      <p style="color:var(--text-secondary);font-size:1rem;line-height:1.8;max-width:640px;">We don't have a long list of open roles — we hire when we find the right person. If you have experience in software engineering, AI/ML, operations consulting, or business development in Singapore, send us a note.</p>
+      <div style="margin-top:24px;">
+        <a href="mailto:careers@flamesource.ai" class="btn btn-outline">careers@flamesource.ai</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POWERED BY FLAME SOURCE OS -->
+<section class="tech-section" id="compliance">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label" data-i18n="company.compliance.label">Compliance &amp; Responsibility</p>
+      <h2 class="section-title" data-i18n="company.compliance.title">How We Operate</h2>
     </div>
     <div class="tech-grid">
       <div class="reveal reveal-d1">
-        <p class="tech-text" data-i18n="company.tech.p1">Every automation we deliver runs on Flame Source OS &mdash; our internal platform that ties together AI models, integration connectors, and workflow logic. It is not a product we sell. It is the reason we can deploy reliable systems quickly.</p>
-        <p class="tech-text" data-i18n="company.tech.p2">Because every client project shares the same underlying platform, improvements compound. A connector built for one client's ERP becomes available for the next. A model fine-tuned on recruitment data can be adapted for sales scoring.</p>
+        <p class="tech-text" data-i18n="company.compliance.p1">Every system we build handles real business data &mdash; payroll figures, customer conversations, employee records. We take that seriously. Data protection is not an afterthought; it is built into how we design, deploy, and maintain every solution.</p>
+        <p class="tech-text" data-i18n="company.compliance.p2">We are a Singapore-registered company, and all client data is processed in compliance with the Personal Data Protection Act (PDPA). We do not sell, share, or repurpose client data. Period.</p>
         <ul class="tech-features">
-          <li data-i18n="company.tech.f1">Model scheduling &mdash; routes each task to the right AI model based on cost, latency, and accuracy requirements</li>
-          <li data-i18n="company.tech.f2">Skill library &mdash; reusable, domain-specific modules (resume parsing, invoice extraction, multilingual TTS)</li>
-          <li data-i18n="company.tech.f3">Integration engine &mdash; pre-built connectors for common ERPs, CRMs, HRIS, and accounting systems used in Singapore</li>
-          <li data-i18n="company.tech.f4">Hardware bridge &mdash; firmware and protocol layer for AR glasses, IoT sensors, and edge devices from our Guangzhou supply chain</li>
+          <li data-i18n="company.compliance.f1"><strong>PDPA Compliant</strong> &mdash; all data collection, processing, and storage follows Singapore&rsquo;s Personal Data Protection Act</li>
+          <li data-i18n="company.compliance.f2"><strong>Data Residency</strong> &mdash; client data stays where clients need it; we support Singapore-hosted infrastructure</li>
+          <li data-i18n="company.compliance.f3"><strong>Access Control</strong> &mdash; role-based permissions, audit trails, and encryption at rest and in transit</li>
+          <li data-i18n="company.compliance.f4"><strong>ESG Commitment</strong> &mdash; we measure the environmental impact of compute resources and optimise for efficiency, not just performance</li>
         </ul>
       </div>
       <div class="tech-sidebar reveal reveal-d2">
-        <h4 data-i18n="company.tech.sidebarTitle">Software + Hardware</h4>
-        <p data-i18n="company.tech.sidebar1">Most automation companies are software-only. Our Guangzhou team gives us direct access to hardware prototyping, PCB fabrication, and component sourcing &mdash; backed by 34 patents in sensing and wireless technology from our co-founder's work at GameSir.</p>
-        <p data-i18n="company.tech.sidebar2">This matters when the solution requires something physical: AR smart glasses for frontline workers, custom IoT sensors for facility monitoring, or ruggedised edge devices for factory floors. We handle the full stack, not just the software layer.</p>
+        <h4 data-i18n="company.compliance.sidebarTitle">Trust &amp; Governance</h4>
+        <p data-i18n="company.compliance.sidebar1">Our clients include recruitment agencies, financial services firms, and F&amp;B operators &mdash; industries where a data breach is not just an inconvenience, it is a business-ending event. We build accordingly.</p>
+        <p data-i18n="company.compliance.sidebar2">We maintain clear data processing agreements with every client, conduct regular security reviews, and provide full transparency on how data flows through our systems. If you need a DPA or security questionnaire completed, we are ready.</p>
       </div>
     </div>
   </div>
@@ -540,6 +598,7 @@ section { padding: var(--section-gap) 0; }
           <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
           <li><a href="/company/" data-i18n="nav.company">Company</a></li>
           <li><a href="/#privacy" data-i18n="footer.privacy">Privacy</a></li>
+          <li><a href="https://x.com/FlameSource_SG" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:6px;"><svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> @FlameSource_SG</a></li>
         </ul>
         <p style="margin-top:10px;" data-i18n="footer.copy">&copy; 2024&ndash;2026 FLAME SOURCE TECHNOLOGY PTE. LTD. &nbsp;|&nbsp; UEN: 202432774E &nbsp;|&nbsp; Singapore</p>
       </div>
