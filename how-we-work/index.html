@@ -4,13 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>How We Work — Flame Source Technology</title>
-<meta name="description" content="Our 4-step process: Diagnose, Design, Deploy, Support. How Flame Source delivers workflow automation for Singapore SMEs.">
+<meta name="description" content="Our 5-step process: Consult, Align & Sign, Build & Iterate, Go Live, Maintain. How Flame Source delivers workflow automation for Singapore SMEs.">
 <meta property="og:title" content="How We Work — Flame Source Technology">
-<meta property="og:description" content="Diagnose, Design, Deploy, Support — our 4-step process for delivering workflow automation.">
+<meta property="og:description" content="Consult, Align & Sign, Build & Iterate, Go Live, Maintain — our 5-step process for delivering workflow automation.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flamesource.ai/how-we-work">
 <meta property="og:image" content="https://flamesource.ai/assets/office-hongkong-st.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How We Work — Flame Source Technology">
+<meta name="twitter:description" content="Consult, Align & Sign, Build & Iterate, Go Live, Maintain — our 5-step process for delivering workflow automation.">
+<link rel="canonical" href="https://flamesource.ai/how-we-work/">
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
@@ -180,7 +183,7 @@ section { padding: var(--section-gap) 0; }
   border-top: 1px solid var(--border);
 }
 .process-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 60px;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-top: 60px;
 }
 .process-step {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
@@ -307,6 +310,9 @@ section { padding: var(--section-gap) 0; }
 /* ══════════════
    RESPONSIVE
    ══════════════ */
+@media (max-width: 1200px) {
+  .process-grid { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 1024px) {
   :root { --section-gap: 100px; }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
@@ -369,8 +375,8 @@ section { padding: var(--section-gap) 0; }
   <div class="container">
     <div class="reveal">
       <p class="section-label" data-i18n="howWeWork.hero.label">Process</p>
-      <h2 class="section-title" data-i18n="howWeWork.hero.title">Four Steps.<br>From Problem to Production.</h2>
-      <p class="section-desc" data-i18n="howWeWork.hero.desc">Every engagement follows the same proven process. No surprises, no scope creep, no six-month timelines.</p>
+      <h2 class="section-title" data-i18n="howWeWork.hero.title">Five Steps.<br>From First Call to Running System.</h2>
+      <p class="section-desc" data-i18n="howWeWork.hero.desc">Most projects go live within a month. Every engagement follows the same process so you always know what comes next.</p>
     </div>
   </div>
 </section>
@@ -381,23 +387,28 @@ section { padding: var(--section-gap) 0; }
     <div class="process-grid">
       <div class="process-step reveal">
         <div class="step-number">01</div>
-        <h3 class="step-label" data-i18n="howWeWork.step1.label">Diagnose</h3>
-        <p class="step-desc" data-i18n="howWeWork.step1.short">We map your current workflows, identify bottlenecks, and quantify the cost of manual work.</p>
+        <h3 class="step-label" data-i18n="howWeWork.step1.label">Consult</h3>
+        <p class="step-desc" data-i18n="howWeWork.step1.short">We sit down with your team to understand how work actually gets done, where it stalls, and what success looks like.</p>
       </div>
       <div class="process-step reveal reveal-d1">
         <div class="step-number">02</div>
-        <h3 class="step-label" data-i18n="howWeWork.step2.label">Design</h3>
-        <p class="step-desc" data-i18n="howWeWork.step2.short">We architect the automation solution, define success metrics, and build a deployment plan.</p>
+        <h3 class="step-label" data-i18n="howWeWork.step2.label">Align &amp; Sign</h3>
+        <p class="step-desc" data-i18n="howWeWork.step2.short">We agree on exactly what gets delivered, the timeline, and scope. Then we sign a contract and get started.</p>
       </div>
       <div class="process-step reveal reveal-d2">
         <div class="step-number">03</div>
-        <h3 class="step-label" data-i18n="howWeWork.step3.label">Deploy</h3>
-        <p class="step-desc" data-i18n="howWeWork.step3.short">We build, integrate, and launch the solution into your existing stack. No rip-and-replace.</p>
+        <h3 class="step-label" data-i18n="howWeWork.step3.label">Build &amp; Iterate</h3>
+        <p class="step-desc" data-i18n="howWeWork.step3.short">We build fast, you review, we refine. Up to three revision rounds are included in every contract.</p>
       </div>
       <div class="process-step reveal reveal-d3">
         <div class="step-number">04</div>
-        <h3 class="step-label" data-i18n="howWeWork.step4.label">Support</h3>
-        <p class="step-desc" data-i18n="howWeWork.step4.short">We monitor, optimize, and evolve the system as your operations grow and change.</p>
+        <h3 class="step-label" data-i18n="howWeWork.step4.label">Go Live</h3>
+        <p class="step-desc" data-i18n="howWeWork.step4.short">Final delivery, integration into your systems, and hands-on training so your team can run it from day one.</p>
+      </div>
+      <div class="process-step reveal reveal-d4">
+        <div class="step-number">05</div>
+        <h3 class="step-label" data-i18n="howWeWork.step5.label">Maintain</h3>
+        <p class="step-desc" data-i18n="howWeWork.step5.short">Ongoing monitoring, support, and optimisation. We stay involved so the system keeps working as your business evolves.</p>
       </div>
     </div>
 
@@ -406,72 +417,90 @@ section { padding: var(--section-gap) 0; }
       <div class="step-detail reveal">
         <div>
           <div class="step-detail-num">01</div>
-          <h3 class="step-detail-title" data-i18n="howWeWork.detail1.title">Diagnose: Understand the Real Problem</h3>
-          <p class="step-detail-body" data-i18n="howWeWork.detail1.body">Placeholder description of the diagnose phase. We observe, interview, and map every step of the workflow that's causing pain.</p>
+          <h3 class="step-detail-title" data-i18n="howWeWork.detail1.title">Consult: Learn How Your Team Works</h3>
+          <p class="step-detail-body" data-i18n="howWeWork.detail1.body">Before we propose anything, we need to understand the day-to-day reality of your operations. We meet with the people who actually do the work &mdash; not just the decision-makers &mdash; to map out workflows, pain points, and the criteria that matter most to you.</p>
           <ul class="step-detail-list">
-            <li data-i18n="howWeWork.detail1.item1">Workflow observation and mapping</li>
-            <li data-i18n="howWeWork.detail1.item2">Stakeholder interviews</li>
-            <li data-i18n="howWeWork.detail1.item3">Cost-of-manual-work analysis</li>
-            <li data-i18n="howWeWork.detail1.item4">Opportunity sizing report</li>
+            <li data-i18n="howWeWork.detail1.item1">On-site or virtual walkthrough of current workflows</li>
+            <li data-i18n="howWeWork.detail1.item2">Conversations with end-users, not just managers</li>
+            <li data-i18n="howWeWork.detail1.item3">Identification of manual bottlenecks and repeated tasks</li>
+            <li data-i18n="howWeWork.detail1.item4">Clarity on what "working well" looks like for your team</li>
           </ul>
         </div>
         <div class="step-detail-sidebar">
-          <h4 data-i18n="howWeWork.detail1.sidebarTitle">Deliverable</h4>
-          <p data-i18n="howWeWork.detail1.sidebarBody">A diagnostic report with workflow maps, cost analysis, and a ranked list of automation opportunities.</p>
+          <h4 data-i18n="howWeWork.detail1.sidebarTitle">What you get</h4>
+          <p data-i18n="howWeWork.detail1.sidebarBody">A clear picture of the problem and a shared understanding of what the solution should accomplish. No jargon-heavy reports &mdash; just a straightforward summary you can share with your team.</p>
         </div>
       </div>
 
       <div class="step-detail reveal">
         <div>
           <div class="step-detail-num">02</div>
-          <h3 class="step-detail-title" data-i18n="howWeWork.detail2.title">Design: Architect the Solution</h3>
-          <p class="step-detail-body" data-i18n="howWeWork.detail2.body">Placeholder description of the design phase. We define what gets automated, how it integrates, and what success looks like.</p>
+          <h3 class="step-detail-title" data-i18n="howWeWork.detail2.title">Align &amp; Sign: Lock In the Scope</h3>
+          <p class="step-detail-body" data-i18n="howWeWork.detail2.body">This is where most of the back-and-forth happens &mdash; and that's by design. We work through exactly what gets delivered, when, and how it connects to your existing tools. Once everyone is on the same page, we sign a contract and kick off.</p>
           <ul class="step-detail-list">
-            <li data-i18n="howWeWork.detail2.item1">Solution architecture</li>
-            <li data-i18n="howWeWork.detail2.item2">Integration mapping</li>
-            <li data-i18n="howWeWork.detail2.item3">Success metrics definition</li>
-            <li data-i18n="howWeWork.detail2.item4">Timeline and milestones</li>
+            <li data-i18n="howWeWork.detail2.item1">Defined deliverables with no ambiguity</li>
+            <li data-i18n="howWeWork.detail2.item2">Timeline and milestone agreement</li>
+            <li data-i18n="howWeWork.detail2.item3">Integration requirements mapped out</li>
+            <li data-i18n="howWeWork.detail2.item4">Contract signed before any build work begins</li>
           </ul>
         </div>
         <div class="step-detail-sidebar">
-          <h4 data-i18n="howWeWork.detail2.sidebarTitle">Deliverable</h4>
-          <p data-i18n="howWeWork.detail2.sidebarBody">A solution blueprint with architecture diagrams, integration plan, and agreed success criteria.</p>
+          <h4 data-i18n="howWeWork.detail2.sidebarTitle">What you get</h4>
+          <p data-i18n="howWeWork.detail2.sidebarBody">A signed agreement with a fixed scope, clear timeline, and no hidden costs. You know exactly what to expect before we write a single line of code.</p>
         </div>
       </div>
 
       <div class="step-detail reveal">
         <div>
           <div class="step-detail-num">03</div>
-          <h3 class="step-detail-title" data-i18n="howWeWork.detail3.title">Deploy: Build and Launch</h3>
-          <p class="step-detail-body" data-i18n="howWeWork.detail3.body">Placeholder description of the deploy phase. We build the automation, wire it into your existing systems, and go live.</p>
+          <h3 class="step-detail-title" data-i18n="howWeWork.detail3.title">Build &amp; Iterate: Fast Delivery, Real Feedback</h3>
+          <p class="step-detail-body" data-i18n="howWeWork.detail3.body">We deliver working versions quickly so you can try them in your real environment. Every contract includes up to three revision rounds, though most clients only need two. You review, we adjust, and the system gets better with each cycle.</p>
           <ul class="step-detail-list">
-            <li data-i18n="howWeWork.detail3.item1">Iterative build sprints</li>
-            <li data-i18n="howWeWork.detail3.item2">System integration</li>
-            <li data-i18n="howWeWork.detail3.item3">User acceptance testing</li>
-            <li data-i18n="howWeWork.detail3.item4">Production launch</li>
+            <li data-i18n="howWeWork.detail3.item1">First working version delivered early</li>
+            <li data-i18n="howWeWork.detail3.item2">Up to 3 revision rounds included in every contract</li>
+            <li data-i18n="howWeWork.detail3.item3">Feedback reviewed and incorporated within days</li>
+            <li data-i18n="howWeWork.detail3.item4">Most clients finish in 2 rounds</li>
           </ul>
         </div>
         <div class="step-detail-sidebar">
-          <h4 data-i18n="howWeWork.detail3.sidebarTitle">Deliverable</h4>
-          <p data-i18n="howWeWork.detail3.sidebarBody">A live automation system, integrated with your stack, with documentation and training for your team.</p>
+          <h4 data-i18n="howWeWork.detail3.sidebarTitle">What you get</h4>
+          <p data-i18n="howWeWork.detail3.sidebarBody">A system that has been tested against your real workflows, not a demo environment. By the time we move to go-live, your team has already used it.</p>
         </div>
       </div>
 
       <div class="step-detail reveal">
         <div>
           <div class="step-detail-num">04</div>
-          <h3 class="step-detail-title" data-i18n="howWeWork.detail4.title">Support: Monitor and Evolve</h3>
-          <p class="step-detail-body" data-i18n="howWeWork.detail4.body">Placeholder description of the support phase. We don't disappear after launch. We monitor, optimize, and adapt.</p>
+          <h3 class="step-detail-title" data-i18n="howWeWork.detail4.title">Go Live: Into Your Systems, Into Your Hands</h3>
+          <p class="step-detail-body" data-i18n="howWeWork.detail4.body">The final version is deployed into your production environment. We handle the integration with your existing systems and run hands-on training sessions so your team can operate it independently.</p>
           <ul class="step-detail-list">
-            <li data-i18n="howWeWork.detail4.item1">Performance monitoring</li>
-            <li data-i18n="howWeWork.detail4.item2">Optimization sprints</li>
-            <li data-i18n="howWeWork.detail4.item3">Quarterly reviews</li>
-            <li data-i18n="howWeWork.detail4.item4">Expansion planning</li>
+            <li data-i18n="howWeWork.detail4.item1">Production deployment and system integration</li>
+            <li data-i18n="howWeWork.detail4.item2">Team training and walkthrough sessions</li>
+            <li data-i18n="howWeWork.detail4.item3">Documentation your team can actually use</li>
+            <li data-i18n="howWeWork.detail4.item4">Handover checklist completed with your ops lead</li>
           </ul>
         </div>
         <div class="step-detail-sidebar">
-          <h4 data-i18n="howWeWork.detail4.sidebarTitle">Deliverable</h4>
-          <p data-i18n="howWeWork.detail4.sidebarBody">Ongoing performance dashboards, monthly optimization reports, and a roadmap for scaling automation across your operations.</p>
+          <h4 data-i18n="howWeWork.detail4.sidebarTitle">What you get</h4>
+          <p data-i18n="howWeWork.detail4.sidebarBody">A live system running inside your operations, with a trained team ready to use it. No dependency on us to keep the lights on.</p>
+        </div>
+      </div>
+
+      <div class="step-detail reveal">
+        <div>
+          <div class="step-detail-num">05</div>
+          <h3 class="step-detail-title" data-i18n="howWeWork.detail5.title">Maintain: We Stay Involved</h3>
+          <p class="step-detail-body" data-i18n="howWeWork.detail5.body">After go-live, we don't disappear. We monitor performance, fix issues, and make adjustments as your operations change. Most clients stay on a lightweight maintenance plan so things keep running smoothly.</p>
+          <ul class="step-detail-list">
+            <li data-i18n="howWeWork.detail5.item1">Ongoing system monitoring and health checks</li>
+            <li data-i18n="howWeWork.detail5.item2">Bug fixes and performance tuning</li>
+            <li data-i18n="howWeWork.detail5.item3">Adjustments as your workflows evolve</li>
+            <li data-i18n="howWeWork.detail5.item4">Regular check-ins with your team</li>
+          </ul>
+        </div>
+        <div class="step-detail-sidebar">
+          <h4 data-i18n="howWeWork.detail5.sidebarTitle">What you get</h4>
+          <p data-i18n="howWeWork.detail5.sidebarBody">Peace of mind that the system keeps working. If something breaks or your process changes, we handle it &mdash; usually within the same business day.</p>
         </div>
       </div>
     </div>
@@ -487,24 +516,32 @@ section { padding: var(--section-gap) 0; }
     </div>
     <div class="faq-list">
       <details class="faq-item reveal">
-        <summary data-i18n="howWeWork.faq.q1">How long does a typical engagement take?</summary>
-        <div class="faq-answer" data-i18n="howWeWork.faq.a1">Placeholder answer — to be filled by content team.</div>
+        <summary data-i18n="howWeWork.faq.q1">How do we usually start working together?</summary>
+        <div class="faq-answer" data-i18n="howWeWork.faq.a1">It starts with a conversation. We meet your team &mdash; usually over a call or in person &mdash; to understand how your operations work today and where the biggest pain points are. There is no cost or commitment at this stage. If we see a fit, we move into the alignment phase where we define what gets built.</div>
       </details>
       <details class="faq-item reveal reveal-d1">
-        <summary data-i18n="howWeWork.faq.q2">Do we need to replace our existing systems?</summary>
-        <div class="faq-answer" data-i18n="howWeWork.faq.a2">Placeholder answer — to be filled by content team.</div>
+        <summary data-i18n="howWeWork.faq.q2">What systems do you need to connect to?</summary>
+        <div class="faq-answer" data-i18n="howWeWork.faq.a2">That depends entirely on your setup. We work with whatever your team already uses &mdash; spreadsheets, HR platforms, accounting tools, CRMs, messaging apps, or internal databases. We map integration requirements during the alignment phase so there are no surprises at deployment.</div>
       </details>
       <details class="faq-item reveal reveal-d2">
-        <summary data-i18n="howWeWork.faq.q3">What does pricing look like?</summary>
-        <div class="faq-answer" data-i18n="howWeWork.faq.a3">Placeholder answer — to be filled by content team.</div>
+        <summary data-i18n="howWeWork.faq.q3">How long does a project take from start to go-live?</summary>
+        <div class="faq-answer" data-i18n="howWeWork.faq.a3">Most projects go live within about one month. The alignment stage &mdash; where we agree on scope and deliverables &mdash; is usually the most time-intensive part. Once we start building, the iteration cycles move fast.</div>
       </details>
       <details class="faq-item reveal reveal-d3">
-        <summary data-i18n="howWeWork.faq.q4">What size of company do you work with?</summary>
-        <div class="faq-answer" data-i18n="howWeWork.faq.a4">Placeholder answer — to be filled by content team.</div>
+        <summary data-i18n="howWeWork.faq.q4">How many rounds of revisions do we get?</summary>
+        <div class="faq-answer" data-i18n="howWeWork.faq.a4">Every contract includes up to three revision rounds. In practice, most clients are happy after two. We deliver a working version early so you can test it in your real environment and give us concrete feedback.</div>
       </details>
       <details class="faq-item reveal reveal-d4">
-        <summary data-i18n="howWeWork.faq.q5">What happens if the automation doesn't work?</summary>
-        <div class="faq-answer" data-i18n="howWeWork.faq.a5">Placeholder answer — to be filled by content team.</div>
+        <summary data-i18n="howWeWork.faq.q5">Who handles maintenance after go-live?</summary>
+        <div class="faq-answer" data-i18n="howWeWork.faq.a5">We do. After launch, we offer ongoing maintenance plans that cover monitoring, bug fixes, and adjustments as your workflows change. Your team is trained to use the system independently, but we stay available so you are never stuck.</div>
+      </details>
+      <details class="faq-item reveal">
+        <summary data-i18n="howWeWork.faq.q6">How do you handle our data?</summary>
+        <div class="faq-answer" data-i18n="howWeWork.faq.a6">Your data stays yours. We only access what is needed to build and run the solution, and access permissions are defined in the contract. We do not share client data with third parties, and we follow Singapore's PDPA requirements. If you have specific data-handling policies, we work within them.</div>
+      </details>
+      <details class="faq-item reveal reveal-d1">
+        <summary data-i18n="howWeWork.faq.q7">What kind of teams is this a good fit for?</summary>
+        <div class="faq-answer" data-i18n="howWeWork.faq.a7">We work best with operations-heavy teams at Singapore SMEs &mdash; typically 20 to 200 staff. If your team spends significant time on manual, repetitive tasks like screening candidates, processing payroll, reconciling invoices, or coordinating across messaging apps, there is likely a strong fit. The decision-maker is usually an ops director, business owner, or CFO.</div>
       </details>
     </div>
   </div>

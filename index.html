@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flame Source Technology — Workflow Automation for Operations Teams</title>
-<meta name="description" content="Flame Source Technology automates the manual workflows your team shouldn't still be doing — hiring, payroll, frontline communication, sales enablement. Singapore-based. Outcome-measured.">
-<meta property="og:title" content="Flame Source Technology — Workflow Automation for Operations Teams">
+<title>Flame Source Technology | Workflow Automation Singapore</title>
+<meta name="description" content="Flame Source automates hiring, payroll, frontline ops, and sales workflows for Singapore SMEs. Outcome-measured automation deployed in weeks, not months.">
+<meta property="og:title" content="Flame Source Technology | Workflow Automation Singapore">
 <meta property="og:description" content="We automate the workflows your team shouldn't still be doing. Singapore-based. Outcome-measured.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://flamesource.ai">
+<meta property="og:url" content="https://flamesource.ai/">
 <meta property="og:image" content="https://flamesource.ai/assets/office-hongkong-st.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Flame Source Technology — Workflow Automation for Operations Teams">
+<meta name="twitter:title" content="Flame Source Technology | Workflow Automation Singapore">
 <meta name="twitter:description" content="We automate the workflows your team shouldn't still be doing. Singapore-based. Outcome-measured.">
+<link rel="canonical" href="https://flamesource.ai/">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
@@ -45,7 +46,7 @@
   --font-heading: 'Manrope', 'Inter', sans-serif;
   --mono: 'JetBrains Mono', 'Fira Code', monospace;
   --max-w: 1200px;
-  --section-gap: 120px;
+  --section-gap: 140px;
   --radius: 16px;
   --radius-sm: 10px;
 }
@@ -108,7 +109,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700; font-size: 0.95rem; color: var(--text);
 }
 .nav-logo img { height: 36px; width: auto; }
-.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
 .nav-links a {
   color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;
   transition: color 0.2s; position: relative;
@@ -119,6 +120,8 @@ img { max-width: 100%; display: block; }
 }
 .nav-links a:hover { color: var(--text); }
 .nav-links a:hover::after { width: 100%; }
+.nav-links a.active { color: var(--text); }
+.nav-links a.active::after { width: 100%; }
 .nav-cta {
   padding: 8px 20px; border-radius: 8px; background: var(--accent); color: #fff !important;
   font-size: 0.85rem; font-weight: 600; transition: all 0.25s;
@@ -193,7 +196,7 @@ section { padding: var(--section-gap) 0; }
   font-size: clamp(2rem,4vw,2.8rem); font-weight: 800;
   line-height: 1.25; letter-spacing: -0.025em; margin-bottom: 20px; color: #fff;
 }
-.section-desc { font-size: 1.05rem; color: var(--text-secondary); max-width: 640px; line-height: 1.8; }
+.section-desc { font-size: 1.1rem; color: var(--text-secondary); max-width: 640px; line-height: 1.8; opacity: 0.95; }
 
 /* ═════════════
    PROOF STRIP
@@ -379,16 +382,16 @@ section { padding: var(--section-gap) 0; }
 }
 .team-card:hover { transform: translateY(-4px); border-color: rgba(226,88,34,0.25); box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
 .team-card-header {
-  padding: 28px 24px 14px;
+  padding: 32px 28px 18px;
   background: linear-gradient(180deg, rgba(226,88,34,0.06) 0%, transparent 100%);
   border-left: 3px solid var(--accent);
 }
 .team-highlight { color: var(--accent-light); font-weight: 600; }
-.team-card h3 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
-.team-name-cn { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
-.team-role { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); font-weight: 500; }
-.team-card-body { padding: 0 24px 24px; flex: 1; }
-.team-bio { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; margin-top: 12px; }
+.team-card h3 { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.team-name-cn { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+.team-role { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); font-weight: 500; }
+.team-card-body { padding: 0 28px 32px; flex: 1; display: flex; flex-direction: column; }
+.team-bio { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8; margin-top: 16px; }
 .team-more {
   text-align: center; margin-top: 32px;
 }
@@ -489,7 +492,7 @@ section { padding: var(--section-gap) 0; }
    RESPONSIVE
    ══════════════ */
 @media (max-width: 1024px) {
-  :root { --section-gap: 90px; }
+  :root { --section-gap: 100px; }
   .solutions-grid { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: repeat(3, 1fr); }
   .process-step::after { display: none; }
@@ -507,7 +510,7 @@ section { padding: var(--section-gap) 0; }
   .solutions-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr; }
   .team-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
   .footer-nav { justify-content: center; }
   .case-card { padding: 32px 24px; }
   .proof-strip-inner { gap: 8px; }
@@ -521,6 +524,29 @@ section { padding: var(--section-gap) 0; }
   .contact-cta-buttons .btn { width: 100%; justify-content: center; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Flame Source Technology",
+  "legalName": "FLAME SOURCE TECHNOLOGY PTE. LTD.",
+  "url": "https://flamesource.ai",
+  "logo": "https://flamesource.ai/assets/logo.png",
+  "description": "Flame Source automates hiring, payroll, frontline ops, and sales workflows for Singapore SMEs.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "39 Hongkong Street #03-01",
+    "addressLocality": "Singapore",
+    "postalCode": "059678",
+    "addressCountry": "SG"
+  },
+  "telephone": "+65 8816 5505",
+  "email": "info@flamesource.ai",
+  "sameAs": [],
+  "foundingDate": "2024",
+  "areaServed": "SG"
+}
+</script>
 </head>
 <body>
 
@@ -560,7 +586,7 @@ section { padding: var(--section-gap) 0; }
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-    <img src="assets/office-hongkong-st.jpg" alt="" loading="eager">
+    <img src="assets/office-hongkong-st.jpg" alt="Flame Source Technology office at 39 Hongkong Street, Singapore" loading="eager">
   </div>
   <div class="hero-overlay"></div>
   <div class="container">
@@ -777,7 +803,7 @@ section { padding: var(--section-gap) 0; }
 <!-- CONTACT CTA -->
 <section class="contact-cta" id="contact">
   <div class="contact-cta-bg">
-    <img src="assets/office-interior.jpg" alt="" loading="lazy">
+    <img src="assets/office-interior.jpg" alt="Interior of the Flame Source Technology workspace" loading="lazy">
     <div class="contact-cta-bg-overlay"></div>
   </div>
   <div class="container">

@@ -11,6 +11,9 @@
 <meta property="og:url" content="https://flamesource.ai/contact">
 <meta property="og:image" content="https://flamesource.ai/assets/office-hongkong-st.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact — Flame Source Technology">
+<meta name="twitter:description" content="Tell us about the workflow that's costing you the most time. We'll show you what automation looks like.">
+<link rel="canonical" href="https://flamesource.ai/contact/">
 <link rel="icon" type="image/x-icon" href="../favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon-192.png">
@@ -294,6 +297,42 @@ section { padding: var(--section-gap) 0; }
 }
 .privacy-note a { font-size: 0.8rem; }
 
+/* Form validation */
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
+  border-color: #ef4444;
+}
+.form-group input:valid:not(:placeholder-shown) {
+  border-color: #22c55e;
+}
+.form-group .field-error {
+  display: none; font-size: 0.78rem; color: #ef4444; margin-top: 4px;
+}
+.form-group.has-error .field-error { display: block; }
+.form-group.has-error input,
+.form-group.has-error textarea {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.15);
+}
+
+/* Form feedback banner */
+.form-feedback {
+  display: none; margin-top: 16px; padding: 14px 20px;
+  border-radius: var(--radius-sm); font-size: 0.9rem; font-weight: 500; line-height: 1.6;
+}
+.form-feedback.success {
+  display: block; background: rgba(22,163,74,0.12); border: 1px solid rgba(22,163,74,0.3); color: #4ade80;
+}
+.form-feedback.error {
+  display: block; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); color: #f87171;
+}
+
+/* PDPA inline note under form */
+.form-pdpa {
+  margin-top: 12px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.7;
+}
+.form-pdpa a { font-size: 0.78rem; }
+
 /* ═══════════
    FOOTER
    ═══════════ */
@@ -327,6 +366,34 @@ section { padding: var(--section-gap) 0; }
   :root { --section-gap: 56px; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Flame Source Technology",
+  "legalName": "FLAME SOURCE TECHNOLOGY PTE. LTD.",
+  "url": "https://flamesource.ai",
+  "logo": "https://flamesource.ai/assets/logo.png",
+  "image": "https://flamesource.ai/assets/office-hongkong-st.jpg",
+  "description": "Workflow automation consultancy for Singapore SMEs — recruitment, finance, frontline operations, and sales enablement.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "39 Hongkong Street #03-01",
+    "addressLocality": "Singapore",
+    "postalCode": "059678",
+    "addressCountry": "SG"
+  },
+  "telephone": "+65 8816 5505",
+  "email": "info@flamesource.ai",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "priceRange": "$$"
+}
+</script>
 </head>
 <body>
 
@@ -386,10 +453,12 @@ section { padding: var(--section-gap) 0; }
             <div class="form-group">
               <label data-i18n="contact.form.nameLabel">Your Name <span class="required">*</span></label>
               <input type="text" name="name" required placeholder="Full name" data-i18n-placeholder="contact.form.namePlaceholder">
+              <span class="field-error" data-i18n="contact.form.nameError">Please enter your name.</span>
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.emailLabel">Email <span class="required">*</span></label>
               <input type="email" name="email" required placeholder="work@company.com" data-i18n-placeholder="contact.form.emailPlaceholder">
+              <span class="field-error" data-i18n="contact.form.emailError">Please enter a valid email.</span>
             </div>
           </div>
 
@@ -397,17 +466,17 @@ section { padding: var(--section-gap) 0; }
             <div class="form-group">
               <label data-i18n="contact.form.companyLabel">Company Name <span class="required">*</span></label>
               <input type="text" name="company" required placeholder="Your company" data-i18n-placeholder="contact.form.companyPlaceholder">
+              <span class="field-error" data-i18n="contact.form.companyError">Please enter your company name.</span>
             </div>
             <div class="form-group">
               <label data-i18n="contact.form.roleLabel">Your Role</label>
               <select name="role">
                 <option value="" data-i18n="contact.form.roleDefault">Select your role</option>
-                <option value="owner" data-i18n="contact.form.roleOwner">Business Owner / Founder</option>
-                <option value="ops" data-i18n="contact.form.roleOps">Operations Director / Manager</option>
-                <option value="cfo" data-i18n="contact.form.roleCfo">CFO / Finance Lead</option>
-                <option value="hr" data-i18n="contact.form.roleHr">HR / Recruitment Lead</option>
-                <option value="sales" data-i18n="contact.form.roleSales">Sales Director / Manager</option>
-                <option value="tech" data-i18n="contact.form.roleTech">CTO / IT Lead</option>
+                <option value="owner" data-i18n="contact.form.roleOwner">Owner / Founder</option>
+                <option value="ops" data-i18n="contact.form.roleOps">Operations Manager</option>
+                <option value="hr" data-i18n="contact.form.roleHr">HR Manager</option>
+                <option value="finance" data-i18n="contact.form.roleFinance">Finance Manager</option>
+                <option value="it" data-i18n="contact.form.roleIt">IT Director</option>
                 <option value="other" data-i18n="contact.form.roleOther">Other</option>
               </select>
             </div>
@@ -418,17 +487,18 @@ section { padding: var(--section-gap) 0; }
             <select name="use_case">
               <option value="" data-i18n="contact.form.useCaseDefault">Select an area</option>
               <option value="recruitment" data-i18n="contact.form.useCaseRecruitment">Recruitment Operations</option>
-              <option value="finance" data-i18n="contact.form.useCaseFinance">Finance & Back-Office</option>
-              <option value="frontline" data-i18n="contact.form.useCaseFrontline">Frontline / F&B Operations</option>
+              <option value="finance" data-i18n="contact.form.useCaseFinance">Finance &amp; Back-Office</option>
+              <option value="frontline" data-i18n="contact.form.useCaseFrontline">Frontline Communication</option>
               <option value="sales" data-i18n="contact.form.useCaseSales">Sales Enablement</option>
               <option value="creative" data-i18n="contact.form.useCaseCreative">Creative Production</option>
-              <option value="other" data-i18n="contact.form.useCaseOther">Other / Not Sure</option>
+              <option value="notsure" data-i18n="contact.form.useCaseNotSure">Not Sure Yet</option>
             </select>
           </div>
 
           <div class="form-group">
             <label data-i18n="contact.form.problemLabel">What manual workflow is costing your team the most time? <span class="required">*</span></label>
             <textarea name="problem" required placeholder="Describe the process your team spends the most time on that you think could be automated..." data-i18n-placeholder="contact.form.problemPlaceholder"></textarea>
+            <span class="field-error" data-i18n="contact.form.problemError">Please describe your workflow problem.</span>
           </div>
 
           <div class="form-row">
@@ -436,10 +506,9 @@ section { padding: var(--section-gap) 0; }
               <label data-i18n="contact.form.sizeLabel">Team Size</label>
               <select name="team_size">
                 <option value="" data-i18n="contact.form.sizeDefault">Select team size</option>
-                <option value="1-20">1-20</option>
-                <option value="20-50">20-50</option>
-                <option value="50-100">50-100</option>
-                <option value="100-200">100-200</option>
+                <option value="1-10">1 &ndash; 10</option>
+                <option value="11-50">11 &ndash; 50</option>
+                <option value="51-200">51 &ndash; 200</option>
                 <option value="200+">200+</option>
               </select>
             </div>
@@ -450,8 +519,12 @@ section { padding: var(--section-gap) 0; }
           </div>
 
           <div class="form-submit">
-            <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Enquiry <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
+            <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="contact.form.submit">Send Enquiry <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></button>
           </div>
+
+          <p class="form-pdpa" data-i18n="contact.form.pdpa">By submitting this form you agree to our <a href="/#privacy">Privacy Policy</a>. Your data is handled under Singapore's PDPA and used solely to respond to your enquiry.</p>
+
+          <div class="form-feedback" id="formFeedback"></div>
         </form>
       </div>
 
@@ -541,23 +614,118 @@ section { padding: var(--section-gap) 0; }
   }, { threshold: 0.15 });
   reveals.forEach(function(el) { observer.observe(el); });
 
-  /* Form submission placeholder */
+  /* Form submission — mailto: with clipboard fallback */
   var form = document.getElementById('contactForm');
+  var feedback = document.getElementById('formFeedback');
+
+  function showFeedback(type, msg) {
+    feedback.className = 'form-feedback ' + type;
+    feedback.innerHTML = msg;
+    feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function clearErrors() {
+    form.querySelectorAll('.form-group.has-error').forEach(function(g) {
+      g.classList.remove('has-error');
+    });
+    feedback.className = 'form-feedback';
+    feedback.innerHTML = '';
+  }
+
+  function validateForm() {
+    var valid = true;
+    var requiredFields = form.querySelectorAll('[required]');
+    requiredFields.forEach(function(field) {
+      var group = field.closest('.form-group');
+      if (!field.value.trim() || !field.checkValidity()) {
+        group.classList.add('has-error');
+        valid = false;
+      }
+    });
+    return valid;
+  }
+
+  function buildEmailBody() {
+    var d = new FormData(form);
+    var lines = [];
+    lines.push('Name: ' + (d.get('name') || ''));
+    lines.push('Email: ' + (d.get('email') || ''));
+    lines.push('Company: ' + (d.get('company') || ''));
+
+    var roleSelect = form.querySelector('[name="role"]');
+    var roleText = roleSelect.options[roleSelect.selectedIndex].text;
+    if (roleSelect.value) lines.push('Role: ' + roleText);
+
+    var ucSelect = form.querySelector('[name="use_case"]');
+    var ucText = ucSelect.options[ucSelect.selectedIndex].text;
+    if (ucSelect.value) lines.push('Solution Area: ' + ucText);
+
+    lines.push('');
+    lines.push('Workflow Problem:');
+    lines.push(d.get('problem') || '');
+    lines.push('');
+
+    var tsSelect = form.querySelector('[name="team_size"]');
+    if (tsSelect.value) lines.push('Team Size: ' + tsSelect.value);
+
+    if (d.get('phone')) lines.push('Phone/WhatsApp: ' + d.get('phone'));
+
+    return lines.join('\n');
+  }
+
   if (form) {
+    /* Real-time: clear error on input */
+    form.querySelectorAll('[required]').forEach(function(field) {
+      field.addEventListener('input', function() {
+        var group = field.closest('.form-group');
+        if (field.value.trim() && field.checkValidity()) {
+          group.classList.remove('has-error');
+        }
+      });
+    });
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      /* TODO: Wire up form submission (e.g., Cloudflare Workers, email API) */
-      var btn = form.querySelector('.form-submit .btn');
+      clearErrors();
+
+      if (!validateForm()) {
+        showFeedback('error', 'Please fill in all required fields before submitting.');
+        return;
+      }
+
+      var subject = encodeURIComponent('Enquiry from ' + form.querySelector('[name="name"]').value + ' — ' + form.querySelector('[name="company"]').value);
+      var body = buildEmailBody();
+      var encodedBody = encodeURIComponent(body);
+      var mailtoUrl = 'mailto:info@flamesource.ai?subject=' + subject + '&body=' + encodedBody;
+
+      /* Try to open mailto — also copy to clipboard as fallback */
+      var copied = false;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(body).then(function() { copied = true; }).catch(function() {});
+      }
+
+      /* Open mail client */
+      var mailWin = window.open(mailtoUrl, '_self');
+
+      var btn = document.getElementById('submitBtn');
       var origHTML = btn.innerHTML;
-      btn.innerHTML = 'Sent! We\'ll be in touch.';
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M20 6 9 17l-5-5"/></svg> Opening Mail Client...';
       btn.style.background = '#16a34a';
       btn.style.boxShadow = '0 4px 20px rgba(22,163,74,0.25)';
+      btn.disabled = true;
+
+      showFeedback('success',
+        '<strong>Your email client should open now.</strong> If it does not, the enquiry details have been copied to your clipboard &mdash; paste them into an email to <a href="mailto:info@flamesource.ai" style="color:#4ade80">info@flamesource.ai</a>.' +
+        '<br><br>Or reach us directly: <a href="https://wa.me/6588165505" target="_blank" rel="noopener noreferrer" style="color:#4ade80">WhatsApp +65 8816 5505</a>'
+      );
+
       setTimeout(function() {
         btn.innerHTML = origHTML;
         btn.style.background = '';
         btn.style.boxShadow = '';
+        btn.disabled = false;
         form.reset();
-      }, 3000);
+      }, 5000);
     });
   }
 })();
