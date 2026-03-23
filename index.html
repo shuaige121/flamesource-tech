@@ -22,6 +22,11 @@
 <link rel="alternate" hreflang="zh-Hans" href="https://flamesource.ai/?lang=zh-Hans">
 <link rel="alternate" hreflang="ms" href="https://flamesource.ai/?lang=ms">
 <link rel="alternate" hreflang="ta" href="https://flamesource.ai/?lang=ta">
+<link rel="alternate" hreflang="id" href="https://flamesource.ai/?lang=id">
+<link rel="alternate" hreflang="th" href="https://flamesource.ai/?lang=th">
+<link rel="alternate" hreflang="vi" href="https://flamesource.ai/?lang=vi">
+<link rel="alternate" hreflang="my" href="https://flamesource.ai/?lang=my">
+<link rel="alternate" hreflang="fil" href="https://flamesource.ai/?lang=fil">
 <link rel="alternate" hreflang="x-default" href="https://flamesource.ai/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,15 +81,24 @@ img { max-width: 100%; display: block; }
 /* ══════════════════
    REVEAL ANIMATIONS
    ══════════════════ */
+/* Fallback: auto-reveal after 2s if JS IntersectionObserver hasn't fired */
+@keyframes autoReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
 .reveal {
   opacity: 0; transform: translateY(24px);
   transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  animation: autoReveal 0.8s ease forwards;
+  animation-delay: 2s;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-d1 { transition-delay: 0.08s; }
-.reveal-d2 { transition-delay: 0.16s; }
-.reveal-d3 { transition-delay: 0.24s; }
-.reveal-d4 { transition-delay: 0.32s; }
+.reveal.visible {
+  animation: none;
+  opacity: 1; transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.08s; animation-delay: 2.08s; }
+.reveal-d2 { transition-delay: 0.16s; animation-delay: 2.16s; }
+.reveal-d3 { transition-delay: 0.24s; animation-delay: 2.24s; }
+.reveal-d4 { transition-delay: 0.32s; animation-delay: 2.32s; }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -524,6 +538,7 @@ section { padding: var(--section-gap) 0; }
   .contact-cta-buttons .btn { width: 100%; justify-content: center; }
 }
 </style>
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; animation: none !important; }</style></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -594,7 +609,7 @@ section { padding: var(--section-gap) 0; }
       <h1 data-i18n="hero.headline">We automate the workflows your team <span class="gradient-text">shouldn't still be doing.</span></h1>
       <p class="hero-sub" data-i18n="hero.sub">Hiring. Payroll. Frontline communication. Sales enablement. Singapore-based. Outcome-measured.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary" data-i18n="hero.cta1">Talk to Us</a>
+        <a href="/contact/" class="btn btn-primary" data-i18n="hero.cta1">Talk to Us</a>
         <a href="/case-studies/" class="btn btn-outline" data-i18n="hero.cta2">See Case Studies</a>
       </div>
       <p class="hero-powered" data-i18n="hero.powered">Powered by <a href="/solutions/">Flame Source OS</a></p>
@@ -813,7 +828,7 @@ section { padding: var(--section-gap) 0; }
       </div>
       <div class="reveal reveal-d1">
         <div class="contact-cta-buttons">
-          <a href="mailto:info@flamesource.ai" class="btn btn-primary" data-i18n="contact.talkToUs">Talk to Us
+          <a href="/contact/" class="btn btn-primary" data-i18n="contact.talkToUs">Talk to Us
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg>
           </a>
           <a href="https://wa.me/6588165505" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
@@ -917,7 +932,7 @@ section { padding: var(--section-gap) 0; }
       entries.forEach(function(e) {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
     reveals.forEach(function(el) { obs.observe(el); });
   } else {
     reveals.forEach(function(el) { el.classList.add('visible'); });

@@ -8,7 +8,7 @@
 <meta property="og:title" content="Case Studies — Flame Source Technology">
 <meta property="og:description" content="See how Singapore businesses transformed their operations with workflow automation.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://flamesource.ai/case-studies">
+<meta property="og:url" content="https://flamesource.ai/case-studies/">
 <meta property="og:image" content="https://flamesource.ai/assets/office-hongkong-st.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Case Studies — Flame Source Technology">
@@ -22,6 +22,11 @@
 <link rel="alternate" hreflang="zh-Hans" href="https://flamesource.ai/case-studies?lang=zh-Hans">
 <link rel="alternate" hreflang="ms" href="https://flamesource.ai/case-studies?lang=ms">
 <link rel="alternate" hreflang="ta" href="https://flamesource.ai/case-studies?lang=ta">
+<link rel="alternate" hreflang="id" href="https://flamesource.ai/case-studies?lang=id">
+<link rel="alternate" hreflang="th" href="https://flamesource.ai/case-studies?lang=th">
+<link rel="alternate" hreflang="vi" href="https://flamesource.ai/case-studies?lang=vi">
+<link rel="alternate" hreflang="my" href="https://flamesource.ai/case-studies?lang=my">
+<link rel="alternate" hreflang="fil" href="https://flamesource.ai/case-studies?lang=fil">
 <link rel="alternate" hreflang="x-default" href="https://flamesource.ai/case-studies">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -123,15 +128,24 @@ img { max-width: 100%; display: block; }
 /* ═══════════
    REVEAL
    ═══════════ */
+/* Fallback: auto-reveal after 2s if JS IntersectionObserver hasn't fired */
+@keyframes autoReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
 .reveal {
   opacity: 0; transform: translateY(24px);
   transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  animation: autoReveal 0.8s ease forwards;
+  animation-delay: 2s;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-d1 { transition-delay: 0.08s; }
-.reveal-d2 { transition-delay: 0.16s; }
-.reveal-d3 { transition-delay: 0.24s; }
-.reveal-d4 { transition-delay: 0.32s; }
+.reveal.visible {
+  animation: none;
+  opacity: 1; transform: translateY(0);
+}
+.reveal-d1 { transition-delay: 0.08s; animation-delay: 2.08s; }
+.reveal-d2 { transition-delay: 0.16s; animation-delay: 2.16s; }
+.reveal-d3 { transition-delay: 0.24s; animation-delay: 2.24s; }
+.reveal-d4 { transition-delay: 0.32s; animation-delay: 2.32s; }
 
 /* ═══════════
    BUTTONS
@@ -255,6 +269,9 @@ section { padding: var(--section-gap) 0; }
    ═══════════ */
 .footer { border-top: 1px solid var(--border); padding: 40px 0; background: var(--bg-deep); }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer-nav { display: flex; gap: 24px; list-style: none; margin-bottom: 0; }
+.footer-nav a { color: var(--text-muted); font-size: 0.8rem; font-weight: 500; }
+.footer-nav a:hover { color: var(--accent); }
 .footer p { font-size: 0.8rem; color: var(--text-muted); }
 .footer a { color: var(--text-muted); }
 .footer a:hover { color: var(--accent); }
@@ -275,12 +292,14 @@ section { padding: var(--section-gap) 0; }
   .nav-toggle { display: block; }
   .page-hero { padding: 120px 0 56px; }
   .cases-grid { grid-template-columns: 1fr; }
+  .footer-nav { justify-content: center; }
   .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
 }
 @media (max-width: 480px) {
   :root { --section-gap: 56px; }
 }
 </style>
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; animation: none !important; }</style></noscript>
 </head>
 <body>
 
@@ -346,7 +365,7 @@ section { padding: var(--section-gap) 0; }
     <div class="cases-grid">
 
       <!-- Case Study 1: Recruitment -->
-      <a href="#" class="case-card reveal reveal-d1" data-industry="recruitment">
+      <div class="case-card reveal reveal-d1" data-industry="recruitment">
         <span class="case-card-tag" data-i18n="caseStudies.card1.tag">Recruitment</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card1.title">Automated Resume Screening for a Recruitment Consultancy</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card1.excerpt">We deployed automated resume screening and ranking for a Singapore recruitment consultancy. Every incoming application is now scored and shortlisted without manual review, letting consultants focus on candidate conversations instead of document triage.</p>
@@ -355,11 +374,10 @@ section { padding: var(--section-gap) 0; }
             <div class="case-card-metric-val" style="font-size:1rem; line-height:1.5;">Screening time reduced from hours to minutes</div>
           </div>
         </div>
-        <span class="case-card-link" data-i18n="caseStudies.readMore">Read Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></span>
-      </a>
+      </div>
 
       <!-- Case Study 2: Property Services + Finance -->
-      <a href="#" class="case-card reveal reveal-d2" data-industry="finance">
+      <div class="case-card reveal reveal-d2" data-industry="finance">
         <span class="case-card-tag" data-i18n="caseStudies.card2.tag">Property Services &middot; Finance</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card2.title">Two Workflow Solutions for a Property Services Company</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card2.excerpt">We delivered two solutions for the same Singapore property services client: rental operations automation to streamline tenant and unit management, and finance automation to handle invoicing and reconciliation. Manual data entry and end-of-month scrambles were replaced with structured workflows.</p>
@@ -368,11 +386,10 @@ section { padding: var(--section-gap) 0; }
             <div class="case-card-metric-val" style="font-size:1rem; line-height:1.5;">Monthly close process significantly shortened; errors from manual entry eliminated</div>
           </div>
         </div>
-        <span class="case-card-link" data-i18n="caseStudies.readMore">Read Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></span>
-      </a>
+      </div>
 
       <!-- Case Study 3: F&B / Restaurant -->
-      <a href="#" class="case-card reveal reveal-d3" data-industry="fnb">
+      <div class="case-card reveal reveal-d3" data-industry="fnb">
         <span class="case-card-tag" data-i18n="caseStudies.card3.tag">F&amp;B &middot; AR Smart Glasses</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card3.title">AR Glasses and AI Training for Multilingual Restaurant Staff</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card3.excerpt">We deployed AR smart glasses that give Burmese service staff real-time subtitles for nuanced customer requests &mdash; &ldquo;less oil&rdquo;, &ldquo;crispier&rdquo;, &ldquo;no chili&rdquo;. An AI teacher app lets staff practise real phrases during breaks, turning the glasses from a dependency into a safety net.</p>
@@ -381,11 +398,10 @@ section { padding: var(--section-gap) 0; }
             <div class="case-card-metric-val" style="font-size:1rem; line-height:1.5;">Wrong orders from modifier misunderstandings effectively eliminated</div>
           </div>
         </div>
-        <span class="case-card-link" data-i18n="caseStudies.readMore">Read Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></span>
-      </a>
+      </div>
 
       <!-- Case Study 4: Sales Coaching -->
-      <a href="#" class="case-card reveal reveal-d4" data-industry="sales">
+      <div class="case-card reveal reveal-d4" data-industry="sales">
         <span class="case-card-tag" data-i18n="caseStudies.card4.tag">Sales &middot; AI Coach</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card4.title">Real-Time AI Coaching for Customer-Facing Sales Teams</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card4.excerpt">We built a real-time AI coaching system using speech-to-text during live customer conversations. Deployed across a creative services studio, a study-abroad consultancy, and hair salons. New staff also get an AI practice partner to rehearse conversations before going live.</p>
@@ -394,11 +410,10 @@ section { padding: var(--section-gap) 0; }
             <div class="case-card-metric-val" style="font-size:1rem; line-height:1.5;">New staff productive on the floor far sooner; experienced staff report higher conversion confidence</div>
           </div>
         </div>
-        <span class="case-card-link" data-i18n="caseStudies.readMore">Read Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></span>
-      </a>
+      </div>
 
       <!-- Case Study 5: Music Production -->
-      <a href="#" class="case-card reveal" data-industry="creative">
+      <div class="case-card reveal" data-industry="creative">
         <span class="case-card-tag" data-i18n="caseStudies.card5.tag">Music Production</span>
         <h3 class="case-card-title" data-i18n="caseStudies.card5.title">Arrangement and Instrumentation Acceleration for an Emerging Artist</h3>
         <p class="case-card-excerpt" data-i18n="caseStudies.card5.excerpt">We helped an emerging Singapore musician &mdash; mentored by award-winning local producers &mdash; accelerate the arrangement and instrumentation process. The creative direction stayed entirely with the artist; the repetitive production work moved dramatically faster.</p>
@@ -407,8 +422,7 @@ section { padding: var(--section-gap) 0; }
             <div class="case-card-metric-val" style="font-size:1rem; line-height:1.5;">Arrangement turnaround compressed from weeks to days</div>
           </div>
         </div>
-        <span class="case-card-link" data-i18n="caseStudies.readMore">Read Case Study <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="m5 12h14m-7-7 7 7-7 7"/></svg></span>
-      </a>
+      </div>
 
     </div>
   </div>
@@ -418,8 +432,16 @@ section { padding: var(--section-gap) 0; }
 <footer class="footer">
   <div class="container">
     <div class="footer-inner">
-      <p data-i18n="footer.copy">&copy; 2024&ndash;2026 FLAME SOURCE TECHNOLOGY PTE. LTD. &nbsp;|&nbsp; UEN: 202432774E &nbsp;|&nbsp; Singapore</p>
-      <p><a href="/#privacy" data-i18n="footer.privacy">Privacy Policy</a></p>
+      <div>
+        <ul class="footer-nav">
+          <li><a href="/solutions/" data-i18n="nav.solutions">Solutions</a></li>
+          <li><a href="/case-studies/" data-i18n="nav.caseStudies">Case Studies</a></li>
+          <li><a href="/how-we-work/" data-i18n="nav.howWeWork">How We Work</a></li>
+          <li><a href="/company/" data-i18n="nav.company">Company</a></li>
+          <li><a href="/#privacy" data-i18n="footer.privacy">Privacy</a></li>
+        </ul>
+        <p style="margin-top:10px;" data-i18n="footer.copy">&copy; 2024&ndash;2026 FLAME SOURCE TECHNOLOGY PTE. LTD. &nbsp;|&nbsp; UEN: 202432774E &nbsp;|&nbsp; Singapore</p>
+      </div>
     </div>
   </div>
 </footer>
@@ -447,7 +469,7 @@ section { padding: var(--section-gap) 0; }
     entries.forEach(function(e) {
       if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.05, rootMargin: '0px 0px -10px 0px' });
   reveals.forEach(function(el) { observer.observe(el); });
 
   /* Filter buttons */

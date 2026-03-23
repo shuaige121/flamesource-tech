@@ -103,6 +103,10 @@
   "privacy.h6": "6. 您的权利",
   "privacy.p6": "根据PDPA，您可以要求访问、更正或删除您的个人数据，或撤回授权。请联系 info@flamesource.ai。",
 
+  "company.team.wu.bio": "GameSir 联合创始人，产品卖到150多个国家。持有34项精密传感和无线技术专利。负责广州硬件供应链及生产合作伙伴管理。华南理工大学工学学士。",
+  "company.team.chen.bio": "年软件工程经验。曾任CTO，带过100+人工程团队，交付过月营收破亿的产品。管理广州开发团队。专攻分布式系统、AI自动化和高吞吐后端架构。",
+  "company.team.leonard.bio": "新加坡人，驻新加坡，负责客户关系、项目交付和本地运营。为餐饮企业打造过AI营销自动化工具和数字点餐平台。都柏林大学商学学士。",
+
   "footer.copy": "© 2024–2026 FLAME SOURCE TECHNOLOGY PTE. LTD.  |  UEN: 202432774E  |  新加坡",
   "footer.privacy": "隐私政策"
 }
