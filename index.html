@@ -559,27 +559,71 @@ section { padding: var(--section-gap) 0; }
 </style>
 <noscript><style>.reveal { opacity: 1 !important; transform: none !important; animation: none !important; }</style></noscript>
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Flame Source Technology",
-  "legalName": "FLAME SOURCE TECHNOLOGY PTE. LTD.",
-  "url": "https://flamesource.ai",
-  "logo": "https://flamesource.ai/assets/logo.png",
-  "description": "Flame Source automates hiring, payroll, frontline ops, and sales workflows for Singapore SMEs.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "39 Hongkong Street #03-01",
-    "addressLocality": "Singapore",
-    "postalCode": "059678",
-    "addressCountry": "SG"
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://flamesource.ai/#organization",
+    "name": "Flame Source Technology",
+    "legalName": "FLAME SOURCE TECHNOLOGY PTE. LTD.",
+    "url": "https://flamesource.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://flamesource.ai/assets/logo.png"
+    },
+    "image": "https://flamesource.ai/assets/office-hongkong-st.jpg",
+    "description": "Flame Source automates hiring, payroll, frontline ops, and sales workflows for Singapore SMEs. Outcome-measured automation deployed in weeks, not months.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "39 Hongkong Street #03-01",
+      "addressLocality": "Singapore",
+      "postalCode": "059678",
+      "addressCountry": "SG"
+    },
+    "telephone": "+65 8816 5505",
+    "email": "info@flamesource.ai",
+    "sameAs": [
+      "https://x.com/FlameSource_SG"
+    ],
+    "foundingDate": "2024",
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "minValue": 3
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Singapore"
+    },
+    "knowsAbout": ["AI Workflow Automation", "Recruitment Automation", "Payroll Automation", "Frontline Operations", "Sales Enablement"],
+    "taxID": "202432774E"
   },
-  "telephone": "+65 8816 5505",
-  "email": "info@flamesource.ai",
-  "sameAs": [],
-  "foundingDate": "2024",
-  "areaServed": "SG"
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://flamesource.ai/#website",
+    "name": "Flame Source Technology",
+    "url": "https://flamesource.ai",
+    "publisher": {
+      "@id": "https://flamesource.ai/#organization"
+    },
+    "inLanguage": ["en", "zh-Hans", "ms", "ta", "id", "th", "vi", "my", "fil"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://flamesource.ai/#webpage",
+    "url": "https://flamesource.ai/",
+    "name": "Flame Source Technology | Workflow Automation Singapore",
+    "description": "Flame Source automates hiring, payroll, frontline ops, and sales workflows for Singapore SMEs. Outcome-measured automation deployed in weeks, not months.",
+    "isPartOf": {
+      "@id": "https://flamesource.ai/#website"
+    },
+    "about": {
+      "@id": "https://flamesource.ai/#organization"
+    },
+    "inLanguage": "en"
+  }
+]
 </script>
 </head>
 <body>
